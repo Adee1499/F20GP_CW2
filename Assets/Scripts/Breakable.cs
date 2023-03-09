@@ -7,6 +7,25 @@ public class Breakable : MonoBehaviour
     public GameObject fracturedMesh;
     public float breakForce = 0.5f;
 
+    private Outline outline;
+
+    void Awake() 
+    {
+        outline = gameObject.GetComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineAll;
+        outline.OutlineWidth = 0;
+    }
+
+    void OnMouseOver()
+    {
+        outline.OutlineWidth = 7;
+    }
+
+    void OnMouseExit()
+    {
+        outline.OutlineWidth = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -28,4 +47,5 @@ public class Breakable : MonoBehaviour
 
         Destroy(gameObject);
     }
+
 }

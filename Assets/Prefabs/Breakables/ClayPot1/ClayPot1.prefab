@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1030407108050293846}
   - component: {fileID: 2074510683844771949}
   - component: {fileID: 2124312132557598245}
+  - component: {fileID: 5294133848025300270}
+  - component: {fileID: 6424289343685332109}
   m_Layer: 0
   m_Name: ClayPot1
   m_TagString: Untagged
@@ -98,3 +100,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fracturedMesh: {fileID: 25946560189978184, guid: b6006a5010449924489b0d467e8923f3, type: 3}
   breakForce: 0.5
+--- !u!114 &5294133848025300270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577606372074986302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!136 &6424289343685332109
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577606372074986302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.39383858
+  m_Height: 0.77794755
+  m_Direction: 1
+  m_Center: {x: 0.000000029802322, y: 0.00000013411044, z: 0.39383858}
