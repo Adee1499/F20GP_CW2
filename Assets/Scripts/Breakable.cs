@@ -6,6 +6,7 @@ public class Breakable : MonoBehaviour
 {
     public GameObject fracturedMesh;
     public float breakForce = 0.5f;
+    public float breakRadius = 2.0f;
 
     private Outline outline;
 
@@ -41,8 +42,7 @@ public class Breakable : MonoBehaviour
         GameObject fracturedPot = Instantiate(fracturedMesh, transform.position, transform.rotation);
 
         foreach(Rigidbody body in fracturedPot.GetComponentsInChildren<Rigidbody>()) {
-            Vector3 appliedForce = (body.transform.position - transform.position).normalized * (force ?? breakForce);
-            body.AddForce(appliedForce);
+            body.AddExplosionForce(force ?? breakForce, transform.position, breakRadius, 3.0f);
         }
 
         Destroy(gameObject);

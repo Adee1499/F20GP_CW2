@@ -215,7 +215,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1054369317
 GameObject:
@@ -313,8 +313,69 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1116358630
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7004650051682297820, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+    - target: {fileID: 7530181384084817187, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_Name
+      value: TNT_Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.8906305
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.200631
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.41288993
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.41288993
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.57404006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.57403994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302953355468345765, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -108.547
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
 --- !u!1001 &1193349790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -322,6 +383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2124312132557598245, guid: ac963184c95c72a4ca06024893f6b2b8, type: 3}
+      propertyPath: breakForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3577606372074986302, guid: ac963184c95c72a4ca06024893f6b2b8, type: 3}
       propertyPath: m_Name
       value: ClayPot1
@@ -332,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6073483938862909834, guid: ac963184c95c72a4ca06024893f6b2b8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6073483938862909834, guid: ac963184c95c72a4ca06024893f6b2b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -453,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683562411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.73, y: 0.65, z: -13.07}
+  m_LocalPosition: {x: 5.66, y: 1.37, z: -17.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -471,9 +536,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClayPot2
       objectReference: {fileID: 0}
+    - target: {fileID: 4026176120528372054, guid: 5331d28c9f806ec419fcd476c1a6d8dc, type: 3}
+      propertyPath: breakForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7915706782395653259, guid: 5331d28c9f806ec419fcd476c1a6d8dc, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7915706782395653259, guid: 5331d28c9f806ec419fcd476c1a6d8dc, type: 3}
       propertyPath: m_LocalPosition.x
