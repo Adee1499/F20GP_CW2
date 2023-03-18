@@ -18,7 +18,9 @@ public class PlayerRunState : PlayerBaseState
     public override void InitializeSubState() {}
 
     public override void CheckSwitchStates() {
-        if (!Ctx.IsMovementPressed) {
+        if (Ctx.IsRollPressed) {
+            SwitchState(Factory.Roll());
+        } else if (!Ctx.IsMovementPressed) {
             SwitchState(Factory.Idle());
         } else if (Ctx.IsMovementPressed && !Ctx.IsRunPressed) {
             SwitchState(Factory.Walk());

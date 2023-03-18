@@ -9,7 +9,8 @@ public class PlayerStateFactory
         SubState_Walk,
         SubState_Run,
         SubState_Attack,
-        SubState_Interact
+        SubState_Interact,
+        SubState_Roll
     }
 
     PlayerStateMachine _context;
@@ -25,6 +26,7 @@ public class PlayerStateFactory
         _states[PlayerStates.SubState_Run] = new PlayerRunState(_context, this);
         _states[PlayerStates.SubState_Attack] = new PlayerAttackState(_context, this);
         _states[PlayerStates.SubState_Interact] = new PlayerInteractState(_context, this);
+        _states[PlayerStates.SubState_Roll] = new PlayerRollState(_context, this);
     }
 
     public PlayerBaseState Default()
@@ -60,5 +62,10 @@ public class PlayerStateFactory
     public PlayerBaseState Interact()
     {
         return _states[PlayerStates.SubState_Interact];
+    }
+
+    public PlayerBaseState Roll()
+    {
+        return _states[PlayerStates.SubState_Roll];
     }
 }

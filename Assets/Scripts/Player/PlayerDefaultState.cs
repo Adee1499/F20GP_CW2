@@ -13,6 +13,7 @@ public class PlayerDefaultState : PlayerBaseState
 
     public override void UpdateState()
     {
+        // TODO: Move take damage method to PlayerDefaultState
         // Check for enemy hit
         CheckSwitchStates();
     }

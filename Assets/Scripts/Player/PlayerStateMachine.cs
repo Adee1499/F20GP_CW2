@@ -18,6 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
     int _animSpeedHash;
     int _animAttackHash;
     int _animPickUpHash;
+    int _animRollHash;
 
     // Movement variables
     [Header("Controls & Movement")]
@@ -30,10 +31,12 @@ public class PlayerStateMachine : MonoBehaviour
     Transform _currentTarget;
     Vector3 _currentTargetPosition;
     Vector3 _appliedMovement;
+    float _movementMultiplier = 1f;
     bool _isMovementPressed;
     bool _isRunPressed;
     bool _isAttackPressed;
     bool _isInteractPressed;
+    bool _isRollPressed;
 
     // HP & MP variables
     [Header("Health & Mana")]
@@ -53,12 +56,15 @@ public class PlayerStateMachine : MonoBehaviour
     public Animator Animator { get { return _animator; }}
     public int AnimAttackHash { get { return _animAttackHash; }}
     public int AnimPickUpHash { get { return _animPickUpHash; }}
+    public int AnimRollHash { get { return _animRollHash; }}
     public Vector2 CurrentMovementInput { get { return _currentMovementInput; }}
     public Vector3 AppliedMovement { get { return _appliedMovement; } set { _appliedMovement = value; }}
+    public float MovementMultiplier { get { return _movementMultiplier; } set { _movementMultiplier = value; }}
     public bool IsMovementPressed { get { return _isMovementPressed; }}
     public bool IsRunPressed { get { return _isRunPressed; }}
     public bool IsAttackPressed { get { return _isAttackPressed; }}
     public bool IsInteractPressed { get { return _isInteractPressed; }}
+    public bool IsRollPressed { get { return _isRollPressed; }}
     public float WalkSpeed { get { return _walkSpeed; }}
     public float RunSpeed { get { return _runSpeed; }}
     public float PlayerHealth { get { return _playerHP; }}
@@ -92,6 +98,7 @@ public class PlayerStateMachine : MonoBehaviour
         _animSpeedHash = Animator.StringToHash("Speed");
         _animAttackHash = Animator.StringToHash("Attack");
         _animPickUpHash = Animator.StringToHash("PickUp");
+        _animRollHash = Animator.StringToHash("Roll");
 
         // Set PlayerInput callbacks
         _controls.Player.Move.started += OnMovementInput;
@@ -106,6 +113,9 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.Attack.started += OnAttackInput;
         _controls.Player.Attack.canceled += OnAttackInput;
+
+        _controls.Player.Roll.started += OnRollInput;
+        _controls.Player.Roll.canceled += OnRollInput;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -129,6 +139,11 @@ public class PlayerStateMachine : MonoBehaviour
         _isAttackPressed = context.ReadValueAsButton();
     }
 
+    void OnRollInput (InputAction.CallbackContext context)
+    {
+        _isRollPressed = context.ReadValueAsButton();
+    }
+
     void HandleRotation()
     {
         Quaternion currentRotation = transform.rotation;
@@ -149,7 +164,7 @@ public class PlayerStateMachine : MonoBehaviour
         _currentState.UpdateStates();
         // Transform the movement vector relative to the camera
         TransformMovementVector();
-        _characterController.Move(_appliedMovement * Time.deltaTime);
+        _characterController.Move(_appliedMovement * _movementMultiplier * Time.deltaTime);
         // Ignore the y component for the animator speed value
         _animator.SetFloat(_animSpeedHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
         RegenerateMana();
@@ -188,6 +203,7 @@ public class PlayerStateMachine : MonoBehaviour
         _controls.Player.Disable();
     }
 
+    // TODO: Move take damage method to PlayerDefaultState
     void TakeDamage(int damage)
     {
         _playerHP -= damage;

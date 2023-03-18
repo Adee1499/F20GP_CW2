@@ -18,16 +18,14 @@ public class PlayerWalkState : PlayerBaseState
     public override void InitializeSubState() {}
 
     public override void CheckSwitchStates() {
-        if (Ctx.IsAttackPressed) {
+        if (Ctx.IsRollPressed) {
+            SwitchState(Factory.Roll());
+        } else if (Ctx.IsAttackPressed) {
             SwitchState(Factory.Attack());
-        }
-        
-        if (!Ctx.IsMovementPressed) {
+        } else if (!Ctx.IsMovementPressed) {
             SwitchState(Factory.Idle());
         } else if (Ctx.IsMovementPressed && Ctx.IsRunPressed) {
             SwitchState(Factory.Run());
-        } else if (Ctx.IsAttackPressed) {
-            SwitchState(Factory.Attack());
         }
     }
 }
