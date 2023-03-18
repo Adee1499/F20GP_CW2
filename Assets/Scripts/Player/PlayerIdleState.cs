@@ -7,7 +7,6 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Idle state");
         Ctx.AppliedMovement = Vector3.zero;
     }
 

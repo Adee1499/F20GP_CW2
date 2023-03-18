@@ -27,7 +27,7 @@ public class PlayerInteractState : PlayerBaseState
     {
         Ctx.Animator.SetTrigger(Ctx.AnimPickUpHash);
         Debug.Log("Pick up");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         CheckSwitchStates();
     }
 }

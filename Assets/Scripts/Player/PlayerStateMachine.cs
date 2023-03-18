@@ -173,7 +173,6 @@ public class PlayerStateMachine : MonoBehaviour
             _appliedMovement = cameraForward * _appliedMovement.z + cameraRight * _appliedMovement.x;
             if (_appliedMovement != Vector3.zero) {
                 _animator.ResetTrigger(_animPickUpHash);
-                _animator.ResetTrigger(_animAttackHash);
             }
             _appliedMovement.y -= 9.8f;
         }

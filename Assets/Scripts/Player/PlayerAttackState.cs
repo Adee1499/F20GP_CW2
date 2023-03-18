@@ -8,12 +8,14 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void EnterState() 
     {
-        Debug.Log("Attack state");
         // Just a placeholder for now
         Ctx.StartCoroutine(AnimationTimeout());
     }
 
-    public override void UpdateState() {}
+    public override void UpdateState() 
+    {
+        Ctx.AppliedMovement = new Vector3(Ctx.CurrentMovementInput.x, 0f, Ctx.CurrentMovementInput.y) * Ctx.WalkSpeed;
+    }
 
     public override void ExitState() {}
 
