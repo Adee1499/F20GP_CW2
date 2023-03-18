@@ -31,9 +31,11 @@ public class Breakable : MonoBehaviour
     void Update()
     {
         //  FOR TESTING PURPOSES
+        /*
         if(Input.GetKeyDown("f")) {
             Fracture();
         }
+        */
         
     }
 

@@ -43,16 +43,24 @@ public class Explodeable : MonoBehaviour
     public void Explode()
     {
         GameObject fracturedObj = Instantiate(fracturedMesh, transform.position, transform.rotation);
-        var nearbyObjects = Physics.OverlapSphere(transform.position, explosionRadius);
+        var nearbyBreakables = Physics.OverlapSphere(transform.position, explosionRadius);
 
+        // first check for nearby breakables (breakables don't contain rigidbodies until fractured)
+        foreach(var obj in nearbyBreakables){
+            var breakable = obj.GetComponent<Breakable>();
+
+            if(breakable == null) continue;
+
+            breakable.Fracture();
+        }
+
+        // must search again to include rigidbodies from nearby breakables
+        var nearbyObjects = Physics.OverlapSphere(transform.position, explosionRadius);
+        // check for remaining rigidbodies
         foreach(var obj in nearbyObjects){
             var rb = obj.GetComponent<Rigidbody>();
             if(rb == null) continue;
             rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-        }
-
-        foreach(Rigidbody body in fracturedObj.GetComponentsInChildren<Rigidbody>()) {
-            body.AddExplosionForce(explosionForce, transform.position, explosionRadius, 3.0f);
         }
 
         Instantiate(particles, transform.position, Quaternion.identity);

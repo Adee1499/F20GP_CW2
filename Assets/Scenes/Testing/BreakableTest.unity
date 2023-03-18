@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: particles
       value: 
       objectReference: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+    - target: {fileID: 7004650051682297820, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
+      propertyPath: explosionForce
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 7530181384084817187, guid: b0e44f7ff47ed75498f4bb1b996e2f06, type: 3}
       propertyPath: m_Name
       value: TNT_Barrel
