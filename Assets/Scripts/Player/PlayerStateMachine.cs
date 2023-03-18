@@ -3,21 +3,21 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerStateMachine : MonoBehaviour
 {
     // Component references
-    Animator _animator;
+    [SerializeField] Animator _animator;
     CharacterController _characterController;
     Controls _controls;
     PlayerInput _playerInput;
     CinemachineVirtualCamera _virtualCamera;
 
     // Animator hashed variables
-    int _animIsWalkingHash;
-    int _animIsRunningHash;
+    int _animSpeedHash;
+    int _animAttackHash;
+    int _animPickUpHash;
 
     // Movement variables
     [Header("Controls & Movement")]
@@ -32,6 +32,8 @@ public class PlayerStateMachine : MonoBehaviour
     Vector3 _appliedMovement;
     bool _isMovementPressed;
     bool _isRunPressed;
+    bool _isAttackPressed;
+    bool _isInteractPressed;
 
     // HP & MP variables
     [Header("Health & Mana")]
@@ -49,14 +51,16 @@ public class PlayerStateMachine : MonoBehaviour
     // Getters & Setters
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; }}
     public Animator Animator { get { return _animator; }}
+    public int AnimAttackHash { get { return _animAttackHash; }}
+    public int AnimPickUpHash { get { return _animPickUpHash; }}
     public Vector2 CurrentMovementInput { get { return _currentMovementInput; }}
     public Vector3 AppliedMovement { get { return _appliedMovement; } set { _appliedMovement = value; }}
     public bool IsMovementPressed { get { return _isMovementPressed; }}
     public bool IsRunPressed { get { return _isRunPressed; }}
+    public bool IsAttackPressed { get { return _isAttackPressed; }}
+    public bool IsInteractPressed { get { return _isInteractPressed; }}
     public float WalkSpeed { get { return _walkSpeed; }}
     public float RunSpeed { get { return _runSpeed; }}
-    public int AnimIsWalkingHash { get { return _animIsWalkingHash; }}
-    public int AnimIsRunningHash { get { return _animIsRunningHash; }}
     public float PlayerHealth { get { return _playerHP; }}
     public float PlayerMana { get { return _playerMP; }}
 
@@ -69,7 +73,6 @@ public class PlayerStateMachine : MonoBehaviour
     void Awake()
     {
         // Initialize reference variables
-        _animator = GetComponent<Animator>();
         _characterController = GetComponent<CharacterController>();
         _controls = new Controls();
         _playerInput = GetComponent<PlayerInput>();
@@ -86,8 +89,9 @@ public class PlayerStateMachine : MonoBehaviour
         _playerMP = _maxPlayerMP;
 
         // Set animator hash variables
-        _animIsWalkingHash = Animator.StringToHash("isWalking");
-        _animIsRunningHash = Animator.StringToHash("isRunning");
+        _animSpeedHash = Animator.StringToHash("Speed");
+        _animAttackHash = Animator.StringToHash("Attack");
+        _animPickUpHash = Animator.StringToHash("PickUp");
 
         // Set PlayerInput callbacks
         _controls.Player.Move.started += OnMovementInput;
@@ -96,6 +100,12 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.Run.started += OnRunInput;
         _controls.Player.Run.canceled += OnRunInput;
+
+        _controls.Player.Interact.started += OnInteractInput;
+        _controls.Player.Interact.canceled += OnInteractInput;
+
+        _controls.Player.Attack.started += OnAttackInput;
+        _controls.Player.Attack.canceled += OnAttackInput;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -109,43 +119,28 @@ public class PlayerStateMachine : MonoBehaviour
         _isRunPressed = context.ReadValueAsButton();
     }
 
+    void OnInteractInput (InputAction.CallbackContext context)
+    {
+        _isInteractPressed = context.ReadValueAsButton();
+    }
+
+    void OnAttackInput (InputAction.CallbackContext context)
+    {
+        _isAttackPressed = context.ReadValueAsButton();
+    }
+
     void HandleRotation()
     {
-        // Quaternion currentRotation = transform.rotation;
-        // Vector3 positionToLookAt = new Vector3(_appliedMovement.x, 0f, _appliedMovement.z);
-        // Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
+        Quaternion currentRotation = transform.rotation;
 
-        // // Different for KBM and gamepad control scheme
-        // if (!_isGamepad) {
-        //     Ray mouseTarget = Camera.main.ScreenPointToRay(_currentAimInput);
-
-        //     if (Physics.Raycast(mouseTarget, out var hitInfo, Mathf.Infinity, groundMask)) {
-        //         _currentTargetPosition = new Vector3(hitInfo.point.x, 0f, hitInfo.point.z);
-        //         if (hitInfo.transform.tag.Equals("Enemy")) {
-        //             // If mouse over enemy -> get position and highlight
-        //             _currentTarget = hitInfo.transform;
-        //             _currentTargetPosition = hitInfo.transform.position;
-        //             hitInfo.transform.gameObject.GetComponent<RaycastHighlight>()?.ToggleHighlight(true);
-        //         } else {
-        //             _currentTarget = null;
-        //         }
-        //         // Rotate towards mouse/enemy only if not moving
-        //         positionToLookAt = _currentTargetPosition;
-        //     }
-        //     if (!_isMovementPressed) {
-        //         targetRotation = Quaternion.LookRotation(positionToLookAt - transform.position);
-        //     }
-        // } else {
-        //     if (Mathf.Abs(_currentAimInput.x) > _controllerDeadzone || Mathf.Abs(_currentAimInput.y) > _controllerDeadzone) {
-        //         positionToLookAt = Vector3.right * _currentAimInput.x + Vector3.forward * _currentAimInput.y;
-
-        //         if (positionToLookAt.sqrMagnitude > 0f) {
-        //             targetRotation = Quaternion.LookRotation(positionToLookAt, Vector3.up);
-        //         }
-        //     }
-        // }
-        // transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationSpeed * Time.deltaTime);
-        // _lastAimInput = _currentAimInput;
+        if (new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude > 0f) {
+            Vector3 positionToLookAt = new Vector3(_appliedMovement.x, 0f, _appliedMovement.z);
+            Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
+            
+            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationSpeed * Time.deltaTime);
+        } else {
+            transform.rotation = currentRotation;
+        }
     }
 
     void Update()
@@ -155,6 +150,8 @@ public class PlayerStateMachine : MonoBehaviour
         // Transform the movement vector relative to the camera
         TransformMovementVector();
         _characterController.Move(_appliedMovement * Time.deltaTime);
+        // Ignore the y component for the animator speed value
+        _animator.SetFloat(_animSpeedHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
         RegenerateMana();
     }
 
@@ -164,7 +161,7 @@ public class PlayerStateMachine : MonoBehaviour
             Vector3 cameraForward = _virtualCamera.transform.forward;
             Vector3 cameraRight = _virtualCamera.transform.right;
 
-            // Ignore thr y components
+            // Ignore the y components
             cameraForward.y = 0f;
             cameraRight.y = 0f;
 
@@ -174,7 +171,11 @@ public class PlayerStateMachine : MonoBehaviour
 
             // Calculate the movement direction based on the orientation
             _appliedMovement = cameraForward * _appliedMovement.z + cameraRight * _appliedMovement.x;
-            // _appliedMovement.y -= 9.8f;
+            if (_appliedMovement != Vector3.zero) {
+                _animator.ResetTrigger(_animPickUpHash);
+                _animator.ResetTrigger(_animAttackHash);
+            }
+            _appliedMovement.y -= 9.8f;
         }
     }
 

@@ -7,8 +7,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void EnterState()
     {
-        Ctx.Animator.SetBool(Ctx.AnimIsWalkingHash, false);
-        Ctx.Animator.SetBool(Ctx.AnimIsRunningHash, false);
+        Debug.Log("Idle state");
         Ctx.AppliedMovement = Vector3.zero;
     }
 
@@ -26,6 +25,10 @@ public class PlayerIdleState : PlayerBaseState
             SwitchState(Factory.Run());
         } else if (Ctx.IsMovementPressed) {
             SwitchState(Factory.Walk());
+        } else if (Ctx.IsAttackPressed) {
+            SwitchState(Factory.Attack());    
+        } else if (Ctx.IsInteractPressed) {
+            SwitchState(Factory.Interact());
         }
     }
 }

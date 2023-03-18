@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAttackState : PlayerBaseState
@@ -7,17 +8,26 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void EnterState() 
     {
-        Debug.Log("Entered attack state");
+        Debug.Log("Attack state");
+        // Just a placeholder for now
+        Ctx.StartCoroutine(AnimationTimeout());
     }
 
-    public override void UpdateState()
-    {
-        CheckSwitchStates();
-    }
+    public override void UpdateState() {}
 
     public override void ExitState() {}
 
     public override void InitializeSubState() {}
 
-    public override void CheckSwitchStates() {}
+    public override void CheckSwitchStates() 
+    {
+        SwitchState(Factory.Idle());
+    }
+
+    IEnumerator AnimationTimeout() 
+    {
+        Ctx.Animator.SetTrigger(Ctx.AnimAttackHash);
+        yield return new WaitForSeconds(1f);
+        CheckSwitchStates();
+    }
 }

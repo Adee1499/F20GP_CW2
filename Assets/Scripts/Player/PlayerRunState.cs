@@ -5,11 +5,7 @@ public class PlayerRunState : PlayerBaseState
     public PlayerRunState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
     : base(currentContext, playerStateFactory) {}
 
-    public override void EnterState() 
-    {
-        Ctx.Animator.SetBool(Ctx.AnimIsWalkingHash, true);
-        Ctx.Animator.SetBool(Ctx.AnimIsRunningHash, true);
-    }
+    public override void EnterState() {}
 
     public override void UpdateState() 
     {

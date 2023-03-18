@@ -5,11 +5,7 @@ public class PlayerWalkState : PlayerBaseState
     public PlayerWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
     : base(currentContext, playerStateFactory) {}
 
-    public override void EnterState() 
-    {
-        Ctx.Animator.SetBool(Ctx.AnimIsWalkingHash, true);
-        Ctx.Animator.SetBool(Ctx.AnimIsRunningHash, false);
-    }
+    public override void EnterState() {}
 
     public override void UpdateState() 
     {
@@ -26,6 +22,8 @@ public class PlayerWalkState : PlayerBaseState
             SwitchState(Factory.Idle());
         } else if (Ctx.IsMovementPressed && Ctx.IsRunPressed) {
             SwitchState(Factory.Run());
+        } else if (Ctx.IsAttackPressed) {
+            SwitchState(Factory.Attack());
         }
     }
 }
