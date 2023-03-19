@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2124312132557598245}
   - component: {fileID: 5294133848025300270}
   - component: {fileID: 6424289343685332109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ClayPot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fracturedMesh: {fileID: 25946560189978184, guid: b6006a5010449924489b0d467e8923f3, type: 3}
   breakForce: 0.5
+  breakRadius: 2
+  layermask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5294133848025300270
 MonoBehaviour:
   m_ObjectHideFlags: 0

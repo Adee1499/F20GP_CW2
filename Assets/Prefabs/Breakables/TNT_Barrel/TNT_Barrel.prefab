@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 593133407900373890}
   - component: {fileID: 593133407900373891}
   - component: {fileID: 7004650051682297820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TNT_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,3 +134,7 @@ MonoBehaviour:
   fracturedMesh: {fileID: 7800117023951064139, guid: 70c5f90f9de8b884b898974f85b7e0fd, type: 3}
   explosionForce: 100
   explosionRadius: 5
+  particles: {fileID: 0}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 64

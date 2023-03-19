@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2559027798328455542}
   - component: {fileID: 2559027798325064022}
   - component: {fileID: 2559027798326031254}
+  - component: {fileID: -7921502368078207008}
   m_Layer: 0
   m_Name: chest_open
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-7921502368078207008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2559027798327962966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.88040495, y: 0.7238002, z: 0.66085273}
+  m_Center: {x: 0.16572809, y: 0.0020999913, z: 0.33042637}

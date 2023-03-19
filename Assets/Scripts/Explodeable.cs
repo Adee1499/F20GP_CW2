@@ -9,6 +9,7 @@ public class Explodeable : MonoBehaviour
     public float explosionRadius = 10.0f;
     public GameObject particles;
     private ParticleSystem ps;
+    public LayerMask layermask;
 
     private Outline outline;
 
@@ -20,22 +21,22 @@ public class Explodeable : MonoBehaviour
         ps = particles.GetComponent<ParticleSystem>();
     }
 
-    void OnMouseOver()
-    {
-        outline.OutlineWidth = 7;
-    }
-
-    void OnMouseExit()
-    {
-        outline.OutlineWidth = 0;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        //  FOR TESTING PURPOSES
-        if(Input.GetKeyDown("f")) {
-            Explode();
+        Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast (ray, out hit, 1000, layermask)) {
+            if(hit.transform.position == transform.position){
+                outline.OutlineWidth = 5;
+                outline.OutlineColor = new Color(1.0f, 1.0f, 1.0f);
+            }
+            else {
+                outline.OutlineWidth = 0;
+            }
+        }
+        else {
+            outline.OutlineWidth = 0;
         }
         
     }
