@@ -15,7 +15,8 @@ public class PlayerStateMachine : MonoBehaviour
     CinemachineVirtualCamera _virtualCamera;
 
     // Animator hashed variables
-    int _animSpeedHash;
+    int _animMoveXHash;
+    int _animMoveYHash;
     int _animAttackHash;
     int _animPickUpHash;
     int _animRollHash;
@@ -28,7 +29,6 @@ public class PlayerStateMachine : MonoBehaviour
     Vector2 _currentMovementInput;
     Vector2 _currentAimInput;
     Vector2 _lastAimInput;
-    Transform _currentTarget;
     Vector3 _currentTargetPosition;
     Vector3 _appliedMovement;
     float _movementMultiplier = 1f;
@@ -37,6 +37,7 @@ public class PlayerStateMachine : MonoBehaviour
     bool _isAttackPressed;
     bool _isInteractPressed;
     bool _isRollPressed;
+    bool _isLookAtPressed;
 
     // HP & MP variables
     [Header("Health & Mana")]
@@ -65,6 +66,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsAttackPressed { get { return _isAttackPressed; }}
     public bool IsInteractPressed { get { return _isInteractPressed; }}
     public bool IsRollPressed { get { return _isRollPressed; }}
+    public bool IsLookAtPressed { get { return _isLookAtPressed; }}
     public float WalkSpeed { get { return _walkSpeed; }}
     public float RunSpeed { get { return _runSpeed; }}
     public float PlayerHealth { get { return _playerHP; }}
@@ -95,7 +97,8 @@ public class PlayerStateMachine : MonoBehaviour
         _playerMP = _maxPlayerMP;
 
         // Set animator hash variables
-        _animSpeedHash = Animator.StringToHash("Speed");
+        _animMoveXHash = Animator.StringToHash("MoveX");
+        _animMoveYHash = Animator.StringToHash("MoveY");
         _animAttackHash = Animator.StringToHash("Attack");
         _animPickUpHash = Animator.StringToHash("PickUp");
         _animRollHash = Animator.StringToHash("Roll");
@@ -116,6 +119,13 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.Roll.started += OnRollInput;
         _controls.Player.Roll.canceled += OnRollInput;
+
+        _controls.Player.Aim.started += OnAimInput;
+        _controls.Player.Aim.performed += OnAimInput;
+        _controls.Player.Aim.canceled += OnAimInput;
+
+        _controls.Player.LookAt.started += OnLookAtInput;
+        _controls.Player.LookAt.canceled += OnLookAtInput;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -144,18 +154,47 @@ public class PlayerStateMachine : MonoBehaviour
         _isRollPressed = context.ReadValueAsButton();
     }
 
+    void OnAimInput (InputAction.CallbackContext context)
+    {
+        _currentAimInput = context.ReadValue<Vector2>();
+    }
+
+    void OnLookAtInput (InputAction.CallbackContext context)
+    {
+        _isLookAtPressed = context.ReadValueAsButton();
+    }
+
     void HandleRotation()
     {
         Quaternion currentRotation = transform.rotation;
-
-        if (new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude > 0f) {
-            Vector3 positionToLookAt = new Vector3(_appliedMovement.x, 0f, _appliedMovement.z);
-            Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-            
-            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationSpeed * Time.deltaTime);
+        if (_isLookAtPressed) {
+            Ray ray = Camera.main.ScreenPointToRay(_currentAimInput);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit)) {
+                _currentTargetPosition = hit.point;
+                Vector3 targetDirection = hit.point - transform.position;
+                targetDirection.y = 0f;
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+                transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            }
         } else {
-            transform.rotation = currentRotation;
+            if (new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude > 0f) {
+                Vector3 positionToLookAt = new Vector3(_appliedMovement.x, 0f, _appliedMovement.z);
+                Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt, Vector3.up);
+                
+                transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            } else {
+                transform.rotation = currentRotation;
+            }
         }
+    }
+
+    void OnDrawGizmos() 
+    {
+        if (_isLookAtPressed) {
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(_currentTargetPosition, _currentTargetPosition + Vector3.up * 1.5f);
+        }    
     }
 
     void Update()
@@ -166,7 +205,15 @@ public class PlayerStateMachine : MonoBehaviour
         TransformMovementVector();
         _characterController.Move(_appliedMovement * _movementMultiplier * Time.deltaTime);
         // Ignore the y component for the animator speed value
-        _animator.SetFloat(_animSpeedHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
+        if (_isLookAtPressed) {
+            Vector3 moveVector = transform.TransformDirection(_appliedMovement);
+            Debug.Log(transform.rotation.eulerAngles);
+            _animator.SetFloat(_animMoveXHash, moveVector.z);
+            _animator.SetFloat(_animMoveYHash, moveVector.x);
+            // Debug.Log($"X: {_animator.GetFloat(_animMoveXHash)}; Y: {_animator.GetFloat(_animMoveYHash)}");
+        } else {
+            _animator.SetFloat(_animMoveYHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
+        }
         RegenerateMana();
     }
 

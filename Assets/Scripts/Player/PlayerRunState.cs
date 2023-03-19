@@ -20,6 +20,8 @@ public class PlayerRunState : PlayerBaseState
     public override void CheckSwitchStates() {
         if (Ctx.IsRollPressed) {
             SwitchState(Factory.Roll());
+        } else if (Ctx.IsLookAtPressed) {
+            SwitchState(Factory.Walk());
         } else if (!Ctx.IsMovementPressed) {
             SwitchState(Factory.Idle());
         } else if (Ctx.IsMovementPressed && !Ctx.IsRunPressed) {

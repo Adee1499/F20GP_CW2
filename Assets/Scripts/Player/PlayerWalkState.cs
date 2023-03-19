@@ -24,7 +24,7 @@ public class PlayerWalkState : PlayerBaseState
             SwitchState(Factory.Attack());
         } else if (!Ctx.IsMovementPressed) {
             SwitchState(Factory.Idle());
-        } else if (Ctx.IsMovementPressed && Ctx.IsRunPressed) {
+        } else if (Ctx.IsMovementPressed && Ctx.IsRunPressed && !Ctx.IsLookAtPressed) {
             SwitchState(Factory.Run());
         }
     }
