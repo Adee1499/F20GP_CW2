@@ -13,6 +13,7 @@ public class PlayerStateMachine : MonoBehaviour
     Controls _controls;
     PlayerInput _playerInput;
     CinemachineVirtualCamera _virtualCamera;
+    [SerializeField] Inventory _inventory;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -76,7 +77,6 @@ public class PlayerStateMachine : MonoBehaviour
     public static event Action<float> OnPlayerHealthChange;
     public static event Action<float> OnPlayerManaChange;
     public static event Action OnPlayerDead;
-
     
     void Awake()
     {
@@ -126,6 +126,8 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.LookAt.started += OnLookAtInput;
         _controls.Player.LookAt.canceled += OnLookAtInput;
+
+        EquipItem();
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -245,6 +247,22 @@ public class PlayerStateMachine : MonoBehaviour
     void OnDisable()
     {
         _controls.Player.Disable();
+    }
+
+    void EquipItem()
+    {
+        foreach(EquipableItem item in _inventory.items) 
+        {
+            if (item.GetType().Equals(typeof(EquipableItem))) {
+                GameObject armor = Instantiate(item.mesh, transform.position, Quaternion.identity);
+                armor.SetActive(true);
+                armor.transform.SetParent(transform);
+                armor.GetComponent<SkinnedMeshRenderer>().CopyBonesFrom(GetComponentInChildren<SkinnedMeshRenderer>());
+                _animator.Rebind();
+            }
+        }
+
+        
     }
 
     // TODO: Move take damage method to PlayerDefaultState
