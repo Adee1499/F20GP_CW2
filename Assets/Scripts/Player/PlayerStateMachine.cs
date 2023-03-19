@@ -204,13 +204,10 @@ public class PlayerStateMachine : MonoBehaviour
         // Transform the movement vector relative to the camera
         TransformMovementVector();
         _characterController.Move(_appliedMovement * _movementMultiplier * Time.deltaTime);
-        // Ignore the y component for the animator speed value
         if (_isLookAtPressed) {
-            Vector3 moveVector = transform.TransformDirection(_appliedMovement);
-            Debug.Log(transform.rotation.eulerAngles);
-            _animator.SetFloat(_animMoveXHash, moveVector.z);
-            _animator.SetFloat(_animMoveYHash, moveVector.x);
-            // Debug.Log($"X: {_animator.GetFloat(_animMoveXHash)}; Y: {_animator.GetFloat(_animMoveYHash)}");
+            Vector3 moveVector = Quaternion.Euler(0, -transform.eulerAngles.y, 0) * _appliedMovement;
+            _animator.SetFloat(_animMoveXHash, moveVector.x);
+            _animator.SetFloat(_animMoveYHash, moveVector.z);
         } else {
             _animator.SetFloat(_animMoveYHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
         }
