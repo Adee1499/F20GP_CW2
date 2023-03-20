@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8db7c583131b36418f32ce0bc12eee4, type: 3}
-  m_Name: Basic_Gauntlets
+  m_Script: {fileID: 11500000, guid: 0c8108d9d4dd6cb49a806ec9effc338f, type: 3}
+  m_Name: Basic_Body
   m_EditorClassIdentifier: 
-  DisplayName: 
-  Description: 
-  Icon: {fileID: 0}
-  equipmentSlot: 4
-  mesh: {fileID: 3157448800856897822, guid: 13f0c4fb41d188843bbd0579d25413f6, type: 3}
+  itemType: 1
+  inventoryIcon: {fileID: 21300000, guid: 52b21a4cd72343d40b55e08c15db3350, type: 3}
+  prefab: {fileID: 0}

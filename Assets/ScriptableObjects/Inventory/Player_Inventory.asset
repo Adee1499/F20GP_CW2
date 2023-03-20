@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ecb91ed3d1b1ce4e9840c229bc927d2, type: 3}
-  m_Name: Inventory
+  m_Name: Player_Inventory
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: fc120bb5dce1ba0428ef25d231c33d08, type: 2}
-  - {fileID: 11400000, guid: 6b639ee4205afac42963e416ea08e7e5, type: 2}
-  - {fileID: 11400000, guid: fc6b35b0898d1214486afc39b5daed40, type: 2}
-  - {fileID: 11400000, guid: dd3ff2c59f4cf554288b58831a4a7480, type: 2}
-  maxCapacity: 10
+  - item: {fileID: 11400000, guid: 81d2fb3349f98c746830b2793d00e375, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 267d2bcc77b684c4d9aa5674b62f3708, type: 2}
+    amount: 4

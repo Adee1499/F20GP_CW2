@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8db7c583131b36418f32ce0bc12eee4, type: 3}
-  m_Name: Basic_Legs
+  m_Script: {fileID: 11500000, guid: b99633742f5c82a4c91f62563e8a231b, type: 3}
+  m_Name: Potion_Health
   m_EditorClassIdentifier: 
-  DisplayName: 
-  Description: 
-  Icon: {fileID: 0}
-  equipmentSlot: 3
-  mesh: {fileID: 1766361925956228396, guid: fae30e31ce03440498d7ec6b44055f3f, type: 3}
+  itemType: 0
+  inventoryIcon: {fileID: 21300000, guid: 108ca3e7dda90d945b0914bf9259ec94, type: 3}
+  prefab: {fileID: 0}
