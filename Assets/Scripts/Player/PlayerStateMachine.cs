@@ -217,6 +217,7 @@ public class PlayerStateMachine : MonoBehaviour
             _animator.SetFloat(_animMoveXHash, moveVector.x);
             _animator.SetFloat(_animMoveYHash, moveVector.z);
         } else {
+            _animator.SetFloat(_animMoveXHash, 0f);
             _animator.SetFloat(_animMoveYHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
         }
         RegenerateMana();
