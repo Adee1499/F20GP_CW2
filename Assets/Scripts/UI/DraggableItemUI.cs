@@ -1,13 +1,15 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableItemUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     Canvas _canvas;
     RectTransform _rectTransform;
     // Required to block raycasts and set transparency
     CanvasGroup _canvasGroup;
     public InventoryItem item;
+    public bool equipped;
     Transform _draggedItemParent;
     Transform _previousParent;
 
@@ -19,7 +21,17 @@ public class DraggableItemUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         _draggedItemParent = _canvas.transform.Find("DraggedItemParent");
     }
 
-    public void OnPointerDown(PointerEventData eventData) {}
+    public void OnPointerClick(PointerEventData eventData) 
+    {
+        if (eventData.clickCount > 1) {
+            InventorySlotUI slot = FindObjectsOfType<InventorySlotUI>().Where(slot => slot.equipmentSlot == item.equipmentSlot).FirstOrDefault();
+            if (equipped) {
+                slot.UnequipItem(gameObject);
+            } else {
+                slot.EquipItem(gameObject);
+            }
+        }
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Armor_B_Helmet
   m_EditorClassIdentifier: 
   itemType: 1
-  inventoryIcon: {fileID: 21300000, guid: 785b62bfefef15743b9f3edfafec3578, type: 3}
-  prefab: {fileID: 3953362000440402368, guid: 16cd23c76ce88b84d8d0ecc84c7a16f7, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 777a89e4b64a47e4fa296c1e79c62f5d, type: 3}
+  prefab: {fileID: 1899535197233776682, guid: 72750033cf78b3f4cbb34d710cc34462, type: 3}
   equipmentSlot: 1

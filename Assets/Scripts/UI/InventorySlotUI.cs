@@ -30,22 +30,25 @@ public class InventorySlotUI : MonoBehaviour, IDropHandler
         }
     }
 
-    void EquipItem(GameObject item)
+    public void EquipItem(GameObject item)
     {
         DraggableItemUI itemSO = item.GetComponent<DraggableItemUI>();
+        itemSO.equipped = true;
 
         // Check if there already is something equipped
         if (_itemParent.childCount > 0) {
             UnequipItem(_itemParent.GetChild(0).gameObject);
         }
-        
+
         item.transform.SetParent(_itemParent);
         item.transform.localPosition = new Vector3(0, 0, 0);
         EquipmentManager.Instance.EquipItem(itemSO.item.prefab, itemSO.item.equipmentSlot);
     }
 
-    void UnequipItem(GameObject item)
+    public void UnequipItem(GameObject item)
     {
+        DraggableItemUI itemSO = item.GetComponent<DraggableItemUI>();
+        itemSO.equipped = false;
         // Unequip this item
         EquipmentManager.Instance.UnequipItem(equipmentSlot);
         // Move over to inventory

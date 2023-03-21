@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Armor_B_Legs
   m_EditorClassIdentifier: 
   itemType: 1
-  inventoryIcon: {fileID: 21300000, guid: 59a5d61868b573d4180f48c39e03f0ef, type: 3}
-  prefab: {fileID: 2961755997360598198, guid: 32b0e80da1652a942a61f4b91718bf68, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: f0a077bb0551e6c4a8d8c54569e60f0e, type: 3}
+  prefab: {fileID: 3476579287061757242, guid: 24b86df53b06f024699266d06dffe9c1, type: 3}
   equipmentSlot: 4

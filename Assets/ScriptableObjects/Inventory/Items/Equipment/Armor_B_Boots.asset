@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Armor_B_Boots
   m_EditorClassIdentifier: 
   itemType: 1
-  inventoryIcon: {fileID: 21300000, guid: 732e0637eed0d154fbefc8b5742057cf, type: 3}
-  prefab: {fileID: 8959979807558627045, guid: e30a9073e91ec084194f4beb62358350, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 1c20679120786994c8786febda576d7d, type: 3}
+  prefab: {fileID: 3618514035488412311, guid: 13e2e0979245aff40b798f7c7e5ebf11, type: 3}
   equipmentSlot: 5

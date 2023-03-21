@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Armor_B_Gauntlets
   m_EditorClassIdentifier: 
   itemType: 1
-  inventoryIcon: {fileID: 21300000, guid: 0107c4b2157753345820856cff1e021a, type: 3}
-  prefab: {fileID: 2852616369421270150, guid: dac3652ad7e016c448ea5ba1aad33700, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 2d82287cd88109c41afcfe5c7376e181, type: 3}
+  prefab: {fileID: 602637201708186947, guid: d7e046a00584a8647bba8fb7b285ec93, type: 3}
   equipmentSlot: 3
