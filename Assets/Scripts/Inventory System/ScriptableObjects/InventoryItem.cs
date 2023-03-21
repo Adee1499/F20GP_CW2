@@ -9,6 +9,7 @@ public abstract class InventoryItem : ScriptableObject
 {
     public ItemType itemType;
     public Sprite inventoryIcon;
-    public GameObject prefab;
+    public GameObject onPlayerPrefab;
     public EquipmentSlot equipmentSlot;
+    public GameObject onGroundPrefab;
 }

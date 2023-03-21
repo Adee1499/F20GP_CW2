@@ -36,4 +36,13 @@ public class InventorySlot
     }
 
     public void AddAmount(int value) { amount += value; }
+
+    public bool CompareItem(InventoryItem _item)
+    {
+        if (_item == item) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

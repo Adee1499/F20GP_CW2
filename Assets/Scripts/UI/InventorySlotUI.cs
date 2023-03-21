@@ -42,7 +42,7 @@ public class InventorySlotUI : MonoBehaviour, IDropHandler
 
         item.transform.SetParent(_itemParent);
         item.transform.localPosition = new Vector3(0, 0, 0);
-        EquipmentManager.Instance.EquipItem(itemSO.item.prefab, itemSO.item.equipmentSlot);
+        EquipmentManager.Instance.EquipItem(itemSO.item.onPlayerPrefab, itemSO.item.equipmentSlot);
     }
 
     public void UnequipItem(GameObject item)

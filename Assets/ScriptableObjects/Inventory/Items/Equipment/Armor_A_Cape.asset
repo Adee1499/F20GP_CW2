@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   inventoryIcon: {fileID: 21300000, guid: 689c927e31694094985b08e65f0ca931, type: 3}
-  prefab: {fileID: 1581734380819903418, guid: 2a16d3b39d751b24f8ca1a8bbd2ced50, type: 3}
+  onPlayerPrefab: {fileID: 1581734380819903418, guid: 2a16d3b39d751b24f8ca1a8bbd2ced50, type: 3}
   equipmentSlot: 7
+  onGroundPrefab: {fileID: 1831371412117583796, guid: 387630bdfb82be9408559b1e53cd0bd7, type: 3}

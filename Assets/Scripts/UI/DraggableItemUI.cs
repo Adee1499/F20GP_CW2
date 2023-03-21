@@ -12,6 +12,7 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     public bool equipped;
     Transform _draggedItemParent;
     Transform _previousParent;
+    GameObject _playerReference;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
         _canvas = FindObjectOfType<Canvas>();
         _canvasGroup = gameObject.AddComponent<CanvasGroup>();
         _draggedItemParent = _canvas.transform.Find("DraggedItemParent");
+        _playerReference = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void OnPointerClick(PointerEventData eventData) 
@@ -49,11 +51,18 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        _canvasGroup.blocksRaycasts = true;
-        _canvasGroup.alpha = 1f;
-        if (transform.parent == _draggedItemParent) {
-            transform.SetParent(_previousParent);
-            transform.localPosition = new Vector3(0, 0, 0);
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            _canvasGroup.blocksRaycasts = true;
+            _canvasGroup.alpha = 1f;
+            if (transform.parent == _draggedItemParent) {
+                transform.SetParent(_previousParent);
+                transform.localPosition = new Vector3(0, 0, 0);
+            }
+        } else {
+            // Instantiate the item's mesh in the world and remove from inventory
+            Instantiate(item.onGroundPrefab, _playerReference.transform.position, Quaternion.identity);
+            InventoryUI.Instance.RemoveInventoryItem(item);
+            Destroy(gameObject);
         }
     }
 }

@@ -63,4 +63,14 @@ public class InventoryUI : MonoBehaviour
         newItem.GetComponent<DraggableItemUI>().item = itemSlot.item;
         itemsDisplayed.Add(itemSlot, newItem);
     }
+
+    public void RemoveInventoryItem(InventoryItem item)
+    {
+        foreach(InventorySlot slot in inventory.items) {
+            if (slot.CompareItem(item)) {
+                inventory.items.Remove(slot);
+                break;
+            }
+        }
+    }
 }
