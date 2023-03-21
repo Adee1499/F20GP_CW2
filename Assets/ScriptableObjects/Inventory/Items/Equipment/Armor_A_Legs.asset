@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8108d9d4dd6cb49a806ec9effc338f, type: 3}
+  m_Name: Armor_A_Legs
+  m_EditorClassIdentifier: 
+  itemType: 1
+  inventoryIcon: {fileID: 21300000, guid: 59a5d61868b573d4180f48c39e03f0ef, type: 3}
+  onPlayerPrefab: {fileID: 2961755997360598198, guid: 32b0e80da1652a942a61f4b91718bf68, type: 3}
+  equipmentSlot: 4
+  onGroundPrefab: {fileID: 51058755700716725, guid: 2e97df4fcb0cd764d8a271badc6dc2db, type: 3}

@@ -89,6 +89,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""6bb220a3-9a5c-4f02-920b-3f20089a7853"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""LookAt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e193cb2d-1fbe-401f-a97b-fcb084dc65dc"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -233,6 +253,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_LookAt = m_Player.FindAction("LookAt", throwIfNotFound: true);
+        m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -299,6 +320,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Roll;
     private readonly InputAction m_Player_LookAt;
+    private readonly InputAction m_Player_Inventory;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -310,6 +332,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputAction @LookAt => m_Wrapper.m_Player_LookAt;
+        public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -340,6 +363,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @LookAt.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAt;
                 @LookAt.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAt;
                 @LookAt.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAt;
+                @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -365,6 +391,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @LookAt.started += instance.OnLookAt;
                 @LookAt.performed += instance.OnLookAt;
                 @LookAt.canceled += instance.OnLookAt;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -387,5 +416,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnLookAt(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }

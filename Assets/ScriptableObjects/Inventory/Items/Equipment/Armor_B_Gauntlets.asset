@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8108d9d4dd6cb49a806ec9effc338f, type: 3}
+  m_Name: Armor_B_Gauntlets
+  m_EditorClassIdentifier: 
+  itemType: 1
+  inventoryIcon: {fileID: 21300000, guid: 2d82287cd88109c41afcfe5c7376e181, type: 3}
+  onPlayerPrefab: {fileID: 602637201708186947, guid: d7e046a00584a8647bba8fb7b285ec93, type: 3}
+  equipmentSlot: 3
+  onGroundPrefab: {fileID: 7276450308449736449, guid: c3ca28e25cc113f4aa90b87d272b79ea, type: 3}

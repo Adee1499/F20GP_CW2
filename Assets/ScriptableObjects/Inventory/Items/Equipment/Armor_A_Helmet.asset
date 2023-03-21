@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8108d9d4dd6cb49a806ec9effc338f, type: 3}
+  m_Name: Armor_A_Helmet
+  m_EditorClassIdentifier: 
+  itemType: 1
+  inventoryIcon: {fileID: 21300000, guid: 785b62bfefef15743b9f3edfafec3578, type: 3}
+  onPlayerPrefab: {fileID: 3953362000440402368, guid: 16cd23c76ce88b84d8d0ecc84c7a16f7, type: 3}
+  equipmentSlot: 1
+  onGroundPrefab: {fileID: 3523667868845739653, guid: 1ae6422593249f34d9e5215046e89eba, type: 3}
