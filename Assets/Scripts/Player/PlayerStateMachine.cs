@@ -1,9 +1,11 @@
 using Cinemachine;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(EquipmentManager))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class PlayerStateMachine : MonoBehaviour
     Controls _controls;
     PlayerInput _playerInput;
     CinemachineVirtualCamera _virtualCamera;
+    [SerializeField] Inventory _inventory;
+    [SerializeField] InventoryUI _inventoryUI;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -77,7 +81,16 @@ public class PlayerStateMachine : MonoBehaviour
     public static event Action<float> OnPlayerManaChange;
     public static event Action OnPlayerDead;
 
+    bool _interactingWithUI = false;
     
+    void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.CompareTag("Equipment")) {
+            Debug.Log("Ignoring collision?");
+            Physics.IgnoreCollision(other.collider, GetComponent<Collider>());
+        }
+    }
+
     void Awake()
     {
         // Initialize reference variables
@@ -87,6 +100,7 @@ public class PlayerStateMachine : MonoBehaviour
         _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         if (_virtualCamera == null)
             Debug.LogError("Cinemachine virtual camera not found in the scene!");
+        _inventoryUI.inventory = _inventory;
 
         // Setup FSM
         _states = new PlayerStateFactory(this);
@@ -126,6 +140,9 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.LookAt.started += OnLookAtInput;
         _controls.Player.LookAt.canceled += OnLookAtInput;
+
+        _controls.Player.Inventory.started += OnInventoryInput;   
+        _controls.Player.Inventory.canceled += OnInventoryInput;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -146,7 +163,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     void OnAttackInput (InputAction.CallbackContext context)
     {
-        _isAttackPressed = context.ReadValueAsButton();
+        if (!_interactingWithUI)
+            _isAttackPressed = context.ReadValueAsButton();
     }
 
     void OnRollInput (InputAction.CallbackContext context)
@@ -162,6 +180,19 @@ public class PlayerStateMachine : MonoBehaviour
     void OnLookAtInput (InputAction.CallbackContext context)
     {
         _isLookAtPressed = context.ReadValueAsButton();
+    }
+
+    void OnInventoryInput (InputAction.CallbackContext context)
+    {
+        if(context.ReadValueAsButton()) {
+            if (InventoryUI.Instance.UI_Inventory.activeSelf || InventoryUI.Instance.UI_Equipment.activeSelf) {
+                InventoryUI.Instance.UI_Inventory.SetActive(false);
+                InventoryUI.Instance.UI_Equipment.SetActive(false);
+            } else {
+                InventoryUI.Instance.UI_Inventory.SetActive(true);
+                InventoryUI.Instance.UI_Equipment.SetActive(true);
+            }
+        }
     }
 
     void HandleRotation()
@@ -199,6 +230,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Update()
     {
+        CheckInteractingWithUI();
         HandleRotation();
         _currentState.UpdateStates();
         // Transform the movement vector relative to the camera
@@ -209,9 +241,15 @@ public class PlayerStateMachine : MonoBehaviour
             _animator.SetFloat(_animMoveXHash, moveVector.x);
             _animator.SetFloat(_animMoveYHash, moveVector.z);
         } else {
+            _animator.SetFloat(_animMoveXHash, 0f);
             _animator.SetFloat(_animMoveYHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
         }
         RegenerateMana();
+    }
+
+    void CheckInteractingWithUI()
+    {
+        _interactingWithUI = EventSystem.current.IsPointerOverGameObject() || InventoryUI.Instance.CurrentItem != null;
     }
 
     void TransformMovementVector()
