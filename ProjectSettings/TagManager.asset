@@ -3,16 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Equipment
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Static
   - Water
   - UI
-  - 
-  - 
+  - Loot
+  - Player
   - 
   - 
   - 

@@ -69,6 +69,7 @@ public class InventoryUI : MonoBehaviour
         foreach(InventorySlot slot in inventory.items) {
             if (slot.CompareItem(item)) {
                 inventory.items.Remove(slot);
+                itemsDisplayed.Remove(slot);
                 break;
             }
         }

@@ -83,6 +83,14 @@ public class PlayerStateMachine : MonoBehaviour
 
     bool _interactingWithUI = false;
     
+    void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.CompareTag("Equipment")) {
+            Debug.Log("Ignoring collision?");
+            Physics.IgnoreCollision(other.collider, GetComponent<Collider>());
+        }
+    }
+
     void Awake()
     {
         // Initialize reference variables
