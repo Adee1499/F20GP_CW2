@@ -1,0 +1,2763 @@
+fileFormatVersion: 2
+guid: a9e772ba442a5498fa2303d1ef57805e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlueFroth_00000
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1383
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30d05e5ed6a04982a49956604e5e419
+      internalID: -1504382394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00001
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1383
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a65308d999a94c28b381fd0c1d96aa9
+      internalID: 1929178172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00002
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1842
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9981c06f0ed4f45c193e439c156f5b2f
+      internalID: -1807222815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00003
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1842
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228d82ad3f55f48cd8deff8dec1ce4e3
+      internalID: 584818070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00004
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1333
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50b9322f76c834d1eaeec710fc71e6be
+      internalID: -2076031729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00005
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1332
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5edae352556494d83ac7c3b2da85a1e2
+      internalID: 1930206134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00006
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1333
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc41c8d1e6dd4459aa713021144a4df
+      internalID: 2119407391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00007
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1791
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6befa5c33441f4f06beec2fdf3d86835
+      internalID: 627234332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00008
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1333
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e603a56722984752a982ec046e83d6d
+      internalID: -634151676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00009
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1333
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c31cce893df4c6c977eb8a15067e37
+      internalID: 1287638765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00010
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1283
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900610210f5fd45198c8d0f24039e9bf
+      internalID: -380856916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00011
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1282
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3287c75ae6f4fd6ab67f43ca1970e6
+      internalID: 1122800209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00012
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1283
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c23b4090e9c14802a75b4008f3b2cba
+      internalID: 912189672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00013
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1283
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9b9481261a6485ba5ab75b0fd3992b
+      internalID: -1755257255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00014
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1283
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742dd3797b89348868c9ea5e25411ee7
+      internalID: -50699360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00015
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1233
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dea7115ffa7e4c52abd22b4e2f63c2d
+      internalID: 2009048459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00016
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1232
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1b5cab0e3e64a96bea519bb1df367b
+      internalID: -1082222783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00017
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1233
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec52d2996cf44467c8f0b0831f6c5cf1
+      internalID: -526349635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00018
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1791
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9744a33b76ae4e4f9c2b4803ef7994e
+      internalID: -1069452536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00019
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1790
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35885675751274d6bb6ed967eb9e9e35
+      internalID: 1045805089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00020
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1790
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b5bb17b2b6642ab846a79e8e010677
+      internalID: -104073943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00021
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1790
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea119d18d44445cfade910416eaa9b8
+      internalID: -1048190543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00022
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1740
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb67e9ec0c67a4e8a8c6972bbb351691
+      internalID: -1649409553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00023
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1740
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa7b858c1e6843078e59f52fb186450
+      internalID: -643459349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00024
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1997
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00eb3dd725c014397aa41e46804f4bbe
+      internalID: -100450911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00025
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1233
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21afb51c3cd4446e95934b66f1b55d5
+      internalID: 182159263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00026
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1233
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 338ae3b03f0664484a29c39e1adea6dd
+      internalID: -9626159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00027
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1183
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a382a26d256548018c83a04c735a418
+      internalID: -1104637649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00028
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1182
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6f9fbf074d143678bcfa9e0a739e62
+      internalID: 270062517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00029
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1183
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c576ec0a512c143d5afef84508db9b1d
+      internalID: -369426240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00030
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1183
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4e8963143b74bc8ab123e2c7d814e1
+      internalID: 1515160391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00031
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1183
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8ec7622de0b4940bf31064b0e90b1c
+      internalID: -1374419570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00032
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1133
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9df6e927efd4ba2877e21eabf8de37
+      internalID: -1917474859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00033
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1739
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bb7fb0f832b47abb92a23f6d0d0312
+      internalID: 1288149378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00034
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1739
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a1e707c31e5401a882e78d463b5767
+      internalID: 1508000578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00035
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1739
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d069d21d31f89446fa2b5bdda821cfc4
+      internalID: 2058797747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00036
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1689
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a16e9c505cc452d883bc94fec8783d
+      internalID: 427769469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00037
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1689
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfefc18d6a5254f008ad005a2aee9239
+      internalID: 1789491235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00038
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1688
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af10e01460a45486f87d1ea65024ed6f
+      internalID: -797496022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00039
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1997
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a916233bdc8cb4e9a928e1fd79a91290
+      internalID: -2124861470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00040
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1997
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42e799fe040c45948db4cfe571fda4f
+      internalID: -551534272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00041
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1997
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028e55343b50f469b9a50bad2fe46266
+      internalID: 1591888398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00042
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1997
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8561536d5da43402bb3e4c05f376aa3b
+      internalID: 1258717557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00043
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1945
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6185ff0940354f2185ab466d5b866c7
+      internalID: -1156753545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00044
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1945
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1817fdee9aa064a20bf2e37c7316677e
+      internalID: -791636317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00045
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1945
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59995a0c30ee5457ba00bfed015e0604
+      internalID: -374492963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00046
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1945
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b894ee0c7e149e186bd55505694382
+      internalID: -31192705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00047
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1945
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bfa56ffcf8864153bf086536b4c9fe5
+      internalID: 1644454938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00048
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1893
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca0427f43cb245a2a2f55d5ed829832
+      internalID: -1705009372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00049
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1688
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7aa8f1803cc14a129f126e92766739e
+      internalID: -514157158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00050
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1688
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e578ae11b0655429aa032996fe313919
+      internalID: 730654984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00051
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1638
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653e64c9848db4ed19dc9e4262890ece
+      internalID: 653038821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00052
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1638
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eddfda02ad45e452db2997e0024e8a03
+      internalID: -1577903683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00053
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1637
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2bff66a916a48ee802621b46c001de
+      internalID: -1510856330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00054
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1637
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20595eddfe9044134b5fb0d73488c654
+      internalID: 1077538882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00055
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1637
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5ff84bf2a704403b79daa662f4e349
+      internalID: 1833814532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00056
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1587
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c145d54ee394f95ab621fc74761dbb
+      internalID: -1440131970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00057
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1587
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e1f55a8294d44899c90d712a7ac9af
+      internalID: -947993780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00058
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1586
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6123b3c6316244caa017ca75e93da5b
+      internalID: 619741613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00059
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1586
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586c7e6383be14aa383274e2f6206026
+      internalID: 530160001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00060
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1586
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ac736f8ec5b40988122b38e90bad99
+      internalID: -1588155021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00061
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1536
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658ee29d70df6469cafa25c4d6ef036f
+      internalID: 1958390136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00062
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1536
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2d7ae9702684ecbb793ef4d7a37a2f
+      internalID: 1610953142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00063
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1132
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ddea665f08346e3bd56436b3168b4a
+      internalID: -855643109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00064
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1133
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd35a49adf7f34352a0ad37226d57b99
+      internalID: 861155921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00065
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1535
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc3b8f637c2046b4b974e228c255b3d
+      internalID: 1245911638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00066
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1133
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37f9d3e6ee814fa0a2eb7d6fc28ad1b
+      internalID: 836143003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00067
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1133
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f23cd8754e924dd2940663cfe01c3dd
+      internalID: -1809999808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00068
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1083
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18828c138e84f43d68beca88505285fb
+      internalID: -275572738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00069
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1535
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b971dc1c1014a76a218c2edfa3ac28
+      internalID: -968090945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00070
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1082
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855b3837cfcd840b2b8e10275454fb87
+      internalID: 1341558539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00071
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1083
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30bb6864b7a94ad9b39c965130aef2d
+      internalID: -1708771377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00072
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 984
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e928cd0bc6cd54897877b9626dc68e72
+      internalID: 126153719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00073
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 984
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0189ced655a514157afeb00f425de535
+      internalID: 699974282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00074
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 984
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f893331329eca469e9c697a63edbc809
+      internalID: -217495484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00075
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1083
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93afe1d49d0c4f6c910911d40ed8e8f
+      internalID: -1040288993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00076
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 935
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e8cba75a10e46178ee8f018cdbe3ee
+      internalID: -1973471427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00077
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 934
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917f056e8d4d54180a62a52fc968685a
+      internalID: 1201667993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00078
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1535
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d826a8d9e85af4e54add6dd71e5e55fc
+      internalID: 1384663090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00079
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1485
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f182fd37b6d43cd9f6ccac11207027
+      internalID: -236841890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00080
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1485
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8b6977cf20244a498ea452a972ba7a
+      internalID: 1715479994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00081
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1484
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83a28ae34e1084312b34541bc55db2ca
+      internalID: 1772758778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00082
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 933
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a19e821a5790448f9334c99e994570f
+      internalID: 1528581039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00083
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 935
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc69839a80b8439d83a26cca0499cf2
+      internalID: 1221813881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00084
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 935
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b63b01548b34611b5a9b6a780127ac
+      internalID: 1509488738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00085
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 886
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8620ee41f21fa4d28aebac83f5cea17d
+      internalID: 2124618792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00086
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 885
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55c4dce6211546b78c95a0c038ab67b
+      internalID: 1725018359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00087
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1893
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc1f48a5115e492cafd893ae481bd7e
+      internalID: -41810502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00088
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1893
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39c8db958faf4f47855929e64b7013a
+      internalID: -176086409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00089
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1893
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8e18d76a99547f4b4d25252135fb2c
+      internalID: -1911854042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00090
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1893
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6410dd1d69041485a8fdbce1d02d55b7
+      internalID: -334907641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00091
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1841
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e0e2f6fad38414d96d1a6c9a483974
+      internalID: -1559454778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00092
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1841
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6551b95d4da43929a8984946ff02c1
+      internalID: 184342811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00093
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1841
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6008ac1f342bc45d1873eced7407aaf9
+      internalID: -1004132145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00094
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1484
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a62f78d27c941d797ef1facacdc6fe
+      internalID: -1263141252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00095
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1484
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8f81cdf08e04f4a9a6fbf18c0ed32d
+      internalID: -1193052805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00096
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1434
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf364c50747414f3e880319d96e271fd
+      internalID: -544870172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00097
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1434
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d41e52f0d474bca9e1006bfc2bc892
+      internalID: 1479843382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00098
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 884
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c925b6b05ee6549bea44f8055c628ec9
+      internalID: -1388684838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00099
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1083
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f29430c66ec4850a1ee73921db6618
+      internalID: 1449472050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00100
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1433
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20069445fc5b8468d84cb8739fbbaca9
+      internalID: 1999268565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00101
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1433
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3793465591ada4c05a986a92b9b3a33a
+      internalID: 1984000812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00102
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 886
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4693dba287748480a94fa19a19959ad1
+      internalID: -1137804481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00103
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 886
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15008bfa73cae4fcdbe5897bf26d8274
+      internalID: -1512786884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00104
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 837
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8519052b956a45a6bdcf5cbec766aab
+      internalID: -909888828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00105
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 836
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e66b621deabd4baa9a7f4d57a7b0597
+      internalID: -1062811787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00106
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1033
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f460c2c24344c7c9a112df0d38b72a
+      internalID: -2115338476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00107
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1032
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f26758bbd95a45ec97436d426cadc3c
+      internalID: 1671651938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00108
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 835
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3c484f2c7b04cd9a4e61db6f32062a
+      internalID: 905282394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00109
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1033
+        width: 200
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707d1a57502464eb1a7760f1b52d4d24
+      internalID: 319486048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00110
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 837
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260935fe1ac7241788af17afa0c38fb1
+      internalID: -1973668831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00111
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1433
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8779eebdce2d24a8ab69836dfd647670
+      internalID: 1292716441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00112
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 837
+        width: 200
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5106383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16788a9da2154b0d95be222cc3917e8
+      internalID: -1670212282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00113
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1383
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5bec255c21d43cc9adea2774e1b3a3
+      internalID: 719491507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00114
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1383
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8898f091709754475b24c4dcaf214283
+      internalID: -1391188252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00115
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1033
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee76d8817f09483f95efc127be5f895
+      internalID: -569851250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00116
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1033
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a03ad824afc4451081f44e46c827de6
+      internalID: 61285986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00117
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 983
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adebd46e9183a43e3a00d2a17db41bf8
+      internalID: 382889067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00118
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 982
+        width: 200
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5208333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd13b4f5b49d542afbae09957c124f00
+      internalID: 1861016563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFroth_00119
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1382
+        width: 200
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfa8c9a9c8df4f869081b67b31deec5
+      internalID: 583295605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5ef63fb46863a47cca7d286edb3a143c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BlueFroth_00002: -1807222815
+      BlueFroth_00063: -855643109
+      BlueFroth_00102: -1137804481
+      BlueFroth_00059: 530160001
+      BlueFroth_00024: -100450911
+      BlueFroth_00039: -2124861470
+      BlueFroth_00029: -369426240
+      BlueFroth_00036: 427769469
+      BlueFroth_00106: -2115338476
+      BlueFroth_00077: 1201667993
+      BlueFroth_00051: 653038821
+      BlueFroth_00020: -104073943
+      BlueFroth_00038: -797496022
+      BlueFroth_00085: 2124618792
+      BlueFroth_00042: 1258717557
+      BlueFroth_00104: -909888828
+      BlueFroth_00101: 1984000812
+      BlueFroth_00118: 1861016563
+      BlueFroth_00052: -1577903683
+      BlueFroth_00031: -1374419570
+      BlueFroth_00078: 1384663090
+      BlueFroth_00056: -1440131970
+      BlueFroth_00097: 1479843382
+      BlueFroth_00094: -1263141252
+      BlueFroth_00017: -526349635
+      BlueFroth_00037: 1789491235
+      BlueFroth_00061: 1958390136
+      BlueFroth_00105: -1062811787
+      BlueFroth_00000: -1504382394
+      BlueFroth_00044: -791636317
+      BlueFroth_00065: 1245911638
+      BlueFroth_00107: 1671651938
+      BlueFroth_00060: -1588155021
+      BlueFroth_00043: -1156753545
+      BlueFroth_00099: 1449472050
+      BlueFroth_00086: 1725018359
+      BlueFroth_00049: -514157158
+      BlueFroth_00095: -1193052805
+      BlueFroth_00071: -1708771377
+      BlueFroth_00034: 1508000578
+      BlueFroth_00069: -968090945
+      BlueFroth_00010: -380856916
+      BlueFroth_00119: 583295605
+      BlueFroth_00001: 1929178172
+      BlueFroth_00046: -31192705
+      BlueFroth_00116: 61285986
+      BlueFroth_00004: -2076031729
+      BlueFroth_00019: 1045805089
+      BlueFroth_00057: -947993780
+      BlueFroth_00054: 1077538882
+      BlueFroth_00032: -1917474859
+      BlueFroth_00084: 1509488738
+      BlueFroth_00088: -176086409
+      BlueFroth_00091: -1559454778
+      BlueFroth_00030: 1515160391
+      BlueFroth_00003: 584818070
+      BlueFroth_00005: 1930206134
+      BlueFroth_00064: 861155921
+      BlueFroth_00100: 1999268565
+      BlueFroth_00108: 905282394
+      BlueFroth_00007: 627234332
+      BlueFroth_00012: 912189672
+      BlueFroth_00048: -1705009372
+      BlueFroth_00011: 1122800209
+      BlueFroth_00113: 719491507
+      BlueFroth_00023: -643459349
+      BlueFroth_00070: 1341558539
+      BlueFroth_00067: -1809999808
+      BlueFroth_00008: -634151676
+      BlueFroth_00013: -1755257255
+      BlueFroth_00050: 730654984
+      BlueFroth_00098: -1388684838
+      BlueFroth_00072: 126153719
+      BlueFroth_00066: 836143003
+      BlueFroth_00080: 1715479994
+      BlueFroth_00053: -1510856330
+      BlueFroth_00047: 1644454938
+      BlueFroth_00018: -1069452536
+      BlueFroth_00087: -41810502
+      BlueFroth_00027: -1104637649
+      BlueFroth_00096: -544870172
+      BlueFroth_00075: -1040288993
+      BlueFroth_00009: 1287638765
+      BlueFroth_00117: 382889067
+      BlueFroth_00081: 1772758778
+      BlueFroth_00093: -1004132145
+      BlueFroth_00114: -1391188252
+      BlueFroth_00110: -1973668831
+      BlueFroth_00035: 2058797747
+      BlueFroth_00089: -1911854042
+      BlueFroth_00016: -1082222783
+      BlueFroth_00025: 182159263
+      BlueFroth_00073: 699974282
+      BlueFroth_00083: 1221813881
+      BlueFroth_00076: -1973471427
+      BlueFroth_00068: -275572738
+      BlueFroth_00033: 1288149378
+      BlueFroth_00111: 1292716441
+      BlueFroth_00028: 270062517
+      BlueFroth_00040: -551534272
+      BlueFroth_00079: -236841890
+      BlueFroth_00015: 2009048459
+      BlueFroth_00092: 184342811
+      BlueFroth_00112: -1670212282
+      BlueFroth_00082: 1528581039
+      BlueFroth_00058: 619741613
+      BlueFroth_00045: -374492963
+      BlueFroth_00074: -217495484
+      BlueFroth_00055: 1833814532
+      BlueFroth_00014: -50699360
+      BlueFroth_00090: -334907641
+      BlueFroth_00006: 2119407391
+      BlueFroth_00022: -1649409553
+      BlueFroth_00041: 1591888398
+      BlueFroth_00109: 319486048
+      BlueFroth_00115: -569851250
+      BlueFroth_00103: -1512786884
+      BlueFroth_00021: -1048190543
+      BlueFroth_00062: 1610953142
+      BlueFroth_00026: -9626159
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
