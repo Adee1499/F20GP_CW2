@@ -9,6 +9,7 @@ public class DraggableItemUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     CanvasGroup _canvasGroup;
     public InventoryItem item;
     Transform _draggedItemParent;
+    Transform _previousParent;
 
     void Awake()
     {
@@ -18,15 +19,13 @@ public class DraggableItemUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         _draggedItemParent = _canvas.transform.Find("DraggedItemParent");
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-
-    }
+    public void OnPointerDown(PointerEventData eventData) {}
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        InventoryUI.Instance.CurrentItem = item;
-        transform.parent = _draggedItemParent;
+        _previousParent = transform.parent;
+        InventoryUI.Instance.CurrentItem = gameObject;
+        transform.SetParent(_draggedItemParent);
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.alpha = 0.5f;
     }
@@ -40,6 +39,9 @@ public class DraggableItemUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     {
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.alpha = 1f;
-        Destroy(gameObject);
+        if (transform.parent == _draggedItemParent) {
+            transform.SetParent(_previousParent);
+            transform.localPosition = new Vector3(0, 0, 0);
+        }
     }
 }

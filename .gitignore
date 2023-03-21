@@ -73,8 +73,3 @@ crashlytics-build.properties
 
 # VSCode profile
 /.vscode/
-
-/Assets/ThirdPartyAssets/CaptainCatSparrow
-/Assets/ThirdPartyAssets/Classic_RPG_GUI
-/Assets/ThirdPartyAssets/GUI_Parts
-/Assets/TextMesh Pro

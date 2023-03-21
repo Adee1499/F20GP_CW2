@@ -7,8 +7,8 @@ public enum ItemType {
 
 public abstract class InventoryItem : ScriptableObject
 {
-
     public ItemType itemType;
     public Sprite inventoryIcon;
     public GameObject prefab;
+    public EquipmentSlot equipmentSlot;
 }

@@ -132,6 +132,9 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.LookAt.started += OnLookAtInput;
         _controls.Player.LookAt.canceled += OnLookAtInput;
+
+        _controls.Player.Inventory.started += OnInventoryInput;   
+        _controls.Player.Inventory.canceled += OnInventoryInput;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -169,6 +172,19 @@ public class PlayerStateMachine : MonoBehaviour
     void OnLookAtInput (InputAction.CallbackContext context)
     {
         _isLookAtPressed = context.ReadValueAsButton();
+    }
+
+    void OnInventoryInput (InputAction.CallbackContext context)
+    {
+        if(context.ReadValueAsButton()) {
+            if (InventoryUI.Instance.UI_Inventory.activeSelf || InventoryUI.Instance.UI_Equipment.activeSelf) {
+                InventoryUI.Instance.UI_Inventory.SetActive(false);
+                InventoryUI.Instance.UI_Equipment.SetActive(false);
+            } else {
+                InventoryUI.Instance.UI_Inventory.SetActive(true);
+                InventoryUI.Instance.UI_Equipment.SetActive(true);
+            }
+        }
     }
 
     void HandleRotation()

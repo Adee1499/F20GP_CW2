@@ -10,3 +10,14 @@ public class EquipmentItem : InventoryItem
         itemType = ItemType.Equipment;
     }
 }
+
+public enum EquipmentSlot {
+    None,
+    Helmet,
+    Body,
+    Hands,
+    Legs,
+    Boots,
+    Weapon,
+    Cape
+}
