@@ -43,6 +43,9 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     public void OnPointerClick(PointerEventData eventData) 
     {
         if (eventData.clickCount > 1) {
+            if (!InventoryUI.Instance.UI_Equipment.activeSelf) {
+                InventoryUI.Instance.UI_Equipment.SetActive(true);
+            }
             InventorySlotUI slot = FindObjectsOfType<InventorySlotUI>().Where(slot => slot.equipmentSlot == item.equipmentSlot).FirstOrDefault();
             if (equipped) {
                 slot.UnequipItem(gameObject);
@@ -108,6 +111,7 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
 
         if (EventSystem.current.IsPointerOverGameObject()) {
             _tooltip.SetActive(true);
+            _tooltip.GetComponent<ItemTooltipUI>().UpdateTooltip(item.name, "Chest armor", "Test descirption", "Ultra rare", 5455, 145, "Defence", 3);
         }
     }
 
