@@ -41,10 +41,17 @@ public class Chest : MonoBehaviour
             outline.OutlineColor = new Color(1.0f, 0.5f, 0.0f);
 
             if(Input.GetKeyDown("f")){
-                Instantiate(openChestPrefab, transform.position, transform.rotation);
-                Destroy(gameObject);
+                Open();
             }
         }
         
     }
+
+    void Open() {
+        LootManager lootManager = FindObjectOfType<LootManager>();
+        Instantiate(openChestPrefab, transform.position, transform.rotation);
+        lootManager.DropLoot(transform.position, 3);
+        Destroy(gameObject);
+    }
+
 }

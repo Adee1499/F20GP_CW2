@@ -17,3 +17,5 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 1766361925956228396, guid: fae30e31ce03440498d7ec6b44055f3f, type: 3}
   equipmentSlot: 4
   onGroundPrefab: {fileID: 8553041513325323300, guid: bd66f754adebe4c4f9624033c2200757, type: 3}
+  sellValue: 5
+  defenseValue: 5
