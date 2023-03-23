@@ -1,8 +1,10 @@
 using System.Linq;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
+    IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
 {
     Canvas _canvas;
     RectTransform _rectTransform;
@@ -13,6 +15,12 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     Transform _draggedItemParent;
     Transform _previousParent;
     GameObject _playerReference;
+    GameObject _tooltip;
+    float _tooltipDelay = 0.5f;
+    Coroutine _tooltipCoroutine;
+    Vector2 _tooltipOffsetRight;
+    Vector2 _tooltipOffsetLeft;
+    float _tooltipWidth;
 
     void Awake()
     {
@@ -21,6 +29,15 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
         _canvasGroup = gameObject.AddComponent<CanvasGroup>();
         _draggedItemParent = _canvas.transform.Find("DraggedItemParent");
         _playerReference = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    void Start()
+    {
+        _tooltip = InventoryUI.Instance.ItemTooltip;
+        Rect rect =  _tooltip.GetComponent<RectTransform>().rect;
+        _tooltipWidth = rect.width;
+        _tooltipOffsetRight = new Vector2(rect.width / 2 + 80, -(rect.height / 2 + 60));
+        _tooltipOffsetLeft = new Vector2(-(rect.width / 2 + 80), -(rect.height / 2 + 60));
     }
 
     public void OnPointerClick(PointerEventData eventData) 
@@ -65,4 +82,34 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
             Destroy(gameObject);
         }
     }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _tooltipCoroutine = StartCoroutine(ShowTooltip());
+        _tooltip.transform.position = eventData.position + (IsTooltipOffscreen(eventData.position) ? _tooltipOffsetLeft : _tooltipOffsetRight);
+    }
+
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        _tooltip.transform.position = eventData.position + (IsTooltipOffscreen(eventData.position) ? _tooltipOffsetLeft : _tooltipOffsetRight);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (_tooltipCoroutine != null) {
+            StopCoroutine(_tooltipCoroutine);
+        }
+        _tooltip.SetActive(false);
+    }
+
+    IEnumerator ShowTooltip()
+    {
+        yield return new WaitForSeconds(_tooltipDelay);
+
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            _tooltip.SetActive(true);
+        }
+    }
+
+    bool IsTooltipOffscreen(Vector2 mousePosition) => Screen.width - mousePosition.x < _tooltipOffsetRight.x + _tooltipWidth;
 }
