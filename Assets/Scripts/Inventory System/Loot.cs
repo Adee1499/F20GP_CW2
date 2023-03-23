@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
+    public EquipmentItem objRef;
+
     Collider _collider;
     Rigidbody _rigidbody;
 
