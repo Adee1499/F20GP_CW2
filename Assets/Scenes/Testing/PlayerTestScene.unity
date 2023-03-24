@@ -4421,6 +4421,7 @@ MonoBehaviour:
   CurrentItem: {fileID: 0}
   UI_Inventory: {fileID: 1438917940}
   UI_Equipment: {fileID: 1344960737}
+  UI_Merchant: {fileID: 0}
 --- !u!1 &935299306
 GameObject:
   m_ObjectHideFlags: 0
