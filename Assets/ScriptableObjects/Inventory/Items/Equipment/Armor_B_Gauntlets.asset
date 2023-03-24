@@ -17,5 +17,9 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 602637201708186947, guid: d7e046a00584a8647bba8fb7b285ec93, type: 3}
   equipmentSlot: 3
   onGroundPrefab: {fileID: 7276450308449736449, guid: c3ca28e25cc113f4aa90b87d272b79ea, type: 3}
-  sellValue: 5
-  defenseValue: 5
+  sellValue: 25
+  itemName: Wyvernhide Gloves
+  description: 
+  defenseValue: 10
+  attackValue: 0
+  levelRequired: 2
