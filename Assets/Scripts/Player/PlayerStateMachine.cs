@@ -17,6 +17,7 @@ public class PlayerStateMachine : MonoBehaviour
     CinemachineVirtualCamera _virtualCamera;
     [SerializeField] Inventory _inventory;
     [SerializeField] InventoryUI _inventoryUI;
+    private Inventory _activeInventory;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -102,7 +103,8 @@ public class PlayerStateMachine : MonoBehaviour
         _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         if (_virtualCamera == null)
             Debug.LogError("Cinemachine virtual camera not found in the scene!");
-        _inventoryUI.inventory = _inventory;
+        _activeInventory = Instantiate(_inventory);
+        _inventoryUI.inventory = _activeInventory;
 
         // Setup FSM
         _states = new PlayerStateFactory(this);

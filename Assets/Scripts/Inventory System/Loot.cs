@@ -42,4 +42,8 @@ public class Loot : MonoBehaviour
     {
         Debug.Log($"Collided with {other.name}");
     }
+
+    public void destroyObject(){
+        Destroy(gameObject);
+    }
 }

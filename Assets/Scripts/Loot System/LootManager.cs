@@ -41,7 +41,6 @@ public class LootManager : MonoBehaviour
 
             prefab.GetComponent<Loot>().objRef = newItem;
 
-
             Instantiate(prefab, position, Quaternion.identity);
             prefabs.Add(prefab);
         }

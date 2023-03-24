@@ -59,7 +59,7 @@ public class PlayerInteractState : PlayerBaseState
         // Check for merchant in interaction range
         Collider[] collidersWithinRange = Physics.OverlapSphere(Ctx.transform.position, Ctx.InteractionRange);
         foreach(Collider collider in collidersWithinRange) {
-            if (collider.CompareTag("Merchant")) {
+            if (/*collider.CompareTag("Merchant")*/ false) {
                 _merchant = collider.gameObject;
                 return InteractionType.Merchant;
             }
@@ -70,6 +70,30 @@ public class PlayerInteractState : PlayerBaseState
     IEnumerator PickUpAnimation() 
     {
         Ctx.Animator.SetTrigger(Ctx.AnimPickUpHash);
+        Collider[] lootWithinRange = Physics.OverlapSphere(Ctx.transform.position, Ctx.InteractionRange);
+
+        bool shiftHeld = Input.GetKey("left shift");
+
+        foreach(Collider collider in lootWithinRange){
+            if(collider.CompareTag("Equipment")){
+                EquipmentItem itemRef = collider.gameObject.GetComponent<Loot>().objRef;
+                Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+                RaycastHit hit;
+
+                if(shiftHeld){
+                    InventoryUI.Instance.inventory.AddItem(itemRef, 1);
+                    collider.gameObject.GetComponent<Loot>().destroyObject();
+                }
+                else if(Physics.Raycast (ray, out hit)){
+                    if(hit.transform.position == collider.gameObject.transform.position){
+                        InventoryUI.Instance.inventory.AddItem(itemRef, 1);
+                        collider.gameObject.GetComponent<Loot>().destroyObject();
+                    }
+                }
+            }
+        }
+
+
         Debug.Log("Pick up");
         yield return new WaitForSeconds(0.5f);
         _isInteracting = false;
