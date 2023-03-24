@@ -13,4 +13,7 @@ public abstract class InventoryItem : ScriptableObject
     public EquipmentSlot equipmentSlot;
     public GameObject onGroundPrefab;
     public int sellValue = 50;
+    public string itemName;
+    [TextArea(3,5)]
+    public string description;
 }

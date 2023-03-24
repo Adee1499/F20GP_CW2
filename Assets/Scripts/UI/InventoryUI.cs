@@ -12,12 +12,15 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject _defaultItemPrefab;
     [SerializeField] private GameObject _equipmentItemPrefab;
     public GameObject EquipmentItemPrefab { get { return _equipmentItemPrefab; }}
+    [SerializeField] private GameObject _itemTooltip;
+    public GameObject ItemTooltip { get { return _itemTooltip; }}
     [HideInInspector] public GameObject CurrentItem;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
     // UI Elements references
     public GameObject UI_Inventory;
     public GameObject UI_Equipment;
+    public GameObject UI_Merchant;
 
     void Start()
     {

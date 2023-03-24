@@ -17,5 +17,9 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 1899535197233776682, guid: 72750033cf78b3f4cbb34d710cc34462, type: 3}
   equipmentSlot: 1
   onGroundPrefab: {fileID: 587210506061889692, guid: ebbc9a0ae9c968b45a144d7c85862455, type: 3}
-  sellValue: 5
-  defenseValue: 5
+  sellValue: 25
+  itemName: Nightstalker Hood
+  description: 
+  defenseValue: 10
+  attackValue: 0
+  levelRequired: 2

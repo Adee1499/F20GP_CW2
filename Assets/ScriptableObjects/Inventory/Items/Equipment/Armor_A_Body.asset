@@ -17,5 +17,10 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 3210896676325387366, guid: de2ee6c82e21c9d42965f15f8c571943, type: 3}
   equipmentSlot: 2
   onGroundPrefab: {fileID: 5020178231450199406, guid: 815f04df741e683429935ea5036fd96f, type: 3}
-  sellValue: 5
-  defenseValue: 5
+  sellValue: 50
+  itemName: Titanforged Cuirass
+  description: Forged from the finest steel, this breastplate offers unparalleled
+    protection.
+  defenseValue: 30
+  attackValue: 0
+  levelRequired: 3

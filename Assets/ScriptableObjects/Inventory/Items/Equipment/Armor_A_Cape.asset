@@ -17,5 +17,9 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 1581734380819903418, guid: 2a16d3b39d751b24f8ca1a8bbd2ced50, type: 3}
   equipmentSlot: 7
   onGroundPrefab: {fileID: 1831371412117583796, guid: 387630bdfb82be9408559b1e53cd0bd7, type: 3}
-  sellValue: 5
-  defenseValue: 5
+  sellValue: 50
+  itemName: Crusader's Cape
+  description: 
+  defenseValue: 30
+  attackValue: 0
+  levelRequired: 3

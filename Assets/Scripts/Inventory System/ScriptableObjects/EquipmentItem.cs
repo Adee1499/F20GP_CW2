@@ -7,6 +7,8 @@ public class EquipmentItem : InventoryItem
 {
     public int defenseValue = 5;
     public LootRarity lootRarity;
+    public int attackValue = 0;
+    public int levelRequired = 1;
 
     public void Awake()
     {
