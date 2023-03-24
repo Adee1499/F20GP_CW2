@@ -186,6 +186,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     void OnInventoryInput (InputAction.CallbackContext context)
     {
+        InventoryUI.Instance.UI_Merchant.SetActive(false);
         if(context.ReadValueAsButton()) {
             if (InventoryUI.Instance.UI_Inventory.activeSelf || InventoryUI.Instance.UI_Equipment.activeSelf) {
                 InventoryUI.Instance.UI_Inventory.SetActive(false);

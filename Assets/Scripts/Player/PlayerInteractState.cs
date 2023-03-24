@@ -14,7 +14,7 @@ public class PlayerInteractState : PlayerBaseState
     InteractionType _interactionType;
     bool _isInteracting;
     GameObject _merchant;
-
+    public static Action OnInteractWithMerchant;
     public PlayerInteractState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
     : base(currentContext, playerStateFactory) {}
 
@@ -79,6 +79,9 @@ public class PlayerInteractState : PlayerBaseState
     {
         yield return new WaitForSeconds(0.01f);
         InventoryUI.Instance.UI_Merchant.SetActive(true);
+        InventoryUI.Instance.UI_Inventory.SetActive(true);
+        InventoryUI.Instance.UI_Equipment.SetActive(false);
+        OnInteractWithMerchant?.Invoke();
 
         _isInteracting = false;
     }

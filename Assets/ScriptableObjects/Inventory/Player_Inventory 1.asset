@@ -33,15 +33,4 @@ MonoBehaviour:
     amount: 0
   - item: {fileID: 11400000, guid: 999ead1c86c66c74fbc2be87ce4070f5, type: 2}
     amount: 0
-  - item: {fileID: 11400000, guid: 7f835964a7df0bf468ecd2a679ffa5bd, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: e0fea23c8607249428bf2c04b5e9598e, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: c07800ab30051f34fbe6645b0c82b030, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: 0123c4b75349cba40b87b22a562b7c99, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: ffe3b883399b9ab4888a21bb0d49989e, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: dabf7e915508de240b0786e98f7bc1b1, type: 2}
-    amount: 0
+  gold: 653
