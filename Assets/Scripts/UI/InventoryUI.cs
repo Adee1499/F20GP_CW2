@@ -20,6 +20,7 @@ public class InventoryUI : MonoBehaviour
     // UI Elements references
     public GameObject UI_Inventory;
     public GameObject UI_Equipment;
+    public GameObject UI_Merchant;
 
     void Start()
     {
