@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Level required: 12'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
-  m_sharedMaterial: {fileID: -7789662264374795034, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -356,8 +356,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DEFENCE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
-  m_sharedMaterial: {fileID: -7789662264374795034, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.65
+  m_fontSize: 28.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -491,8 +491,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Voidfang
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 95ac884ad6026a74eb5e754edebef587, type: 2}
-  m_sharedMaterial: {fileID: -4427366143120152773, guid: 95ac884ad6026a74eb5e754edebef587, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8e0efdd622beda84f8f11cc8beda3493, type: 2}
+  m_sharedMaterial: {fileID: -4427366143120152773, guid: 8e0efdd622beda84f8f11cc8beda3493, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 50
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -701,8 +701,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 35
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
-  m_sharedMaterial: {fileID: -7789662264374795034, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.45
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1053,8 +1053,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Chest armor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
-  m_sharedMaterial: {fileID: -7789662264374795034, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1399,8 +1399,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Forged from the finest steel, this breastplate offers unparalleled protection.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
-  m_sharedMaterial: {fileID: -7789662264374795034, guid: 7d4593cff89b4cd4d87c5bceb43bd81c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

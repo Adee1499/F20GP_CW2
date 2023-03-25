@@ -42,7 +42,14 @@ public class InventorySlotUI : MonoBehaviour, IDropHandler
 
         item.transform.SetParent(_itemParent);
         item.transform.localPosition = new Vector3(0, 0, 0);
-        EquipmentManager.Instance.EquipItem(itemSO.item.onPlayerPrefab, itemSO.item.equipmentSlot);
+        EquipmentManager.Instance.EquipItem(itemSO.item);
+
+        // Update stats
+        if (itemSO.item.equipmentSlot == EquipmentSlot.Weapon) {
+            InventoryUI.Instance.attackStat += (itemSO.item as EquipmentItem).attackValue;
+        } else if (itemSO.item.equipmentSlot != EquipmentSlot.None) {
+            InventoryUI.Instance.defenceStat += (itemSO.item as EquipmentItem).defenseValue;
+        }
     }
 
     public void UnequipItem(GameObject item)
@@ -53,5 +60,12 @@ public class InventorySlotUI : MonoBehaviour, IDropHandler
         EquipmentManager.Instance.UnequipItem(equipmentSlot);
         // Move over to inventory
         item.transform.SetParent(InventoryUI.Instance.ItemsContainer);
+
+        // Update stats
+        if (itemSO.item.equipmentSlot == EquipmentSlot.Weapon) {
+            InventoryUI.Instance.attackStat -= (itemSO.item as EquipmentItem).attackValue;
+        } else if (itemSO.item.equipmentSlot != EquipmentSlot.None) {
+            InventoryUI.Instance.defenceStat -= (itemSO.item as EquipmentItem).defenseValue;
+        }
     }
 }

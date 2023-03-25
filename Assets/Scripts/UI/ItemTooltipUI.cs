@@ -27,12 +27,16 @@ public class ItemTooltipUI : MonoBehaviour
         EquipmentItem eqItem = item as EquipmentItem;
         if (eqItem != null) {
             // _rarity.text = eqItem.rarity;
-            _mainStatValue.text = eqItem.defenseValue.ToString();
             _levelRequired.text = $"Level required: {eqItem.levelRequired}";
 
             _type.text = GetItemType(eqItem.equipmentSlot);
-            string mainStatName = eqItem.equipmentSlot == EquipmentSlot.Weapon ? "Attack" : "Defence";
-            _mainStatName.text = mainStatName;
+            if (eqItem.equipmentSlot == EquipmentSlot.Weapon) {
+                _mainStatValue.text = eqItem.attackValue.ToString();
+                _mainStatName.text = "Attack";
+            } else {
+                _mainStatValue.text = eqItem.defenseValue.ToString();
+                _mainStatName.text = "Defence";   
+            }
         } else {
             _type.text = "Potion";
         }

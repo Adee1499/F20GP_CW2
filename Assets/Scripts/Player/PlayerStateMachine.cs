@@ -76,6 +76,8 @@ public class PlayerStateMachine : MonoBehaviour
     public float WalkSpeed { get { return _walkSpeed; }}
     public float RunSpeed { get { return _runSpeed; }}
     public float InteractionRange { get { return _interactionRange; }}
+    public float MaxPlayerHealth { get { return _maxPlayerHP; }}
+    public float MaxPlayerMana { get { return _maxPlayerMP; }}
     public float PlayerHealth { get { return _playerHP; }}
     public float PlayerMana { get { return _playerMP; }}
 
