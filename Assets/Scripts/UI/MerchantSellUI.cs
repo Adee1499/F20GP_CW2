@@ -19,6 +19,8 @@ public class MerchantSellUI : MonoBehaviour, IDropHandler
 
                     // Remove item from player's inventory
                     InventoryUI.Instance.RemoveInventoryItem(droppedItemSO.item);
+                } else {
+                    Merchant.Instance.PlayAudioClip(Merchant.Instance.NotEnoughMoneyClip);
                 }
             }
         }

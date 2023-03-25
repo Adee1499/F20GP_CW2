@@ -10,6 +10,9 @@ public class Merchant : MonoBehaviour
     private static Merchant _instance;
     public static Merchant Instance { get { return _instance; }}
     [SerializeField] AudioClip[] _greetingClips;
+    [SerializeField] AudioClip _coinClip;
+    [SerializeField] AudioClip _notEnoughMoneyClip;
+    public AudioClip NotEnoughMoneyClip { get { return _notEnoughMoneyClip; }}
     AudioSource _audioSource;
     public Inventory inventory;
     Dictionary<InventorySlot, GameObject> _itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
@@ -93,6 +96,7 @@ public class Merchant : MonoBehaviour
 
     public void BuyItemFromPlayer(InventoryItem item)
     {
+        PlayAudioClip(_coinClip);
         InventorySlot newItem = new InventorySlot(item, 1);
         inventory.items.Add(newItem);
         inventory.gold -= item.sellValue;
@@ -105,6 +109,7 @@ public class Merchant : MonoBehaviour
         // If player has enough gold to buy this item
         int buyValue = (int)Mathf.Floor(targetItem.item.sellValue * _merchantMarkup);
         if (InventoryUI.Instance.inventory.gold >= buyValue) {
+            PlayAudioClip(_coinClip);
             // Add item to player's inventory
             InventoryUI.Instance.BuyItemFromMerchant(targetItem.item);
             // Remove item from merchant's inventory
@@ -113,6 +118,8 @@ public class Merchant : MonoBehaviour
             // Trade gold
             inventory.gold += buyValue;
             InventoryUI.Instance.inventory.gold -= buyValue;
+        } else {
+            PlayAudioClip(_notEnoughMoneyClip);
         }
     }
 
@@ -123,9 +130,9 @@ public class Merchant : MonoBehaviour
         }
     }
 
-    void InviteToTrade()
+    public void PlayAudioClip(AudioClip clip)
     {
-        _audioSource.clip = _greetingClips[Random.Range(0, _greetingClips.Length)];
+        _audioSource.clip = clip;
         _audioSource.Play();
     }
 
@@ -133,7 +140,7 @@ public class Merchant : MonoBehaviour
     {
         if (other.CompareTag("Player")) {
             if (!_audioSource.isPlaying)
-                InviteToTrade();
+                PlayAudioClip(_greetingClips[Random.Range(0, _greetingClips.Length)]);
         }    
     }
 }

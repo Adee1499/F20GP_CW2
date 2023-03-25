@@ -2288,7 +2288,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 517b0e55c0133cb498e61fa574b64219, type: 3}
   - {fileID: 8300000, guid: 7534a06c4c0c1b846bf3a7ab687de173, type: 3}
   - {fileID: 8300000, guid: e5dd27e4093b44140bda30654124db0a, type: 3}
-  _inventory: {fileID: 11400000, guid: 442b36960388acf46ba809d5ec29821d, type: 2}
+  _coinClip: {fileID: 8300000, guid: d211920619df3ac44bd446d5d6214a0f, type: 3}
+  _notEnoughMoneyClip: {fileID: 8300000, guid: 66029aca53a22834bbedfe70eaa2c52a, type: 3}
+  inventory: {fileID: 11400000, guid: 442b36960388acf46ba809d5ec29821d, type: 2}
   _merchantMarkup: 1.2
 --- !u!82 &422484926
 AudioSource:
@@ -6795,6 +6797,7 @@ GameObject:
   - component: {fileID: 1243420084}
   - component: {fileID: 1243420086}
   - component: {fileID: 1243420085}
+  - component: {fileID: 1243420087}
   m_Layer: 0
   m_Name: DropToSellArea
   m_TagString: Untagged
@@ -6861,6 +6864,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243420083}
   m_CullTransparentMesh: 1
+--- !u!114 &1243420087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243420083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31605529b694b474099add3f749694ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1243779834
 GameObject:
   m_ObjectHideFlags: 0

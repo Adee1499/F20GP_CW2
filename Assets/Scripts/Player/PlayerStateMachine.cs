@@ -191,6 +191,7 @@ public class PlayerStateMachine : MonoBehaviour
             if (InventoryUI.Instance.UI_Inventory.activeSelf || InventoryUI.Instance.UI_Equipment.activeSelf) {
                 InventoryUI.Instance.UI_Inventory.SetActive(false);
                 InventoryUI.Instance.UI_Equipment.SetActive(false);
+                InventoryUI.Instance.ItemTooltip.SetActive(false);
             } else {
                 InventoryUI.Instance.UI_Inventory.SetActive(true);
                 InventoryUI.Instance.UI_Equipment.SetActive(true);
