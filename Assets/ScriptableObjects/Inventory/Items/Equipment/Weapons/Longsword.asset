@@ -20,8 +20,7 @@ MonoBehaviour:
   sellValue: 550
   itemName: Dragonslayer
   description: This legendary sword is said to have been forged in the fires of a
-    dragon's breath. Its long, straight blade is impossibly sharp, capable of slicing
-    through even the toughest scales.
+    dragon's breath. Its long, straight blade is impossibly sharp.
   defenseValue: 0
   attackValue: 35
   levelRequired: 3
