@@ -58,7 +58,7 @@ public class PlayerInteractState : PlayerBaseState
         // Check for merchant in interaction range
         Collider[] collidersWithinRange = Physics.OverlapSphere(Ctx.transform.position, Ctx.InteractionRange);
         foreach(Collider collider in collidersWithinRange) {
-            if (/*collider.CompareTag("Merchant")*/ false) {
+            if (collider.CompareTag("Merchant")) {
                 _merchant = collider.gameObject;
                 return InteractionType.Merchant;
             }
