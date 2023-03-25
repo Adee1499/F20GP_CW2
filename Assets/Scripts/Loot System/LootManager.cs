@@ -4,27 +4,43 @@ using UnityEngine;
 
 public class LootManager : MonoBehaviour
 {
-    public List<InventoryItem> DroppableLoot;
+    public List<EquipmentItem> DroppableLoot;
     public Dictionary<string, LootRarity> RarityStats = new Dictionary<string, LootRarity>();
 
     void Awake()
     {
         RarityStats["Common"] = new LootRarity("Common", new Color(1.0f, 1.0f, 1.0f), 1.0f);
-        RarityStats["Uncommon"] = new LootRarity("Uncommon", new Color(0.19f, 0.97f, 0.15f), 1.2f);
-        RarityStats["Rare"] = new LootRarity("Rare", new Color(0.84f, 0.32f, 0.97f), 1.7f);
-        RarityStats["Legendary"] = new LootRarity("Legendary", new Color(1.0f, 0.72f, 0.17f), 2.0f);
+        RarityStats["Uncommon"] = new LootRarity("Uncommon", new Color(0.19f, 0.97f, 0.15f), 1.4f);
+        RarityStats["Rare"] = new LootRarity("Rare", new Color(0.84f, 0.32f, 0.97f), 1.8f);
+        RarityStats["Legendary"] = new LootRarity("Legendary", new Color(1.0f, 0.72f, 0.17f), 2.5f);
 
     }
 
-    public void DropLoot(Vector3 position, int noItemsDropped)
+    public void DropLoot(Vector3 position, int noItemsDropped, int suggestedLevel, float rarityModifier = 1.0f)
     {
         List<GameObject> prefabs = new List<GameObject>();
-        foreach(InventoryItem item in DroppableLoot){
-
+        for(int i = 0; i < noItemsDropped; i++){
+            var item = DroppableLoot[Random.Range(0, DroppableLoot.Count - 1)];
             var newItem = Instantiate(item);
+
+            LootRarity itemRarity = GenerateRarity(rarityModifier);
+
             var prefab = newItem.onGroundPrefab;
-            prefab.GetComponent<Outline>().OutlineColor = RarityStats[GenerateRarity().rarity].rarityColour;
-            
+            prefab.GetComponent<Outline>().OutlineColor = RarityStats[itemRarity.rarity].rarityColour;
+
+            // 20% chance that common items are a level below
+            if(suggestedLevel > 1 && itemRarity.rarity == "Common" && Random.Range(0.0f, 1.0f) < 0.2f)
+                suggestedLevel -= 1;
+
+            if(newItem.itemType == ItemType.Equipment){
+                newItem.defenseValue = (int) Mathf.Round(newItem.defenseValue * suggestedLevel * itemRarity.statModifier * Random.Range(0.8f, 1.2f));
+            }
+
+            newItem.sellValue = (int) Mathf.Round(newItem.sellValue * newItem.defenseValue * itemRarity.statModifier);
+            newItem.lootRarity = itemRarity;
+
+            prefab.GetComponent<Loot>().objRef = newItem;
+
             Instantiate(prefab, position, Quaternion.identity);
             prefabs.Add(prefab);
         }
@@ -35,20 +51,20 @@ public class LootManager : MonoBehaviour
         
     }
 
-    private LootRarity GenerateRarity() {
+    private LootRarity GenerateRarity(float rarityModifier) {
         float rand = Random.Range(0.0f, 1.0f);
 
-        if(rand < 0.05f){
+        if(rand < 0.05f * rarityModifier){
             return RarityStats["Legendary"];
         }
-        else if(rand < 0.2f){
+        else if(rand < 0.2f * rarityModifier){
             return RarityStats["Rare"];
         }
-        else if(rand < 0.5f){
+        else if(rand < 0.5f * rarityModifier){
             return RarityStats["Uncommon"];
         }
         else {
-            return RarityStats["Common"];
+            return RarityStats["Common"]; // SHOULD PROBABLY PRODUCE ANOTHER CHANCE FOR GOLD INSTEAD OF COMMON ITEM
         }
     }
 }
