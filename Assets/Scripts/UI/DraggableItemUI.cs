@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
 {
+    public bool draggable = true;
     Canvas _canvas;
     RectTransform _rectTransform;
     // Required to block raycasts and set transparency
@@ -40,53 +41,64 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
         Rect rect =  _tooltip.GetComponent<RectTransform>().rect;
         _tooltipWidth = rect.width * _canvasScale;
         _tooltipHeight = rect.height * _canvasScale;
-        _tooltipOffsetRight = new Vector2(_tooltipWidth / 2 * 1.2f, -(_tooltipHeight / 2 * 1.2f));
-        _tooltipOffsetLeft = new Vector2(-(_tooltipWidth / 2 * 1.2f), -(_tooltipHeight / 2 * 1.2f));
+        if (draggable) {
+            _tooltipOffsetRight = new Vector2(_tooltipWidth / 2 * 1.2f, -(_tooltipHeight / 2 * 1.2f));
+            _tooltipOffsetLeft = new Vector2(-(_tooltipWidth / 2 * 1.2f), -(_tooltipHeight / 2 * 1.2f));
+        } else {
+            _tooltipOffsetRight = new Vector2(_tooltipWidth / 2 * 1.3f, -(_tooltipHeight / 2 * 1.3f));
+            _tooltipOffsetLeft = new Vector2(-(_tooltipWidth / 2 * 1.3f), -(_tooltipHeight / 2 * 1.3f));
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData) 
     {
-        if (eventData.clickCount > 1) {
-            if (!InventoryUI.Instance.UI_Equipment.activeSelf) {
-                InventoryUI.Instance.UI_Equipment.SetActive(true);
-            }
-            InventorySlotUI slot = FindObjectsOfType<InventorySlotUI>().Where(slot => slot.equipmentSlot == item.equipmentSlot).FirstOrDefault();
-            if (equipped) {
-                slot.UnequipItem(gameObject);
-            } else {
-                slot.EquipItem(gameObject);
+        if (draggable) {
+            if (eventData.clickCount > 1) {
+                if (!InventoryUI.Instance.UI_Equipment.activeSelf) {
+                    InventoryUI.Instance.UI_Equipment.SetActive(true);
+                }
+                InventorySlotUI slot = FindObjectsOfType<InventorySlotUI>().Where(slot => slot.equipmentSlot == item.equipmentSlot).FirstOrDefault();
+                if (equipped) {
+                    slot.UnequipItem(gameObject);
+                } else {
+                    slot.EquipItem(gameObject);
+                }
             }
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _previousParent = transform.parent;
-        InventoryUI.Instance.CurrentItem = gameObject;
-        transform.SetParent(_draggedItemParent);
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.alpha = 0.5f;
+        if (draggable) {
+            _previousParent = transform.parent;
+            InventoryUI.Instance.CurrentItem = gameObject;
+            transform.SetParent(_draggedItemParent);
+            _canvasGroup.blocksRaycasts = false;
+            _canvasGroup.alpha = 0.5f;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+        if (draggable)
+            _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (EventSystem.current.IsPointerOverGameObject()) {
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.alpha = 1f;
-            if (transform.parent == _draggedItemParent) {
-                transform.SetParent(_previousParent);
-                transform.localPosition = new Vector3(0, 0, 0);
+        if (draggable) {
+            if (EventSystem.current.IsPointerOverGameObject()) {
+                _canvasGroup.blocksRaycasts = true;
+                _canvasGroup.alpha = 1f;
+                if (transform.parent == _draggedItemParent) {
+                    transform.SetParent(_previousParent);
+                    transform.localPosition = new Vector3(0, 0, 0);
+                }
+            } else {
+                // Instantiate the item's mesh in the world and remove from inventory
+                Instantiate(item.onGroundPrefab, _playerReference.transform.position, Quaternion.identity);
+                InventoryUI.Instance.RemoveInventoryItem(item);
             }
-        } else {
-            // Instantiate the item's mesh in the world and remove from inventory
-            Instantiate(item.onGroundPrefab, _playerReference.transform.position, Quaternion.identity);
-            InventoryUI.Instance.RemoveInventoryItem(item);
-            Destroy(gameObject);
         }
     }
 
@@ -98,10 +110,8 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        if (_tooltip.activeSelf) {
-            Vector2 tooltipPosition = eventData.position + (IsTooltipOffscreen(eventData.position) ? _tooltipOffsetLeft : _tooltipOffsetRight);
-            _tooltip.transform.position = tooltipPosition;
-        }
+        Vector2 tooltipPosition = eventData.position + (IsTooltipOffscreen(eventData.position) ? _tooltipOffsetLeft : _tooltipOffsetRight);
+        _tooltip.transform.position = tooltipPosition;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -118,7 +128,11 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
 
         if (EventSystem.current.IsPointerOverGameObject()) {
             _tooltip.SetActive(true);
-            _tooltip.GetComponent<ItemTooltipUI>().UpdateTooltip(item);
+            if (draggable) {
+                _tooltip.GetComponent<ItemTooltipUI>().UpdateTooltip(item);
+            } else {
+                _tooltip.GetComponent<ItemTooltipUI>().UpdateTooltip(item, Merchant.Instance.MarkupValue);
+            }
         }
     }
 
