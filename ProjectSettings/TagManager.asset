@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Equipment
   - Merchant
+  - Enemy
   layers:
   - Default
   - TransparentFX

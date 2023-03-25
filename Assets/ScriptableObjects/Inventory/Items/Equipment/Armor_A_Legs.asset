@@ -19,7 +19,8 @@ MonoBehaviour:
   onGroundPrefab: {fileID: 51058755700716725, guid: 2e97df4fcb0cd764d8a271badc6dc2db, type: 3}
   sellValue: 50
   itemName: Titanforged Legguards
-  description: 
+  description: Strong leg armor crafted by ancient Titans, capable of protecting
+    the wearer from even the most vicious attacks.
   defenseValue: 30
   attackValue: 0
   levelRequired: 3

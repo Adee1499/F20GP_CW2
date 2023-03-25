@@ -33,16 +33,26 @@ public class InventorySlotUI : MonoBehaviour, IDropHandler
     public void EquipItem(GameObject item)
     {
         DraggableItemUI itemSO = item.GetComponent<DraggableItemUI>();
-        itemSO.equipped = true;
 
-        // Check if there already is something equipped
-        if (_itemParent.childCount > 0) {
-            UnequipItem(_itemParent.GetChild(0).gameObject);
+        if (XPSystem.Instance.GetCurrentLevel() >= (itemSO.item as EquipmentItem).levelRequired) {
+            itemSO.equipped = true;
+
+            // Check if there already is something equipped
+            if (_itemParent.childCount > 0) {
+                UnequipItem(_itemParent.GetChild(0).gameObject);
+            }
+
+            item.transform.SetParent(_itemParent);
+            item.transform.localPosition = new Vector3(0, 0, 0);
+            EquipmentManager.Instance.EquipItem(itemSO.item);
+
+            // Update stats
+            if (itemSO.item.equipmentSlot == EquipmentSlot.Weapon) {
+                InventoryUI.Instance.attackStat += (itemSO.item as EquipmentItem).attackValue;
+            } else if (itemSO.item.equipmentSlot != EquipmentSlot.None) {
+                InventoryUI.Instance.defenceStat += (itemSO.item as EquipmentItem).defenseValue;
+            }
         }
-
-        item.transform.SetParent(_itemParent);
-        item.transform.localPosition = new Vector3(0, 0, 0);
-        EquipmentManager.Instance.EquipItem(itemSO.item.onPlayerPrefab, itemSO.item.equipmentSlot);
     }
 
     public void UnequipItem(GameObject item)
@@ -53,5 +63,12 @@ public class InventorySlotUI : MonoBehaviour, IDropHandler
         EquipmentManager.Instance.UnequipItem(equipmentSlot);
         // Move over to inventory
         item.transform.SetParent(InventoryUI.Instance.ItemsContainer);
+
+        // Update stats
+        if (itemSO.item.equipmentSlot == EquipmentSlot.Weapon) {
+            InventoryUI.Instance.attackStat -= (itemSO.item as EquipmentItem).attackValue;
+        } else if (itemSO.item.equipmentSlot != EquipmentSlot.None) {
+            InventoryUI.Instance.defenceStat -= (itemSO.item as EquipmentItem).defenseValue;
+        }
     }
 }

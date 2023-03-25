@@ -18,6 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] Inventory _inventory;
     [SerializeField] InventoryUI _inventoryUI;
     private Inventory _activeInventory;
+    XPSystem _xpSystem;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -76,6 +77,8 @@ public class PlayerStateMachine : MonoBehaviour
     public float WalkSpeed { get { return _walkSpeed; }}
     public float RunSpeed { get { return _runSpeed; }}
     public float InteractionRange { get { return _interactionRange; }}
+    public float MaxPlayerHealth { get { return _maxPlayerHP; }}
+    public float MaxPlayerMana { get { return _maxPlayerMP; }}
     public float PlayerHealth { get { return _playerHP; }}
     public float PlayerMana { get { return _playerMP; }}
 
@@ -147,6 +150,11 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.Inventory.started += OnInventoryInput;   
         _controls.Player.Inventory.canceled += OnInventoryInput;
+    }
+
+    void Start()
+    {
+        _xpSystem = new XPSystem();
     }
    
     void OnMovementInput (InputAction.CallbackContext context)

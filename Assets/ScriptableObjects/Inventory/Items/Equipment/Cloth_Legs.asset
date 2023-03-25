@@ -18,4 +18,9 @@ MonoBehaviour:
   equipmentSlot: 4
   onGroundPrefab: {fileID: 8553041513325323300, guid: bd66f754adebe4c4f9624033c2200757, type: 3}
   sellValue: 5
-  defenseValue: 5
+  itemName: Farmer's Pants
+  description: Durable pants worn by farmers, made from sturdy cotton or wool to
+    withstand the rigors of farm work.
+  defenseValue: 1
+  attackValue: 0
+  levelRequired: 0

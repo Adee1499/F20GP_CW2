@@ -19,7 +19,8 @@ MonoBehaviour:
   onGroundPrefab: {fileID: 6962596331870108153, guid: 00886dc5f24b525449309186a7459d56, type: 3}
   sellValue: 50
   itemName: Titanforged Warboots
-  description: 
+  description: Heavy boots forged by ancient Titans, imbued with great strength and
+    durability.
   defenseValue: 30
   attackValue: 0
   levelRequired: 3

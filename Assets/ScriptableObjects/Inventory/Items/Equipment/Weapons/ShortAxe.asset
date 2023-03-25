@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8108d9d4dd6cb49a806ec9effc338f, type: 3}
+  m_Name: ShortAxe
+  m_EditorClassIdentifier: 
+  itemType: 1
+  inventoryIcon: {fileID: 21300000, guid: d69b3d2126ca599449d43b95df828fb2, type: 3}
+  onPlayerPrefab: {fileID: 1760574894572221032, guid: adae6be6654e723469fedd60d61b200c, type: 3}
+  equipmentSlot: 6
+  onGroundPrefab: {fileID: 1760574894572221032, guid: adae6be6654e723469fedd60d61b200c, type: 3}
+  sellValue: 75
+  itemName: Stormcleaver
+  description: This weapon is a deadly combination of a battle axe and a hatchet.
+    Its curved, razor-sharp blade is perfect for cleaving through flesh and bone.
+  defenseValue: 0
+  attackValue: 10
+  levelRequired: 1

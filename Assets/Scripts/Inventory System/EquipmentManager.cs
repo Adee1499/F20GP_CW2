@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EquipmentManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] Transform _legsSlot;
     [SerializeField] Transform _bootsSlot;
     [SerializeField] Transform _capeSlot;
+    [SerializeField] Transform _rightHandSlot;
 
     [SerializeField] GameObject _nakedBodyPrefab;
     [SerializeField] GameObject _nakedHandsPrefab;
@@ -25,14 +27,14 @@ public class EquipmentManager : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void EquipItem(GameObject prefab, EquipmentSlot slot)
+    public void EquipItem(InventoryItem item)
     {
-        Transform itemParent = GetSlotDefaults(slot).itemParent;
+        Transform itemParent = GetSlotDefaults(item.equipmentSlot).itemParent;
         if (itemParent.childCount > 0) {
-            UnequipItem(slot);
+            UnequipItem(item.equipmentSlot);
         }
         RemoveSlotChildren(itemParent);
-        InstantiateSlotObject(prefab, itemParent);
+        InstantiateSlotObject(item.onPlayerPrefab, itemParent, item.equipmentSlot != EquipmentSlot.Weapon);
     }
 
     public void UnequipItem(EquipmentSlot slot)
@@ -40,7 +42,7 @@ public class EquipmentManager : MonoBehaviour
         (GameObject defaultSlotObject, Transform itemParent) = GetSlotDefaults(slot);
         RemoveSlotChildren(itemParent);
         if (defaultSlotObject != null) {
-            InstantiateSlotObject(defaultSlotObject, itemParent);
+            InstantiateSlotObject(defaultSlotObject, itemParent, slot != EquipmentSlot.Weapon);
         }
     }
 
@@ -71,6 +73,9 @@ public class EquipmentManager : MonoBehaviour
             case EquipmentSlot.Cape: 
                 itemParent = _capeSlot;
                 break;
+            case EquipmentSlot.Weapon:
+                itemParent = _rightHandSlot;
+                break;
             default: 
                 break;
         }
@@ -88,13 +93,18 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    private void InstantiateSlotObject(GameObject prefab, Transform itemParent)
+    private void InstantiateSlotObject(GameObject prefab, Transform itemParent, bool hasSkinnedMeshRenderer)
     {
         // Instantiate GameObject and parent under the slot
-        GameObject armor = Instantiate(prefab, transform.position, Quaternion.identity);
-        armor.SetActive(true);
-        armor.transform.SetParent(itemParent);
-        armor.GetComponent<SkinnedMeshRenderer>().CopyBonesFrom(GetComponentInChildren<SkinnedMeshRenderer>());
-        _animator.Rebind();
+        GameObject item = Instantiate(prefab, transform.position, Quaternion.identity);
+        item.SetActive(true);
+        item.transform.SetParent(itemParent);
+        if (hasSkinnedMeshRenderer) {
+            item.GetComponent<SkinnedMeshRenderer>().CopyBonesFrom(GetComponentInChildren<SkinnedMeshRenderer>());
+            _animator.Rebind();
+        } else {
+            item.transform.localPosition = Vector3.zero;
+            item.transform.localRotation = Quaternion.identity;
+        }
     }
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
   onGroundPrefab: {fileID: 6479441212888434191, guid: 5530821231fc71a49be7b590714248ca, type: 3}
   sellValue: 25
   itemName: Rogue's Harness
-  description: 
+  description: Light, flexible chest armor designed for nimble and stealthy rogues.
   defenseValue: 10
   attackValue: 0
   levelRequired: 2
