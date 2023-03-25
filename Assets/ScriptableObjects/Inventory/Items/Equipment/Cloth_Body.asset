@@ -18,4 +18,8 @@ MonoBehaviour:
   equipmentSlot: 2
   onGroundPrefab: {fileID: 8483013971765932648, guid: e5895e5b233c6ad42b6863a6ef932623, type: 3}
   sellValue: 5
-  defenseValue: 5
+  itemName: Cotton Tunic
+  description: A comfortable and lightweight tunic made from soft cotton fabric.
+  defenseValue: 1
+  attackValue: 0
+  levelRequired: 0

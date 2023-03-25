@@ -19,7 +19,8 @@ MonoBehaviour:
   onGroundPrefab: {fileID: 7755682549954464441, guid: 820db1d93e50d364a988ffdce1d8ceb0, type: 3}
   sellValue: 25
   itemName: Rogue's Boots
-  description: 
+  description: Lightweight and quiet boots designed for agile movement and stealthy
+    operations.
   defenseValue: 10
   attackValue: 0
   levelRequired: 2

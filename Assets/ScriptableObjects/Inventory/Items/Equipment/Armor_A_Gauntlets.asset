@@ -19,7 +19,8 @@ MonoBehaviour:
   onGroundPrefab: {fileID: 3338136213382171052, guid: 89e65254129440f4aabb8a6f01af0e0b, type: 3}
   sellValue: 50
   itemName: Titanforged Handguards
-  description: 
+  description: Sturdy gauntlets forged by ancient Titans, providing unparalleled
+    protection and strength.
   defenseValue: 30
   attackValue: 0
   levelRequired: 3

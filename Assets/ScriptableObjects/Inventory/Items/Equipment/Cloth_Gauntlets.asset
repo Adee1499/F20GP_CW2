@@ -18,4 +18,9 @@ MonoBehaviour:
   equipmentSlot: 3
   onGroundPrefab: {fileID: 5751271209804106119, guid: 5a65e044e4dc3ca468cfc2cb8562d624, type: 3}
   sellValue: 5
-  defenseValue: 5
+  itemName: Winter Gloves
+  description: Warm gloves designed for cold weather, made from thick fur and wool
+    to protect the wearer's hands from frostbite.
+  defenseValue: 0
+  attackValue: 0
+  levelRequired: 0
