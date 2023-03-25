@@ -19,7 +19,8 @@ MonoBehaviour:
   onGroundPrefab: {fileID: 7276450308449736449, guid: c3ca28e25cc113f4aa90b87d272b79ea, type: 3}
   sellValue: 25
   itemName: Wyvernhide Gloves
-  description: 
+  description: Gloves made from the hide of a fierce wyvern, providing the wearer
+    with enhanced strength and grip.
   defenseValue: 10
   attackValue: 0
   levelRequired: 2

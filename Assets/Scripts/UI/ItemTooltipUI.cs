@@ -11,6 +11,8 @@ public class ItemTooltipUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _mainStatValue;
     [SerializeField] TextMeshProUGUI _mainStatName;
     [SerializeField] TextMeshProUGUI _levelRequired;
+    [SerializeField] GameObject _arrowUp;
+    [SerializeField] GameObject _arrowDown;
 
     Color lightgray = new Color(0.5660378f, 0.5660378f, 0.5660378f);
     Color crimsonRed = new Color(0.6037736f, 0.05354216f, 0.05354216f);
@@ -23,6 +25,8 @@ public class ItemTooltipUI : MonoBehaviour
 
     public void UpdateTooltip(InventoryItem item, float merchantMarkup)
     {
+        _arrowUp.SetActive(false);
+        _arrowDown.SetActive(false);
         _goldValue.text = Mathf.Floor(item.sellValue * merchantMarkup).ToString();
         _name.text = item.itemName;
         _description.text = item.description;
@@ -51,8 +55,10 @@ public class ItemTooltipUI : MonoBehaviour
             if (currentStatLower < 0) {
                 // If current stat is lower than this item
                 newColor = darkGreen;
+                _arrowUp.SetActive(true);
             } else if (currentStatLower > 0) {
                 newColor = crimsonRed;
+                _arrowDown.SetActive(true);
             }
             _mainStatValue.color = newColor;
             _mainStatName.color = newColor;

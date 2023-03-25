@@ -19,7 +19,8 @@ MonoBehaviour:
   onGroundPrefab: {fileID: 7069226730818841377, guid: c75e176c0ff6aba4ba163b9852917ec6, type: 3}
   sellValue: 25
   itemName: Nightshade Cape
-  description: 
-  defenseValue: 10
+  description: A dark, shadowy cape made from rare nightshade fabric, providing its
+    wearer with enhanced stealth and camouflage.
+  defenseValue: 0
   attackValue: 0
   levelRequired: 2
