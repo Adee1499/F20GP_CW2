@@ -6,9 +6,12 @@ public class PlayerAttackState : PlayerBaseState
     public PlayerAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
     : base(currentContext, playerStateFactory) {}
 
+    bool _dealtDamage;
+
     public override void EnterState() 
     {
-        // Just a placeholder for now
+        _dealtDamage = false;
+        WeaponScript.OnWeaponCollidedWithEnemy += DealDamageToEnemy;
         Ctx.StartCoroutine(AnimationTimeout());
     }
 
@@ -17,7 +20,10 @@ public class PlayerAttackState : PlayerBaseState
         Ctx.AppliedMovement = new Vector3(Ctx.CurrentMovementInput.x, 0f, Ctx.CurrentMovementInput.y) * Ctx.WalkSpeed;
     }
 
-    public override void ExitState() {}
+    public override void ExitState() 
+    {
+        WeaponScript.OnWeaponCollidedWithEnemy -= DealDamageToEnemy;
+    }
 
     public override void InitializeSubState() {}
 
@@ -31,5 +37,13 @@ public class PlayerAttackState : PlayerBaseState
         Ctx.Animator.SetTrigger(Ctx.AnimAttackHash);
         yield return new WaitForSeconds(1f);
         CheckSwitchStates();
+    }
+
+    void DealDamageToEnemy()
+    {
+        if (!_dealtDamage) {
+            Debug.Log("Dealing damage to enemy");
+            _dealtDamage = true;
+        }
     }
 }

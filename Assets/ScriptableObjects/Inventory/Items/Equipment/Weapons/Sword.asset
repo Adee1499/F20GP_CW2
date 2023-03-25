@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8108d9d4dd6cb49a806ec9effc338f, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  itemType: 1
+  inventoryIcon: {fileID: 21300000, guid: 009d4fc67f3ecc341a5229c548eea9a0, type: 3}
+  onPlayerPrefab: {fileID: 5778942376948609405, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
+  equipmentSlot: 6
+  onGroundPrefab: {fileID: 5778942376948609405, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
+  sellValue: 215
+  itemName: Shadowfang
+  description: This swift and agile weapon is perfect for quick strikes and agile
+    maneuvers. Its slender blade is honed to a razor's edge, capable of slicing through
+    armor and flesh alike.
+  defenseValue: 0
+  attackValue: 22
+  levelRequired: 1

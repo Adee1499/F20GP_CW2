@@ -33,4 +33,12 @@ MonoBehaviour:
     amount: 0
   - item: {fileID: 11400000, guid: 999ead1c86c66c74fbc2be87ce4070f5, type: 2}
     amount: 0
+  - item: {fileID: 11400000, guid: a57c361848952a9419bc9012144e0583, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 56e549b3474e9cb429a635747e37bf7f, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 014863b42d082164db5e2f07c3c79fe1, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 0eb62b64b323a2744a7852e637c28953, type: 2}
+    amount: 0
   gold: 653
