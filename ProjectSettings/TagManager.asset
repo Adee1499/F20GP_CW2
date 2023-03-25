@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Equipment
+  - Merchant
   layers:
   - Default
   - TransparentFX

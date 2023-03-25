@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: Player_Inventory 1
   m_EditorClassIdentifier: 
   items:
+  - item: {fileID: 11400000, guid: 4e95bcd7f63fc7b4082ea5dc649eef2a, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 850e1c6362f6e594a94346c5b720ed58, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 18f550a67dd459a4782cbf7ee5e0d94d, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 7b0d18461b5bc0444b62dd4ef55b6569, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 6f702b66a86233f439c8a76a04ed0165, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 7f54ba1b031bf944caec4d3d83b29a90, type: 2}
+    amount: 0
   - item: {fileID: 11400000, guid: 612e79019a5ef7f4baceb109fec96597, type: 2}
     amount: 0
   - item: {fileID: 11400000, guid: 6f56b9fd5b5d72a4f98d17b284c843a5, type: 2}
@@ -21,13 +33,4 @@ MonoBehaviour:
     amount: 0
   - item: {fileID: 11400000, guid: 999ead1c86c66c74fbc2be87ce4070f5, type: 2}
     amount: 0
-  - item: {fileID: 11400000, guid: 7f835964a7df0bf468ecd2a679ffa5bd, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: c07800ab30051f34fbe6645b0c82b030, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: 0123c4b75349cba40b87b22a562b7c99, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: ffe3b883399b9ab4888a21bb0d49989e, type: 2}
-    amount: 0
-  - item: {fileID: 11400000, guid: 4e95bcd7f63fc7b4082ea5dc649eef2a, type: 2}
-    amount: 0
+  gold: 653

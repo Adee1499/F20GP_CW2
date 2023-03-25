@@ -1042,6 +1042,7 @@ GameObject:
   - component: {fileID: -1663956330769372011}
   - component: {fileID: -3148432193387643916}
   - component: {fileID: -317314823625809138}
+  - component: {fileID: 8362606218371334033}
   m_Layer: 6
   m_Name: PT_Male_Armor_01_A_gauntlets
   m_TagString: Untagged
@@ -1107,6 +1108,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974a12081187e0f458dcae9a6161bef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8362606218371334033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338136213382171052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3488649325621114381
 GameObject:
   m_ObjectHideFlags: 0

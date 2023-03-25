@@ -17,3 +17,9 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 8959979807558627045, guid: e30a9073e91ec084194f4beb62358350, type: 3}
   equipmentSlot: 5
   onGroundPrefab: {fileID: 6962596331870108153, guid: 00886dc5f24b525449309186a7459d56, type: 3}
+  sellValue: 50
+  itemName: Titanforged Warboots
+  description: 
+  defenseValue: 30
+  attackValue: 0
+  levelRequired: 3

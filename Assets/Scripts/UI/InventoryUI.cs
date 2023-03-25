@@ -9,17 +9,23 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI Instance { get { return _instance; }}
     [HideInInspector] public Inventory inventory;
     public Transform ItemsContainer;
+    [SerializeField] TextMeshProUGUI _goldAmount;
     [SerializeField] private GameObject _defaultItemPrefab;
     [SerializeField] private GameObject _equipmentItemPrefab;
     public GameObject EquipmentItemPrefab { get { return _equipmentItemPrefab; }}
+    [SerializeField] private GameObject _merchantItemPrefab;
+    public GameObject MerchantItemPrefab { get { return _merchantItemPrefab; }}
+    [SerializeField] private GameObject _itemTooltip;
+    public GameObject ItemTooltip { get { return _itemTooltip; }}
     [HideInInspector] public GameObject CurrentItem;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
     // UI Elements references
     public GameObject UI_Inventory;
     public GameObject UI_Equipment;
+    public GameObject UI_Merchant;
 
-    void Start()
+    void Awake()
     {
         _instance = this;
         PopulateInventory();
@@ -39,6 +45,7 @@ public class InventoryUI : MonoBehaviour
 
     public void RefreshInventory()
     {
+        _goldAmount.text = inventory.gold.ToString();
         for (int i = 0; i < inventory.items.Count; i++) {
             if (itemsDisplayed.ContainsKey(inventory.items[i])) {
                 if (itemsDisplayed[inventory.items[i]].GetComponent<DraggableItemUI>().item.itemType != ItemType.Equipment) {
@@ -69,9 +76,18 @@ public class InventoryUI : MonoBehaviour
         foreach(InventorySlot slot in inventory.items) {
             if (slot.CompareItem(item)) {
                 inventory.items.Remove(slot);
+                GameObject inventoryObject = itemsDisplayed[slot];
                 itemsDisplayed.Remove(slot);
+                Destroy(inventoryObject);
+                RefreshInventory();
                 break;
             }
         }
+    }
+
+    public void BuyItemFromMerchant(InventoryItem item) 
+    {
+        InventorySlot newItem = new InventorySlot(item, 1);
+        inventory.items.Add(newItem);
     }
 }

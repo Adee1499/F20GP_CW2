@@ -17,3 +17,9 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 5883051322029045532, guid: 38e8a8e26f5e82142ab4914445bb8027, type: 3}
   equipmentSlot: 7
   onGroundPrefab: {fileID: 7069226730818841377, guid: c75e176c0ff6aba4ba163b9852917ec6, type: 3}
+  sellValue: 25
+  itemName: Nightshade Cape
+  description: 
+  defenseValue: 10
+  attackValue: 0
+  levelRequired: 2

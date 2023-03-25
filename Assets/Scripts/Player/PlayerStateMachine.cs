@@ -42,6 +42,7 @@ public class PlayerStateMachine : MonoBehaviour
     bool _isInteractPressed;
     bool _isRollPressed;
     bool _isLookAtPressed;
+    [SerializeField] float _interactionRange = 2f;
 
     // HP & MP variables
     [Header("Health & Mana")]
@@ -73,6 +74,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsLookAtPressed { get { return _isLookAtPressed; }}
     public float WalkSpeed { get { return _walkSpeed; }}
     public float RunSpeed { get { return _runSpeed; }}
+    public float InteractionRange { get { return _interactionRange; }}
     public float PlayerHealth { get { return _playerHP; }}
     public float PlayerMana { get { return _playerMP; }}
 
@@ -184,10 +186,12 @@ public class PlayerStateMachine : MonoBehaviour
 
     void OnInventoryInput (InputAction.CallbackContext context)
     {
+        InventoryUI.Instance.UI_Merchant.SetActive(false);
         if(context.ReadValueAsButton()) {
             if (InventoryUI.Instance.UI_Inventory.activeSelf || InventoryUI.Instance.UI_Equipment.activeSelf) {
                 InventoryUI.Instance.UI_Inventory.SetActive(false);
                 InventoryUI.Instance.UI_Equipment.SetActive(false);
+                InventoryUI.Instance.ItemTooltip.SetActive(false);
             } else {
                 InventoryUI.Instance.UI_Inventory.SetActive(true);
                 InventoryUI.Instance.UI_Equipment.SetActive(true);
@@ -225,7 +229,9 @@ public class PlayerStateMachine : MonoBehaviour
         if (_isLookAtPressed) {
             Gizmos.color = Color.white;
             Gizmos.DrawLine(_currentTargetPosition, _currentTargetPosition + Vector3.up * 1.5f);
-        }    
+        }
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, _interactionRange);
     }
 
     void Update()

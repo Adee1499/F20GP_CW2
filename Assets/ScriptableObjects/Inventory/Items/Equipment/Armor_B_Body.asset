@@ -17,3 +17,9 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 4790802450236143033, guid: c67753561c6895f449abb2b69f3853b1, type: 3}
   equipmentSlot: 2
   onGroundPrefab: {fileID: 6479441212888434191, guid: 5530821231fc71a49be7b590714248ca, type: 3}
+  sellValue: 25
+  itemName: Rogue's Harness
+  description: 
+  defenseValue: 10
+  attackValue: 0
+  levelRequired: 2
