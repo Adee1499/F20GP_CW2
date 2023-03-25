@@ -14,7 +14,12 @@ public class ItemTooltipUI : MonoBehaviour
 
     public void UpdateTooltip(InventoryItem item)
     {
-        _goldValue.text = item.sellValue.ToString();
+        UpdateTooltip(item, 1f);
+    }
+
+    public void UpdateTooltip(InventoryItem item, float merchantMarkup)
+    {
+        _goldValue.text = Mathf.Floor(item.sellValue * merchantMarkup).ToString();
         _name.text = item.itemName;
         _description.text = item.description;
 
