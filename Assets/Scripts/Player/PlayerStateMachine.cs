@@ -18,6 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] Inventory _inventory;
     [SerializeField] InventoryUI _inventoryUI;
     private Inventory _activeInventory;
+    XPSystem _xpSystem;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -149,6 +150,11 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.Inventory.started += OnInventoryInput;   
         _controls.Player.Inventory.canceled += OnInventoryInput;
+    }
+
+    void Start()
+    {
+        _xpSystem = new XPSystem();
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
