@@ -2743,6 +2743,7 @@ GameObject:
   - component: {fileID: 479394166755669048}
   - component: {fileID: 479394166755669049}
   - component: {fileID: 479394166755669050}
+  - component: {fileID: 4683227665985869301}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2857,9 +2858,10 @@ MonoBehaviour:
   _walkSpeed: 2
   _runSpeed: 5
   _rotationSpeed: 20
-  _maxPlayerHP: 0
-  _maxPlayerMP: 0
-  _manaRegenRate: 0
+  _interactionRange: 2
+  _maxPlayerHP: 100
+  _maxPlayerMP: 120
+  _manaRegenRate: 10
 --- !u!114 &479394166755669050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2878,10 +2880,25 @@ MonoBehaviour:
   _legsSlot: {fileID: 6306001878045585647}
   _bootsSlot: {fileID: 6306001878505570921}
   _capeSlot: {fileID: 2450241282963668232}
+  _rightHandSlot: {fileID: 7457759954083062381}
   _nakedBodyPrefab: {fileID: 616384801589893219, guid: 4801889e67445054a966fbd69dfcfdd9, type: 3}
   _nakedHandsPrefab: {fileID: 5654099518997259388, guid: 42100f26d62dea446b30f15ed8ac3037, type: 3}
   _nakedLegsPrefab: {fileID: 555816848306217161, guid: 719f91ea8b60b3b4fb56677562b7141c, type: 3}
   _nakedBootsPrefab: {fileID: 243715622533722297, guid: f4de6bd8adbcd9042a904778f333bd98, type: 3}
+--- !u!114 &4683227665985869301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560858504243983606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beaefffb69f5d474a948767835146886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: 11400000, guid: d23ba61d9af61bd4dbddd684e8fd6554, type: 2}
+  _projectileSpawnPoint: {fileID: 3359519341610341932}
 --- !u!1 &6633128549381993871
 GameObject:
   m_ObjectHideFlags: 0

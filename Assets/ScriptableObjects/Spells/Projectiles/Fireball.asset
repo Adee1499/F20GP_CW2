@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e759345ee4817c94bb0814aaea9c4ba0, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  spellType: 0
+  spellIcon: {fileID: 0}
+  spellName: Fireball
+  description: A powerful magical incantation that conjures a blazing orb of fire.
+    Upon impact, the fiery sphere explodes in a burst of flames.
+  damage: 15
+  manaCost: 10
+  fireMode: 0
+  projectilePrefab: {fileID: 1254724754748870, guid: ead2eb1ec6d8ee54fa5d36c7f5e30eef, type: 3}
+  hitEffectPrefab: {fileID: 1845764070681338, guid: ac2312a3e32471549882f1a6da5568e6, type: 3}
+  flashEffectPrefab: {fileID: 1023540632372170, guid: 12c5a36b60a39734f80150bc3e23e850, type: 3}
+  speed: 4
