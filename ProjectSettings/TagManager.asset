@@ -7,6 +7,8 @@ TagManager:
   - Equipment
   - Merchant
   - Enemy
+  - HealthGlobe
+  - ManaGlobe
   layers:
   - Default
   - TransparentFX

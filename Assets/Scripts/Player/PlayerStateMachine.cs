@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(EquipmentManager))]
@@ -21,6 +22,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Inventory _activeInventory;
     XPSystem _xpSystem;
     SpellCaster _spellCaster;
+    Slider heatlhGlobe, manaGlobe;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -179,6 +181,9 @@ public class PlayerStateMachine : MonoBehaviour
     void Start()
     {
         _xpSystem = new XPSystem();
+        manaGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();
+        manaGlobe.maxValue = _maxPlayerMP;
+        manaGlobe.value = _maxPlayerMP;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -335,7 +340,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
-    void UseMana(int amount)
+    public void UseMana(int amount)
     {
         _playerMP -= amount;
         OnPlayerManaChange?.Invoke(_playerMP);
@@ -345,6 +350,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if (_playerMP < _maxPlayerMP) {
             _playerMP += _manaRegenRate * Time.deltaTime;
+            manaGlobe.value = _playerMP;
             OnPlayerManaChange?.Invoke(_playerMP);
         }
     }
