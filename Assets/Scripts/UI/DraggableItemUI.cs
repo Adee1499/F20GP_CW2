@@ -98,6 +98,8 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
                 // Instantiate the item's mesh in the world and remove from inventory
                 Instantiate(item.onGroundPrefab, _playerReference.transform.position, Quaternion.identity);
                 InventoryUI.Instance.RemoveInventoryItem(item);
+                if (equipped)
+                    EquipmentManager.Instance.UnequipItem(item.equipmentSlot);
             }
         }
     }
