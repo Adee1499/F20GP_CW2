@@ -4,7 +4,7 @@ public enum SpellType {
     Projectile,
     Beam,
     Lifesteal,
-    AreaDamage
+    AreaOfEffect
 }
 
 public abstract class Spell : ScriptableObject

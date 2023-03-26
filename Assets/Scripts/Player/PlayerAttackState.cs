@@ -22,8 +22,12 @@ public class PlayerAttackState : PlayerBaseState
                 Ctx.StartCoroutine(MeleeAttack());
                 break;
             case 2:
-                // Spell projectile
+                // Projectile spell
                 Ctx.StartCoroutine(ProjectileAttack());
+                break;
+            case 3:
+                // AOE spell
+                Ctx.StartCoroutine(AOEAttack());
                 break;
         }
     }
@@ -62,8 +66,16 @@ public class PlayerAttackState : PlayerBaseState
 
     IEnumerator ProjectileAttack()
     {
-        Debug.Log("Casting spell");
-        Ctx.SpellCaster.SpawnProjectile();
+        Debug.Log("Casting projectile spell");
+        Ctx.SpellCaster.ProjectileSpell();
+        yield return new WaitForSeconds(0.4f);
+        CheckSwitchStates();
+    }
+
+    IEnumerator AOEAttack()
+    {
+        Debug.Log("Casting AOE spell");
+        Ctx.SpellCaster.AOESpell();
         yield return new WaitForSeconds(0.4f);
         CheckSwitchStates();
     }

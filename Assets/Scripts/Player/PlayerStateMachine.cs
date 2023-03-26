@@ -28,7 +28,8 @@ public class PlayerStateMachine : MonoBehaviour
     int _animMeleeAttackHash;
     int _animPickUpHash;
     int _animRollHash;
-    int _animSpellProjectileHash;
+    int _animProjectileSpellHash;
+    int _animAOESpellHash;
 
     // Movement variables
     [Header("Controls & Movement")]
@@ -72,7 +73,9 @@ public class PlayerStateMachine : MonoBehaviour
     public int AnimMeleeAttackHash { get { return _animMeleeAttackHash; }}
     public int AnimPickUpHash { get { return _animPickUpHash; }}
     public int AnimRollHash { get { return _animRollHash; }}
-    public int AnimSpellProjectileHash { get { return _animSpellProjectileHash; }}
+    public int AnimProjectileSpellHash { get { return _animProjectileSpellHash; }}
+    public int AnimAOESpellHash { get { return _animAOESpellHash; }}
+    public Vector3 CurrentMouseTargetPosition { get { return _currentTargetPosition; }}
     public Vector2 CurrentMovementInput { get { return _currentMovementInput; }}
     public Vector3 AppliedMovement { get { return _appliedMovement; } set { _appliedMovement = value; }}
     public float MovementMultiplier { get { return _movementMultiplier; } set { _movementMultiplier = value; }}
@@ -136,7 +139,8 @@ public class PlayerStateMachine : MonoBehaviour
         _animMeleeAttackHash = Animator.StringToHash("MeleeAttack");
         _animPickUpHash = Animator.StringToHash("PickUp");
         _animRollHash = Animator.StringToHash("Roll");
-        _animSpellProjectileHash = Animator.StringToHash("SpellProjectile");
+        _animProjectileSpellHash = Animator.StringToHash("ProjectileSpell");
+        _animAOESpellHash = Animator.StringToHash("AOESpell");
 
         // Set PlayerInput callbacks
         _controls.Player.Move.started += OnMovementInput;

@@ -14,4 +14,9 @@ public class ProjectileSpell : Spell
     public GameObject hitEffectPrefab;
     public GameObject flashEffectPrefab;    
     public float speed;
+
+    public void Awake()
+    {
+        spellType = SpellType.Projectile;
+    }
 }

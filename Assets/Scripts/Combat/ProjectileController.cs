@@ -21,7 +21,7 @@ public class ProjectileController : MonoBehaviour
 
         if (FlashEffectPrefab != null) {
             GameObject flashEffect = Instantiate(FlashEffectPrefab, transform);
-            // flashEffect.transform.forward = gameObject.transform.forward;
+            flashEffect.transform.SetParent(null);
 
             DestroyGameObjectWhenParticleSystemFinished(flashEffect);
         }

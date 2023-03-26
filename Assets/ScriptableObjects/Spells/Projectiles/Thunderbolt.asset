@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e759345ee4817c94bb0814aaea9c4ba0, type: 3}
+  m_Name: Thunderbolt
+  m_EditorClassIdentifier: 
+  spellType: 0
+  spellIcon: {fileID: 0}
+  spellName: Thunderbolt
+  description: A powerful electrical bolt that strikes the target with a jolt of
+    lightning, dealing damage and stunning them.
+  damage: 20
+  manaCost: 10
+  fireMode: 0
+  projectilePrefab: {fileID: 1103476841190090, guid: aaf0b3b035ba9da4db590f88449ce49f, type: 3}
+  hitEffectPrefab: {fileID: 1426864532553638, guid: 8281469a426430648ad0bf11c78fc3a2, type: 3}
+  flashEffectPrefab: {fileID: 1469211736650368, guid: b08f505eff218204fb92fac4cda2cfca, type: 3}
+  speed: 10
