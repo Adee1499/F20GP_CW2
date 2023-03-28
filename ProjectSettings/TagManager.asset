@@ -9,6 +9,12 @@ TagManager:
   - Enemy
   - HealthGlobe
   - ManaGlobe
+  - PlayerLevel
+  - XPBar
+  - GoldCount
+  - WeaponEquip
+  - Skill1
+  - Skill2
   layers:
   - Default
   - TransparentFX
