@@ -8,7 +8,8 @@ public class MeleeEnemyController : MonoBehaviour
     [Header("Stats")]
     [SerializeField] public float maxHealth;
     [SerializeField] public float health;
-    [SerializeField] public float moveSpeed;
+    [SerializeField] public float runSpeed;
+    [SerializeField] public float walkSpeed;
 
     [Header("Detection")]
     [SerializeField] public float detectionRange = 10f;      // range at which combat is engaged
@@ -20,6 +21,7 @@ public class MeleeEnemyController : MonoBehaviour
     // the lists of states an enemy can be in
     [SerializeField] public enum EnemyState {
         Idle,   // nothing to attack nearby
+        Wander, // wandering around an area
         Chase,  // something to attack nearby but out of range
         Combat, // something to attack in range
         Flee,   // low health, running away
@@ -28,6 +30,9 @@ public class MeleeEnemyController : MonoBehaviour
     [Header("Navigation")]
     Transform target;       // the current focus of its attacks
     NavMeshAgent agent;     // the navmesh agent of the enemy object
+    float moveTimer;         // a timer that decides when it is time to transition from idle to wander
+    [SerializeField] Vector3 anchorPoint;    // when idle, the point at which they will wander around
+    [SerializeField] int wanderProbability;
 
     Animator animator;
 
@@ -39,6 +44,9 @@ public class MeleeEnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         currentState = EnemyState.Idle;
         health = maxHealth;
+        anchorPoint = transform.position;
+        agent.speed = walkSpeed;
+        moveTimer = 0f;
     }
 
     // Update is called once per frame
@@ -47,6 +55,9 @@ public class MeleeEnemyController : MonoBehaviour
         switch(currentState) {
             case EnemyState.Idle:
                 Idle();
+                break;
+            case EnemyState.Wander:
+                Wander();
                 break;
             case EnemyState.Chase:
                 Chase();
@@ -63,10 +74,34 @@ public class MeleeEnemyController : MonoBehaviour
 
     // nothing to attack in detection range, wander randomly and just chill
     void Idle() {
-        float distance = Vector3.Distance(target.position, transform.position);
+        moveTimer += Time.deltaTime;
 
         if(InRange(detectionRange)) {
             ChangeState(EnemyState.Chase);
+        } else {
+            if(moveTimer > 1f && Random.Range(0,100) > wanderProbability) {
+                Debug.Log("aight, imma head out");
+                moveTimer = 0f;
+                ChangeState(EnemyState.Wander);
+            } else {
+                Debug.Log("aight, I aint moving");
+            }
+                
+        }
+    }
+
+    void Wander() {
+        if(InRange(detectionRange)) {
+            // target in range, get 'em
+            ChangeState(EnemyState.Chase);
+        } else if (agent.hasPath && agent.remainingDistance < 1f) {
+            // reached wander point, return to idle
+            ChangeState(EnemyState.Idle);
+        } else if(!agent.hasPath || agent.pathStatus == NavMeshPathStatus.PathInvalid) { 
+            // wandering, get a random point around the anchor point and walk to it
+            Vector3 destination = Random.insideUnitCircle.normalized * (detectionRange/2);
+            agent.SetDestination(anchorPoint + new Vector3(destination.x, 0, destination.y));
+            agent.Move();
         }
     }
 
@@ -81,8 +116,7 @@ public class MeleeEnemyController : MonoBehaviour
             agent.SetDestination(target.position);
         } else {
             // target has escaped, stop chasing (possible new state "Searching")
-            // clear path and return to idle
-            agent.ResetPath();
+            anchorPoint = transform.position;
             ChangeState(EnemyState.Idle);
         }
     }
@@ -96,6 +130,7 @@ public class MeleeEnemyController : MonoBehaviour
         } else if (InRange(detectionRange)) {
             ChangeState(EnemyState.Chase);
         } else {
+            anchorPoint = transform.position;
             ChangeState(EnemyState.Idle);
         }
     }
@@ -139,6 +174,9 @@ public class MeleeEnemyController : MonoBehaviour
     // Change the current state of the enemy
     void ChangeState(EnemyState newState) {
 
+        // remove any paths
+        agent.ResetPath();
+
         // changing out of combat animation
         if(currentState == EnemyState.Combat)
             animator.SetBool("InCombat", false);
@@ -147,15 +185,26 @@ public class MeleeEnemyController : MonoBehaviour
 
         switch (newState) {
             case EnemyState.Idle:
+                Debug.Log("Idle");
                 animator.SetTrigger("Idle");
                 break;
+            case EnemyState.Wander:
+                Debug.Log("Wander");
+                agent.speed = walkSpeed;
+                animator.SetTrigger("Walk");
+                break;
             case EnemyState.Chase:
+                Debug.Log("Chase");
+                agent.speed = runSpeed;
                 animator.SetTrigger("Chasing");
                 break;
             case EnemyState.Combat:
+                Debug.Log("Combat");
                 animator.SetBool("InCombat", true);
                 break;
             case EnemyState.Flee:
+                Debug.Log("Flee");
+                agent.speed = runSpeed;
                 break;
         }
     }
