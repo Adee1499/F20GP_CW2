@@ -176,9 +176,10 @@ GameObject:
   - component: {fileID: 6886256864586158075}
   - component: {fileID: -6584684296081629915}
   - component: {fileID: 1055233980232278574}
+  - component: {fileID: 256343976407403421}
   m_Layer: 6
   m_Name: PT_Male_Armor_05_C_helmet
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,6 +242,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974a12081187e0f458dcae9a6161bef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objRef: {fileID: 0}
+--- !u!114 &256343976407403421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587210506061889692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &737979454221888849
 GameObject:
   m_ObjectHideFlags: 0

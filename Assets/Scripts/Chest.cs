@@ -10,6 +10,10 @@ public class Chest : MonoBehaviour
     private Outline outline;
     public LayerMask layermask;
 
+    public int suggestedLevel = 1;
+    public int numberOfLoot = 3;
+    public float rarityModifier = 1.0f;
+
     void Awake()
     {
         outline = gameObject.GetComponent<Outline>();
@@ -41,10 +45,17 @@ public class Chest : MonoBehaviour
             outline.OutlineColor = new Color(1.0f, 0.5f, 0.0f);
 
             if(Input.GetKeyDown("f")){
-                Instantiate(openChestPrefab, transform.position, transform.rotation);
-                Destroy(gameObject);
+                Open();
             }
         }
         
     }
+
+    void Open() {
+        LootManager lootManager = FindObjectOfType<LootManager>();
+        Instantiate(openChestPrefab, transform.position, transform.rotation);
+        lootManager.DropLoot(transform.position, numberOfLoot, suggestedLevel, rarityModifier);
+        Destroy(gameObject);
+    }
+
 }

@@ -9,25 +9,65 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI Instance { get { return _instance; }}
     [HideInInspector] public Inventory inventory;
     public Transform ItemsContainer;
+    [SerializeField] TextMeshProUGUI _goldAmount;
     [SerializeField] private GameObject _defaultItemPrefab;
     [SerializeField] private GameObject _equipmentItemPrefab;
     public GameObject EquipmentItemPrefab { get { return _equipmentItemPrefab; }}
+    [SerializeField] private GameObject _merchantItemPrefab;
+    public GameObject MerchantItemPrefab { get { return _merchantItemPrefab; }}
+    [SerializeField] private GameObject _itemTooltip;
+    public GameObject ItemTooltip { get { return _itemTooltip; }}
     [HideInInspector] public GameObject CurrentItem;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
     // UI Elements references
     public GameObject UI_Inventory;
     public GameObject UI_Equipment;
+    public GameObject UI_Merchant;
+
+    // Stats
+    PlayerStateMachine _playerReference;
+
+    public int attackStat;
+    public int defenceStat;
+
+    TextMeshProUGUI _attackStatText;
+    TextMeshProUGUI _defenceStatText;
+    TextMeshProUGUI _healthStatText;
+    TextMeshProUGUI _manaStatText;
+    TextMeshProUGUI _currentLevelText;
+    TextMeshProUGUI _xpProgressText;
+
+    void Awake()
+    {
+        _instance = this;
+        attackStat = 0;
+        defenceStat = 0;
+        Transform UI_Stats = UI_Equipment.transform.Find("UI_Stats");
+        _attackStatText = UI_Stats.Find("Stats_Attack").GetComponent<TextMeshProUGUI>();
+        _defenceStatText = UI_Stats.Find("Stats_Armor").GetComponent<TextMeshProUGUI>();
+        _healthStatText = UI_Stats.Find("Stats_HP").GetComponent<TextMeshProUGUI>();
+        _manaStatText = UI_Stats.Find("Stats_MP").GetComponent<TextMeshProUGUI>();
+        _currentLevelText = UI_Stats.Find("Stats_Level").GetComponent<TextMeshProUGUI>();
+        _xpProgressText = UI_Stats.Find("Stats_XP").GetComponent<TextMeshProUGUI>();
+        PopulateInventory();
+    }
+
+    void OnEnable()
+    {
+        XPSystem.OnLevelChanged += UpdateCurrentLevel;
+        XPSystem.OnExperienceChanged += UpdateCurrentXP;
+    }
 
     void Start()
     {
-        _instance = this;
-        PopulateInventory();
+        _playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>();
     }
 
     void Update()
     {
         RefreshInventory();
+        RefreshStats();
     }
 
     public void PopulateInventory()
@@ -39,6 +79,7 @@ public class InventoryUI : MonoBehaviour
 
     public void RefreshInventory()
     {
+        _goldAmount.text = inventory.gold.ToString();
         for (int i = 0; i < inventory.items.Count; i++) {
             if (itemsDisplayed.ContainsKey(inventory.items[i])) {
                 if (itemsDisplayed[inventory.items[i]].GetComponent<DraggableItemUI>().item.itemType != ItemType.Equipment) {
@@ -69,9 +110,36 @@ public class InventoryUI : MonoBehaviour
         foreach(InventorySlot slot in inventory.items) {
             if (slot.CompareItem(item)) {
                 inventory.items.Remove(slot);
+                GameObject inventoryObject = itemsDisplayed[slot];
                 itemsDisplayed.Remove(slot);
+                Destroy(inventoryObject);
+                RefreshInventory();
                 break;
             }
         }
+    }
+
+    public void BuyItemFromMerchant(InventoryItem item) 
+    {
+        InventorySlot newItem = new InventorySlot(item, 1);
+        inventory.items.Add(newItem);
+    }
+
+    void RefreshStats()
+    {
+        _attackStatText.text = $"Attack: {attackStat}";
+        _defenceStatText.text = $"Armor: {defenceStat}";
+        _healthStatText.text = $"HP: {_playerReference.MaxPlayerHealth}";
+        _manaStatText.text = $"HP: {_playerReference.MaxPlayerMana}";
+    }
+
+    void UpdateCurrentLevel(int level)
+    {
+        _currentLevelText.text = $"Current level: {level}";
+    }
+
+    void UpdateCurrentXP(int currentXP, int XPToNext)
+    {
+        _xpProgressText.text = $"XP progress: {currentXP} / {XPToNext}";
     }
 }

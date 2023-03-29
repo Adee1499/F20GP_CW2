@@ -17,3 +17,10 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 3476579287061757242, guid: 24b86df53b06f024699266d06dffe9c1, type: 3}
   equipmentSlot: 4
   onGroundPrefab: {fileID: 600645909957932234, guid: cb4f794c9da517548837086a8724ffaa, type: 3}
+  sellValue: 25
+  itemName: Shadowweave Trousers
+  description: Dark, shadowy trousers made from enchanted Shadowweave fabric, providing
+    the wearer with enhanced stealth and agility.
+  defenseValue: 10
+  attackValue: 0
+  levelRequired: 2
