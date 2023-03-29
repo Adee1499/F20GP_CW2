@@ -13,6 +13,7 @@ ShaderImporter:
   - _Texture0: {fileID: 2800000, guid: b76fe68d69ca53f43a4e6f66d135dd90, type: 3}
   - _COATOFARMSMASK: {fileID: 2800000, guid: d294e9544b9eca64188ea9d2482ea8a1, type: 3}
   nonModifiableTextures: []
+  preprocessorOverride: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
