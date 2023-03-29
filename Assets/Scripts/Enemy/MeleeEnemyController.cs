@@ -101,7 +101,6 @@ public class MeleeEnemyController : MonoBehaviour
             // wandering, get a random point around the anchor point and walk to it
             Vector3 destination = Random.insideUnitCircle.normalized * (detectionRange/2);
             agent.SetDestination(anchorPoint + new Vector3(destination.x, 0, destination.y));
-            agent.Move();
         }
     }
 
