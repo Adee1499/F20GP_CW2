@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(EquipmentManager))]
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(SpellCaster))]
 public class PlayerStateMachine : MonoBehaviour
 {
     // Component references
@@ -17,13 +18,18 @@ public class PlayerStateMachine : MonoBehaviour
     CinemachineVirtualCamera _virtualCamera;
     [SerializeField] Inventory _inventory;
     [SerializeField] InventoryUI _inventoryUI;
+    private Inventory _activeInventory;
+    XPSystem _xpSystem;
+    SpellCaster _spellCaster;
 
     // Animator hashed variables
     int _animMoveXHash;
     int _animMoveYHash;
-    int _animAttackHash;
+    int _animMeleeAttackHash;
     int _animPickUpHash;
     int _animRollHash;
+    int _animProjectileSpellHash;
+    int _animAOESpellHash;
 
     // Movement variables
     [Header("Controls & Movement")]
@@ -38,10 +44,10 @@ public class PlayerStateMachine : MonoBehaviour
     float _movementMultiplier = 1f;
     bool _isMovementPressed;
     bool _isRunPressed;
-    bool _isAttackPressed;
     bool _isInteractPressed;
     bool _isRollPressed;
     bool _isLookAtPressed;
+    [SerializeField] float _interactionRange = 2f;
 
     // HP & MP variables
     [Header("Health & Mana")]
@@ -52,6 +58,11 @@ public class PlayerStateMachine : MonoBehaviour
     [Tooltip("Mana Points regenerated per second")]
     [SerializeField] float _manaRegenRate;
 
+    // Combat
+    bool _isAttackPressed;
+    int _currentSelectedSkill;
+
+
     // State Machine variables
     PlayerBaseState _currentState;
     PlayerStateFactory _states;
@@ -59,9 +70,12 @@ public class PlayerStateMachine : MonoBehaviour
     // Getters & Setters
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; }}
     public Animator Animator { get { return _animator; }}
-    public int AnimAttackHash { get { return _animAttackHash; }}
+    public int AnimMeleeAttackHash { get { return _animMeleeAttackHash; }}
     public int AnimPickUpHash { get { return _animPickUpHash; }}
     public int AnimRollHash { get { return _animRollHash; }}
+    public int AnimProjectileSpellHash { get { return _animProjectileSpellHash; }}
+    public int AnimAOESpellHash { get { return _animAOESpellHash; }}
+    public Vector3 CurrentMouseTargetPosition { get { return _currentTargetPosition; }}
     public Vector2 CurrentMovementInput { get { return _currentMovementInput; }}
     public Vector3 AppliedMovement { get { return _appliedMovement; } set { _appliedMovement = value; }}
     public float MovementMultiplier { get { return _movementMultiplier; } set { _movementMultiplier = value; }}
@@ -73,8 +87,13 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsLookAtPressed { get { return _isLookAtPressed; }}
     public float WalkSpeed { get { return _walkSpeed; }}
     public float RunSpeed { get { return _runSpeed; }}
+    public float InteractionRange { get { return _interactionRange; }}
+    public float MaxPlayerHealth { get { return _maxPlayerHP; }}
+    public float MaxPlayerMana { get { return _maxPlayerMP; }}
     public float PlayerHealth { get { return _playerHP; }}
     public float PlayerMana { get { return _playerMP; }}
+    public int CurrentSelectedSkill { get { return _currentSelectedSkill; }}
+    public SpellCaster SpellCaster { get { return _spellCaster; }}
 
     // Events
     public static event Action<float> OnPlayerHealthChange;
@@ -100,7 +119,9 @@ public class PlayerStateMachine : MonoBehaviour
         _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         if (_virtualCamera == null)
             Debug.LogError("Cinemachine virtual camera not found in the scene!");
-        _inventoryUI.inventory = _inventory;
+        _activeInventory = Instantiate(_inventory);
+        _inventoryUI.inventory = _activeInventory;
+        _spellCaster = GetComponent<SpellCaster>();
 
         // Setup FSM
         _states = new PlayerStateFactory(this);
@@ -110,12 +131,16 @@ public class PlayerStateMachine : MonoBehaviour
         _playerHP = _maxPlayerHP;
         _playerMP = _maxPlayerMP;
 
+        _currentSelectedSkill = 1;
+
         // Set animator hash variables
         _animMoveXHash = Animator.StringToHash("MoveX");
         _animMoveYHash = Animator.StringToHash("MoveY");
-        _animAttackHash = Animator.StringToHash("Attack");
+        _animMeleeAttackHash = Animator.StringToHash("MeleeAttack");
         _animPickUpHash = Animator.StringToHash("PickUp");
         _animRollHash = Animator.StringToHash("Roll");
+        _animProjectileSpellHash = Animator.StringToHash("ProjectileSpell");
+        _animAOESpellHash = Animator.StringToHash("AOESpell");
 
         // Set PlayerInput callbacks
         _controls.Player.Move.started += OnMovementInput;
@@ -143,6 +168,17 @@ public class PlayerStateMachine : MonoBehaviour
 
         _controls.Player.Inventory.started += OnInventoryInput;   
         _controls.Player.Inventory.canceled += OnInventoryInput;
+
+        _controls.Player.Hotbar1.started += ctx => { _currentSelectedSkill = 1; print($"Selected skill {_currentSelectedSkill}"); };
+        _controls.Player.Hotbar2.started += ctx => { _currentSelectedSkill = 2; print($"Selected skill {_currentSelectedSkill}"); };
+        _controls.Player.Hotbar3.started += ctx => { _currentSelectedSkill = 3; print($"Selected skill {_currentSelectedSkill}"); };
+        _controls.Player.Hotbar4.started += ctx => { _currentSelectedSkill = 4; print($"Selected skill {_currentSelectedSkill}"); };
+        _controls.Player.Hotbar5.started += ctx => { _currentSelectedSkill = 5; print($"Selected skill {_currentSelectedSkill}"); };
+    }
+
+    void Start()
+    {
+        _xpSystem = new XPSystem();
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -184,10 +220,12 @@ public class PlayerStateMachine : MonoBehaviour
 
     void OnInventoryInput (InputAction.CallbackContext context)
     {
+        InventoryUI.Instance.UI_Merchant.SetActive(false);
         if(context.ReadValueAsButton()) {
             if (InventoryUI.Instance.UI_Inventory.activeSelf || InventoryUI.Instance.UI_Equipment.activeSelf) {
                 InventoryUI.Instance.UI_Inventory.SetActive(false);
                 InventoryUI.Instance.UI_Equipment.SetActive(false);
+                InventoryUI.Instance.ItemTooltip.SetActive(false);
             } else {
                 InventoryUI.Instance.UI_Inventory.SetActive(true);
                 InventoryUI.Instance.UI_Equipment.SetActive(true);
@@ -225,7 +263,9 @@ public class PlayerStateMachine : MonoBehaviour
         if (_isLookAtPressed) {
             Gizmos.color = Color.white;
             Gizmos.DrawLine(_currentTargetPosition, _currentTargetPosition + Vector3.up * 1.5f);
-        }    
+        }
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, _interactionRange);
     }
 
     void Update()

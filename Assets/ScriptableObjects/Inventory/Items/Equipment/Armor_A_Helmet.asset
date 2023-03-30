@@ -17,3 +17,10 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 3953362000440402368, guid: 16cd23c76ce88b84d8d0ecc84c7a16f7, type: 3}
   equipmentSlot: 1
   onGroundPrefab: {fileID: 3523667868845739653, guid: 1ae6422593249f34d9e5215046e89eba, type: 3}
+  sellValue: 50
+  itemName: Titanforged Warhelm
+  description: A mighty helmet crafted by ancient Titans, able to withstand even
+    the most powerful blows.
+  defenseValue: 30
+  attackValue: 0
+  levelRequired: 3

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
+    public EquipmentItem objRef;
+
     Collider _collider;
     Rigidbody _rigidbody;
 
@@ -39,5 +41,9 @@ public class Loot : MonoBehaviour
     void OnTriggerEnter(Collider other) 
     {
         Debug.Log($"Collided with {other.name}");
+    }
+
+    public void destroyObject(){
+        Destroy(gameObject);
     }
 }
