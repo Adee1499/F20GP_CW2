@@ -24,8 +24,11 @@ public class MeleeEnemyController : MonoBehaviour
         Wander, // wandering around an area
         Chase,  // something to attack nearby but out of range
         Combat, // something to attack in range
+        Hurt,
         Flee,   // low health, running away
     }
+    [SerializeField] Vector3 forceDirection;  // any force being applied to the character
+    [SerializeField] float forceStrength;     // strength of any applied force
 
     [Header("Navigation")]
     Transform target;       // the current focus of its attacks
@@ -65,6 +68,9 @@ public class MeleeEnemyController : MonoBehaviour
             case EnemyState.Combat:
                 Combat();
                 break;
+            case EnemyState.Hurt:
+                KnockBack();
+                break;
             case EnemyState.Flee:
                 Flee();
                 break;
@@ -80,13 +86,9 @@ public class MeleeEnemyController : MonoBehaviour
             ChangeState(EnemyState.Chase);
         } else {
             if(moveTimer > 1f && Random.Range(0,100) > wanderProbability) {
-                Debug.Log("aight, imma head out");
                 moveTimer = 0f;
                 ChangeState(EnemyState.Wander);
-            } else {
-                Debug.Log("aight, I aint moving");
-            }
-                
+            }  
         }
     }
 
@@ -155,9 +157,60 @@ public class MeleeEnemyController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage) {
+    public void TakeDamage(float damage, float force, Vector3 direction) {
         health -= damage;
-        animator.SetTrigger("Hurt");
+        Debug.Log(health);
+
+        StartCoroutine(ApplyKnockback(force, direction));
+
+        if(health <= 0) {
+            animator.SetTrigger("Death");
+            StartCoroutine(Die());
+        }
+        else {
+            animator.SetTrigger("Hurt");
+        }
+    }
+
+    void KnockBack() {
+        agent.velocity = forceDirection * forceStrength;
+    }
+
+    IEnumerator ApplyKnockback(float force, Vector3 direction) {
+        
+
+        Debug.Log("AAAAAA");
+
+        // remember old values
+        float oldSpeed = agent.speed;
+        float angularSpeed = agent.angularSpeed;
+        float oldAccel = agent.acceleration;
+
+        // apply knockback
+        agent.speed = 2;
+        agent.angularSpeed = 0;
+        agent.acceleration = 20;
+        forceDirection = direction;
+        forceStrength = force;
+        ChangeState(EnemyState.Hurt);
+
+        yield return new WaitForSeconds(0.2f);
+
+        // reset
+        agent.speed = oldSpeed;
+        agent.angularSpeed = angularSpeed;
+        agent.acceleration = oldAccel;
+        ChangeState(EnemyState.Combat);
+    }
+
+    IEnumerator Die() {
+        Debug.Log("I don't feel so good");
+
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("bye bye");
+
+        GameObject.Destroy(this.gameObject);
     }
 
     // health low, running away to safety
@@ -184,25 +237,28 @@ public class MeleeEnemyController : MonoBehaviour
 
         switch (newState) {
             case EnemyState.Idle:
-                Debug.Log("Idle");
+                //Debug.Log("Idle");
                 animator.SetTrigger("Idle");
                 break;
             case EnemyState.Wander:
-                Debug.Log("Wander");
+                //Debug.Log("Wander");
                 agent.speed = walkSpeed;
                 animator.SetTrigger("Walk");
                 break;
             case EnemyState.Chase:
-                Debug.Log("Chase");
+                //Debug.Log("Chase");
                 agent.speed = runSpeed;
                 animator.SetTrigger("Chasing");
                 break;
             case EnemyState.Combat:
-                Debug.Log("Combat");
+                //Debug.Log("Combat");
+                agent.speed = runSpeed;
                 animator.SetBool("InCombat", true);
                 break;
+            case EnemyState.Hurt:
+                break;
             case EnemyState.Flee:
-                Debug.Log("Flee");
+                //Debug.Log("Flee");
                 agent.speed = runSpeed;
                 break;
         }
