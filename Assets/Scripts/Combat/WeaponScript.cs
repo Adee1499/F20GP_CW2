@@ -3,20 +3,19 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
-    public static Action OnWeaponCollidedWithEnemy;
-    
-    [SerializeField] GameObject weapon;
-
-    void Awake() {
-        weapon = this.gameObject;
-    }
+    public static Action<float, EnemyController, Vector3> OnWeaponCollidedWithEnemy;
+    float tempDamageVal = 10;
 
     void OnTriggerEnter(Collider other) 
     {
         if (other.CompareTag("Enemy")) {
-            MeleeEnemyController enemy = other.GetComponent<MeleeEnemyController>();
-            enemy.TakeDamage(10, 10, Vector3.Scale(weapon.transform.forward,weapon.transform.right));
-            OnWeaponCollidedWithEnemy?.Invoke();
+            EnemyController enemyRef = other.GetComponent<EnemyController>();
+
+            // get the direction of impact
+            Vector3 contactPoint = other.ClosestPoint(transform.position);
+            Vector3 contactNormal = transform.position - contactPoint;
+
+            OnWeaponCollidedWithEnemy?.Invoke(tempDamageVal, enemyRef, contactPoint + contactNormal * 0f);
         }    
     }
 }

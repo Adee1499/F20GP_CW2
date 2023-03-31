@@ -3636,11 +3636,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1336126105081949630}
+  - component: {fileID: 2967063086142832745}
   - component: {fileID: 1336126105075041276}
-  - component: {fileID: 6597134872440652313}
   - component: {fileID: 6597134872440652315}
   - component: {fileID: 6597134872440652312}
-  - component: {fileID: 2967063086142832745}
+  - component: {fileID: 9119765845574725080}
+  - component: {fileID: 5779944698037459766}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -3669,6 +3670,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2967063086142832745
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336126105082311134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &1336126105075041276
 Animator:
   serializedVersion: 5
@@ -3689,27 +3704,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &6597134872440652313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336126105082311134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58148d572635e3499ebddc966a1fac2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  health: 0
-  runSpeed: 4
-  walkSpeed: 2
-  detectionRange: 10
-  combatRange: 2
-  currentState: 0
-  anchorPoint: {x: 0, y: 0, z: 0}
-  wanderProbability: 60
 --- !u!54 &6597134872440652315
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3748,17 +3742,43 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &2967063086142832745
-CapsuleCollider:
+--- !u!114 &9119765845574725080
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336126105082311134}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f85a6d5b70773f4daee6f3bfcbee6a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 5779944698037459766}
+  currentState: 0
+  forceDirection: {x: 0, y: 0, z: 0}
+  forceStrength: 0
+  anchorPoint: {x: 0, y: 0, z: 0}
+  wanderProbability: 0
+--- !u!114 &5779944698037459766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336126105082311134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1b0050415837b46ad21829744bc65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: d7fabcfd010b886459f57549f599e2b8, type: 2}
+  _maxHealth: 0
+  _health: 0
+  _maxMana: 0
+  _mana: 0
+  _armour: 0
+  _walkSpeed: 0
+  _runSpeed: 0
+  _detectionRange: 0
+  _combatRange: 0

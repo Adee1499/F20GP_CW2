@@ -56,10 +56,11 @@ public class PlayerAttackState : PlayerBaseState
         CheckSwitchStates();
     }
 
-    void DealDamageToEnemy()
+    void DealDamageToEnemy(float damage, EnemyController enemyRef, Vector3 impact)
     {
         if (!_dealtDamage) {
             Debug.Log("Dealing damage to enemy");
+            enemyRef.TakeDamage(damage, impact);
             _dealtDamage = true;
         }
     }

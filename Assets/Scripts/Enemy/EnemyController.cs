@@ -3,18 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeEnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    [Header("Stats")]
-    [SerializeField] public float maxHealth;
-    [SerializeField] public float health;
-    [SerializeField] public float runSpeed;
-    [SerializeField] public float walkSpeed;
-
-    [Header("Detection")]
-    [SerializeField] public float detectionRange = 10f;      // range at which combat is engaged
-
-    [SerializeField] public float combatRange = 1f;
+    [Header("Enemy")]
+    [SerializeField] Enemy enemy;
 
     [Header("States")]
     [SerializeField] EnemyState currentState;
@@ -33,10 +25,11 @@ public class MeleeEnemyController : MonoBehaviour
     [Header("Navigation")]
     Transform target;       // the current focus of its attacks
     NavMeshAgent agent;     // the navmesh agent of the enemy object
-    float moveTimer;         // a timer that decides when it is time to transition from idle to wander
     [SerializeField] Vector3 anchorPoint;    // when idle, the point at which they will wander around
     [SerializeField] int wanderProbability;
 
+
+    float moveTimer;         // a timer that decides when it is time to transition from idle to wander
     Animator animator;
 
     // Start is called before the first frame update
@@ -46,9 +39,8 @@ public class MeleeEnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         currentState = EnemyState.Idle;
-        health = maxHealth;
         anchorPoint = transform.position;
-        agent.speed = walkSpeed;
+        forceStrength = 0.5f;
         moveTimer = 0f;
     }
 
@@ -82,7 +74,7 @@ public class MeleeEnemyController : MonoBehaviour
     void Idle() {
         moveTimer += Time.deltaTime;
 
-        if(InRange(detectionRange)) {
+        if(InRange(enemy.DetectionRange)) {
             ChangeState(EnemyState.Chase);
         } else {
             if(moveTimer > 1f && Random.Range(0,100) > wanderProbability) {
@@ -93,7 +85,7 @@ public class MeleeEnemyController : MonoBehaviour
     }
 
     void Wander() {
-        if(InRange(detectionRange)) {
+        if(InRange(enemy.DetectionRange)) {
             // target in range, get 'em
             ChangeState(EnemyState.Chase);
         } else if (agent.hasPath && agent.remainingDistance < 1f) {
@@ -101,18 +93,18 @@ public class MeleeEnemyController : MonoBehaviour
             ChangeState(EnemyState.Idle);
         } else if(!agent.hasPath || agent.pathStatus == NavMeshPathStatus.PathInvalid) { 
             // wandering, get a random point around the anchor point and walk to it
-            Vector3 destination = Random.insideUnitCircle.normalized * (detectionRange/2);
+            Vector3 destination = Random.insideUnitCircle.normalized * (enemy.DetectionRange/2);
             agent.SetDestination(anchorPoint + new Vector3(destination.x, 0, destination.y));
         }
     }
 
     // something to attack in detection range but not in attack range, chase it down
     void Chase() {
-        if(InRange(combatRange)) {
+        if(InRange(enemy.CombatRange)) {
             // target is now in attack range;
             agent.ResetPath();
             ChangeState(EnemyState.Combat);
-        } else if (InRange(detectionRange)) {
+        } else if (InRange(enemy.DetectionRange)) {
             // target is still in chase range, keep chasing
             agent.SetDestination(target.position);
         } else {
@@ -124,11 +116,11 @@ public class MeleeEnemyController : MonoBehaviour
 
     // something in attack range, engage in combat
     void Combat() {
-        if(InRange(combatRange)){
+        if(InRange(enemy.CombatRange * 2)){
             //do whatever, attack behaviour
             FaceTarget();
             Attack();
-        } else if (InRange(detectionRange)) {
+        } else if (InRange(enemy.DetectionRange)) {
             ChangeState(EnemyState.Chase);
         } else {
             anchorPoint = transform.position;
@@ -148,22 +140,18 @@ public class MeleeEnemyController : MonoBehaviour
 
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if(distance > combatRange) {
+        if(distance > enemy.CombatRange) {
             ChangeState(EnemyState.Chase);
-        } else if (distance > detectionRange) {
+        } else if (distance > enemy.DetectionRange) {
             ChangeState(EnemyState.Idle);
         } else {
             // hurt player
         }
     }
 
-    public void TakeDamage(float damage, float force, Vector3 direction) {
-        health -= damage;
-        Debug.Log(health);
-
-        StartCoroutine(ApplyKnockback(force, direction));
-
-        if(health <= 0) {
+    public void TakeDamage(float damage, Vector3 direction) {
+        StartCoroutine(ApplyKnockback(direction));
+        if(enemy.ModifyHealth(-damage) <= 0) {
             animator.SetTrigger("Death");
             StartCoroutine(Die());
         }
@@ -176,10 +164,8 @@ public class MeleeEnemyController : MonoBehaviour
         agent.velocity = forceDirection * forceStrength;
     }
 
-    IEnumerator ApplyKnockback(float force, Vector3 direction) {
-        
-
-        Debug.Log("AAAAAA");
+    IEnumerator ApplyKnockback(Vector3 direction) {
+        Debug.Log(direction);
 
         // remember old values
         float oldSpeed = agent.speed;
@@ -191,7 +177,6 @@ public class MeleeEnemyController : MonoBehaviour
         agent.angularSpeed = 0;
         agent.acceleration = 20;
         forceDirection = direction;
-        forceStrength = force;
         ChangeState(EnemyState.Hurt);
 
         yield return new WaitForSeconds(0.2f);
@@ -242,31 +227,31 @@ public class MeleeEnemyController : MonoBehaviour
                 break;
             case EnemyState.Wander:
                 //Debug.Log("Wander");
-                agent.speed = walkSpeed;
+                agent.speed = enemy.WalkSpeed;
                 animator.SetTrigger("Walk");
                 break;
             case EnemyState.Chase:
                 //Debug.Log("Chase");
-                agent.speed = runSpeed;
+                agent.speed = enemy.RunSpeed;
                 animator.SetTrigger("Chasing");
                 break;
             case EnemyState.Combat:
                 //Debug.Log("Combat");
-                agent.speed = runSpeed;
+                agent.speed = enemy.RunSpeed;
                 animator.SetBool("InCombat", true);
                 break;
             case EnemyState.Hurt:
                 break;
             case EnemyState.Flee:
                 //Debug.Log("Flee");
-                agent.speed = runSpeed;
+                agent.speed = enemy.RunSpeed;
                 break;
         }
     }
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-        Gizmos.DrawWireSphere(transform.position, combatRange);
+        Gizmos.DrawWireSphere(transform.position, enemy.DetectionRange);
+        Gizmos.DrawWireSphere(transform.position, enemy.CombatRange);
     }
 }
