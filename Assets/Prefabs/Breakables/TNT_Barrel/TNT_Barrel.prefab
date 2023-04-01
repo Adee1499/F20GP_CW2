@@ -134,7 +134,7 @@ MonoBehaviour:
   fracturedMesh: {fileID: 7800117023951064139, guid: 70c5f90f9de8b884b898974f85b7e0fd, type: 3}
   explosionForce: 100
   explosionRadius: 5
-  particles: {fileID: 0}
+  particles: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   layermask:
     serializedVersion: 2
     m_Bits: 64

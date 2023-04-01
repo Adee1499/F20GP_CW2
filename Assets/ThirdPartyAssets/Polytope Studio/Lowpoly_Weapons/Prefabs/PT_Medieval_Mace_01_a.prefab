@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1299730386371823167}
   - component: {fileID: 2825636911341938614}
   - component: {fileID: 2769608904172636293}
+  - component: {fileID: -6146768141971093896}
   m_Layer: 0
   m_Name: PT_Medieval_Mace_01_a
   m_TagString: Untagged
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2faff29211b09694fbb9875aca3f251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6146768141971093896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299730386369894655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974a12081187e0f458dcae9a6161bef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objRef: {fileID: 11400000, guid: 014863b42d082164db5e2f07c3c79fe1, type: 2}

@@ -24,6 +24,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject UI_Inventory;
     public GameObject UI_Equipment;
     public GameObject UI_Merchant;
+    public GameObject UI_LoadingScreen;
 
     // Stats
     PlayerStateMachine _playerReference;
