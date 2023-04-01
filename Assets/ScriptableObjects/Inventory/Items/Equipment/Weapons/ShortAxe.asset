@@ -16,7 +16,7 @@ MonoBehaviour:
   inventoryIcon: {fileID: 21300000, guid: d69b3d2126ca599449d43b95df828fb2, type: 3}
   onPlayerPrefab: {fileID: 1760574894572221032, guid: adae6be6654e723469fedd60d61b200c, type: 3}
   equipmentSlot: 6
-  onGroundPrefab: {fileID: 1760574894572221032, guid: adae6be6654e723469fedd60d61b200c, type: 3}
+  onGroundPrefab: {fileID: 1760574894572221032, guid: 3d643cb4e49ab3948b2e3c3c844d082c, type: 3}
   sellValue: 75
   itemName: Stormcleaver
   description: This weapon is a deadly combination of a battle axe and a hatchet.

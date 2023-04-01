@@ -75,7 +75,7 @@ public class PlayerInteractState : PlayerBaseState
 
         foreach(Collider collider in lootWithinRange){
             if(collider.CompareTag("Equipment")){
-                EquipmentItem itemRef = collider.gameObject.GetComponent<Loot>().objRef;
+                InventoryItem itemRef = collider.gameObject.GetComponent<Loot>().objRef;
                 Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
                 RaycastHit hit;
 

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecb91ed3d1b1ce4e9840c229bc927d2, type: 3}
+  m_Name: StartingChest_Inventory
+  m_EditorClassIdentifier: 
+  items:
+  - item: {fileID: 11400000, guid: c07800ab30051f34fbe6645b0c82b030, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 0123c4b75349cba40b87b22a562b7c99, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: ffe3b883399b9ab4888a21bb0d49989e, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: dabf7e915508de240b0786e98f7bc1b1, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 0eb62b64b323a2744a7852e637c28953, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 7509a2bad40e18a4bada7451ec9bcfe4, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 3c46caaed28d05b4ab7ee30e3f85384f, type: 2}
+    amount: 0
+  gold: 0

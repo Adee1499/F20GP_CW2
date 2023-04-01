@@ -24,6 +24,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject UI_Inventory;
     public GameObject UI_Equipment;
     public GameObject UI_Merchant;
+    public GameObject UI_LoadingScreen;
 
     // Stats
     PlayerStateMachine _playerReference;
@@ -109,10 +110,14 @@ public class InventoryUI : MonoBehaviour
     {
         foreach(InventorySlot slot in inventory.items) {
             if (slot.CompareItem(item)) {
-                inventory.items.Remove(slot);
-                GameObject inventoryObject = itemsDisplayed[slot];
-                itemsDisplayed.Remove(slot);
-                Destroy(inventoryObject);
+                if (slot.amount > 1) {
+                    slot.amount--;
+                } else {
+                    inventory.items.Remove(slot);
+                    GameObject inventoryObject = itemsDisplayed[slot];
+                    itemsDisplayed.Remove(slot);
+                    Destroy(inventoryObject);
+                }
                 RefreshInventory();
                 break;
             }

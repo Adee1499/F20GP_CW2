@@ -25,10 +25,6 @@ public class Breakable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("f")){
-                Fracture();
-        }
-
         Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast (ray, out hit, 1000, layermask)) {

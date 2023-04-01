@@ -63,7 +63,24 @@ public class ItemTooltipUI : MonoBehaviour
             _mainStatValue.color = newColor;
             _mainStatName.color = newColor;
         } else {
-            _type.text = "Potion";
+            PotionItem potItem = item as PotionItem;
+            if (potItem != null) {
+                _type.text = "Potion";
+                _levelRequired.text = string.Empty;
+                switch (potItem.EffectType) {
+                    case PotionEffect.RestoreHealth:
+                        _mainStatName.text = "Health";
+                        break;
+                    case PotionEffect.RestoreMana:
+                        _mainStatName.text = "Mana";
+                        break;
+                    case PotionEffect.Default:
+                        _mainStatName.text = string.Empty;
+                        break;
+                }
+                _mainStatValue.text = potItem.EffectValue.ToString();
+                _rarity.text = string.Empty;
+            }
         }
     }
 

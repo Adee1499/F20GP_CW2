@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
-    public EquipmentItem objRef;
+    public InventoryItem objRef;
 
     Collider _collider;
     Rigidbody _rigidbody;
@@ -31,7 +31,7 @@ public class Loot : MonoBehaviour
 
     IEnumerator DisableRigidbody()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
             if (_rigidbody != null)
                 Destroy(_rigidbody);
             _collider.isTrigger = true;
