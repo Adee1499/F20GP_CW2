@@ -10,6 +10,9 @@ public class XPSystem
     public static Action<int> OnLevelChanged;
     public static Action<int, int> OnExperienceChanged;
 
+    public int CurrentXP { get { return _currentXP; }}
+    public int XPToNextLevel { get { return _xpToNextLevel; }}
+
     public XPSystem()
     {
         Instance = this;

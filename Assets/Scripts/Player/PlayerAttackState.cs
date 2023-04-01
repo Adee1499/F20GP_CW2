@@ -64,10 +64,13 @@ public class PlayerAttackState : PlayerBaseState
         }
     }
 
-    IEnumerator ProjectileAttack()
+     IEnumerator ProjectileAttack()
     {
         Debug.Log("Casting projectile spell");
-        Ctx.SpellCaster.ProjectileSpell();
+        if(Ctx.PlayerMana >= 10) {
+            Ctx.UseMana(10);
+            Ctx.SpellCaster.ProjectileSpell();
+        }
         yield return new WaitForSeconds(0.4f);
         CheckSwitchStates();
     }
@@ -75,7 +78,10 @@ public class PlayerAttackState : PlayerBaseState
     IEnumerator AOEAttack()
     {
         Debug.Log("Casting AOE spell");
-        Ctx.SpellCaster.AOESpell();
+        if(Ctx.PlayerMana >= 25 && Ctx.CurrentMouseTargetPosition != Vector3.zero) {
+            Ctx.UseMana(25);
+            Ctx.SpellCaster.AOESpell();
+        }
         yield return new WaitForSeconds(0.4f);
         CheckSwitchStates();
     }

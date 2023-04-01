@@ -3,6 +3,8 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(EquipmentManager))]
@@ -21,6 +23,10 @@ public class PlayerStateMachine : MonoBehaviour
     private Inventory _activeInventory;
     XPSystem _xpSystem;
     SpellCaster _spellCaster;
+    Slider heatlhGlobe, manaGlobe, xpBar;
+    TMP_Text playerLevel, goldCount;
+    public Sprite weaponEquipActive, weaponEquipInactive, skill1Active, skill1Inactive, skill2Active, skill2Inactive;
+    Image weaponEquip, skill1, skill2;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -171,9 +177,27 @@ public class PlayerStateMachine : MonoBehaviour
         _controls.Player.Inventory.started += OnInventoryInput;   
         _controls.Player.Inventory.canceled += OnInventoryInput;
 
-        _controls.Player.Hotbar1.started += ctx => { _currentSelectedSkill = 1; print($"Selected skill {_currentSelectedSkill}"); };
-        _controls.Player.Hotbar2.started += ctx => { _currentSelectedSkill = 2; print($"Selected skill {_currentSelectedSkill}"); };
-        _controls.Player.Hotbar3.started += ctx => { _currentSelectedSkill = 3; print($"Selected skill {_currentSelectedSkill}"); };
+        _controls.Player.Hotbar1.started += ctx => { 
+            _currentSelectedSkill = 1;
+            print($"Selected skill {_currentSelectedSkill}");
+            weaponEquip.sprite = weaponEquipActive;
+            skill1.sprite = skill1Inactive;
+            skill2.sprite = skill2Inactive;
+        };
+        _controls.Player.Hotbar2.started += ctx => { 
+            _currentSelectedSkill = 2; 
+            print($"Selected skill {_currentSelectedSkill}");
+            weaponEquip.sprite = weaponEquipInactive;   
+            skill1.sprite = skill1Active;
+            skill2.sprite = skill2Inactive;
+        };
+        _controls.Player.Hotbar3.started += ctx => { 
+            _currentSelectedSkill = 3; 
+            print($"Selected skill {_currentSelectedSkill}"); 
+            weaponEquip.sprite = weaponEquipInactive;   
+            skill1.sprite = skill1Inactive;
+            skill2.sprite = skill2Active;
+        };
         _controls.Player.Hotbar4.started += ctx => { _currentSelectedSkill = 4; print($"Selected skill {_currentSelectedSkill}"); };
         _controls.Player.Hotbar5.started += ctx => { _currentSelectedSkill = 5; print($"Selected skill {_currentSelectedSkill}"); };
 
@@ -183,6 +207,16 @@ public class PlayerStateMachine : MonoBehaviour
     void Start()
     {
         _xpSystem = new XPSystem();
+
+        weaponEquip = GameObject.FindWithTag("WeaponEquip").GetComponent<Image>();
+        skill1 = GameObject.FindWithTag("Skill1").GetComponent<Image>();
+        skill2 = GameObject.FindWithTag("Skill2").GetComponent<Image>();
+        playerLevel = GameObject.FindWithTag("PlayerLevel").GetComponent<TMP_Text>();
+        goldCount = GameObject.FindWithTag("GoldCount").GetComponent<TMP_Text>();
+        xpBar = GameObject.FindWithTag("XPBar").GetComponent<Slider>();
+        manaGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();
+        manaGlobe.maxValue = _maxPlayerMP;
+        manaGlobe.value = _maxPlayerMP;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -288,6 +322,9 @@ public class PlayerStateMachine : MonoBehaviour
             _animator.SetFloat(_animMoveXHash, 0f);
             _animator.SetFloat(_animMoveYHash, new Vector2(_appliedMovement.x, _appliedMovement.z).magnitude);
         }
+
+        goldCount.text = _activeInventory.gold.ToString();
+        XPStatus();
         RegenerateMana();
     }
 
@@ -333,13 +370,14 @@ public class PlayerStateMachine : MonoBehaviour
     void TakeDamage(int damage)
     {
         _playerHP -= damage;
+        heatlhGlobe.value = _playerHP;
         OnPlayerHealthChange?.Invoke(_playerHP);
         if (_playerHP <= 0) {
             PlayerDead();
         }
     }
 
-    void UseMana(int amount)
+    public void UseMana(int amount)
     {
         _playerMP -= amount;
         OnPlayerManaChange?.Invoke(_playerMP);
@@ -349,8 +387,16 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if (_playerMP < _maxPlayerMP) {
             _playerMP += _manaRegenRate * Time.deltaTime;
+            manaGlobe.value = _playerMP;
             OnPlayerManaChange?.Invoke(_playerMP);
         }
+    }
+
+    void XPStatus()
+    {
+        xpBar.maxValue = _xpSystem.XPToNextLevel;
+        xpBar.value = _xpSystem.CurrentXP;
+        playerLevel.text = "Level " + _xpSystem.GetCurrentLevel();
     }
 
     void PlayerDead()
