@@ -16,7 +16,7 @@ MonoBehaviour:
   inventoryIcon: {fileID: 21300000, guid: 009d4fc67f3ecc341a5229c548eea9a0, type: 3}
   onPlayerPrefab: {fileID: 5778942376948609405, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
   equipmentSlot: 6
-  onGroundPrefab: {fileID: 5778942376948609405, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
+  onGroundPrefab: {fileID: 5778942376948609405, guid: 3b7fb9e3f2b5d954193d09fa703f2a68, type: 3}
   sellValue: 215
   itemName: Shadowfang
   description: This swift and agile weapon is perfect for quick strikes and agile

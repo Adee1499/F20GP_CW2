@@ -36,6 +36,7 @@ public class PlayerStateMachine : MonoBehaviour
     int _animRollHash;
     int _animProjectileSpellHash;
     int _animAOESpellHash;
+    int _animDrinkHash;
 
     // Movement variables
     [Header("Controls & Movement")]
@@ -147,6 +148,7 @@ public class PlayerStateMachine : MonoBehaviour
         _animRollHash = Animator.StringToHash("Roll");
         _animProjectileSpellHash = Animator.StringToHash("ProjectileSpell");
         _animAOESpellHash = Animator.StringToHash("AOESpell");
+        _animDrinkHash = Animator.StringToHash("Drink");
 
         // Set PlayerInput callbacks
         _controls.Player.Move.started += OnMovementInput;
@@ -198,6 +200,8 @@ public class PlayerStateMachine : MonoBehaviour
         };
         _controls.Player.Hotbar4.started += ctx => { _currentSelectedSkill = 4; print($"Selected skill {_currentSelectedSkill}"); };
         _controls.Player.Hotbar5.started += ctx => { _currentSelectedSkill = 5; print($"Selected skill {_currentSelectedSkill}"); };
+
+        PotionItem.OnPotionConsumed += OnPotionConsumed;
     }
 
     void Start()
@@ -401,5 +405,20 @@ public class PlayerStateMachine : MonoBehaviour
         _controls.Disable();
         _characterController.enabled = false;
         // _animator.SetTrigger(_animDyingHash);
+    }
+
+    void OnPotionConsumed(PotionEffect effectType, int effectValue) 
+    {
+        _animator.SetTrigger(_animDrinkHash);
+        switch (effectType) {
+            case PotionEffect.RestoreHealth:
+                _playerHP += effectValue;
+                if (_playerHP > _maxPlayerHP) _playerHP = _maxPlayerHP;
+                break;
+            case PotionEffect.RestoreMana:
+                _playerMP += effectValue;
+                if (_playerMP > _maxPlayerMP) _playerMP = _maxPlayerMP;
+                break;
+        }
     }
 }

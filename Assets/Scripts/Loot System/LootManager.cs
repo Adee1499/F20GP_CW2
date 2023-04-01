@@ -26,7 +26,9 @@ public class LootManager : MonoBehaviour
             LootRarity itemRarity = GenerateRarity(rarityModifier);
 
             var prefab = newItem.onGroundPrefab;
-            prefab.GetComponent<Outline>().OutlineColor = RarityStats[itemRarity.rarity].rarityColour;
+            var prefabOutline = prefab.GetComponent<Outline>(); 
+            prefabOutline.OutlineColor = RarityStats[itemRarity.rarity].rarityColour;
+            prefabOutline.OutlineWidth = 3f;
 
             // 20% chance that common items are a level below
             if(suggestedLevel > 1 && itemRarity.rarity == "Common" && Random.Range(0.0f, 1.0f) < 0.2f)
@@ -41,7 +43,12 @@ public class LootManager : MonoBehaviour
 
             prefab.GetComponent<Loot>().objRef = newItem;
 
-            Instantiate(prefab, position, Quaternion.identity);
+            if (newItem.equipmentSlot == EquipmentSlot.Weapon) {
+                Instantiate(prefab, position + Vector3.up * 0.5f, Quaternion.identity);
+            } else {
+                Instantiate(prefab, position, Quaternion.identity);
+            }
+
             prefabs.Add(prefab);
         }
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   inventoryIcon: {fileID: 21300000, guid: da3489a989b315644b2918cb9df15709, type: 3}
   onPlayerPrefab: {fileID: 8848747155421982902, guid: e18213b527e9be54d9513ce2dd5f3b67, type: 3}
   equipmentSlot: 6
-  onGroundPrefab: {fileID: 8848747155421982902, guid: e18213b527e9be54d9513ce2dd5f3b67, type: 3}
+  onGroundPrefab: {fileID: 8848747155421982902, guid: 1f5546593c3f58a4dbb6d672d20c4f83, type: 3}
   sellValue: 550
   itemName: Dragonslayer
   description: This legendary sword is said to have been forged in the fires of a
