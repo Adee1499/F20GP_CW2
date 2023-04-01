@@ -58,7 +58,8 @@ public class Chest : MonoBehaviour {
                 prefab.GetComponent<Outline>().OutlineColor = Color.white;
                 prefab.GetComponent<Outline>().OutlineWidth = 2f;
 
-                prefab.GetComponent<Loot>().objRef = item as EquipmentItem;
+                if (prefab.GetComponent<Loot>().objRef == null)
+                    prefab.GetComponent<Loot>().objRef = item as EquipmentItem;
                 var obj = Instantiate(prefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
                 obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, transform.position, 5.0f);
             }

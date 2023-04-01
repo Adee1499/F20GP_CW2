@@ -23,4 +23,8 @@ MonoBehaviour:
     amount: 0
   - item: {fileID: 11400000, guid: 0eb62b64b323a2744a7852e637c28953, type: 2}
     amount: 0
+  - item: {fileID: 11400000, guid: 7509a2bad40e18a4bada7451ec9bcfe4, type: 2}
+    amount: 0
+  - item: {fileID: 11400000, guid: 3c46caaed28d05b4ab7ee30e3f85384f, type: 2}
+    amount: 0
   gold: 0

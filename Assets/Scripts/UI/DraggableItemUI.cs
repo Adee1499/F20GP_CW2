@@ -54,14 +54,28 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     {
         if (draggable) {
             if (eventData.clickCount > 1) {
-                if (!InventoryUI.Instance.UI_Equipment.activeSelf) {
-                    InventoryUI.Instance.UI_Equipment.SetActive(true);
-                }
-                InventorySlotUI slot = FindObjectsOfType<InventorySlotUI>().Where(slot => slot.equipmentSlot == item.equipmentSlot).FirstOrDefault();
-                if (equipped) {
-                    slot.UnequipItem(gameObject);
+                EquipmentItem eqItem = item as EquipmentItem;
+                if (eqItem != null) {
+                    if (!InventoryUI.Instance.UI_Equipment.activeSelf) {
+                        InventoryUI.Instance.UI_Equipment.SetActive(true);
+                    }
+                    var slot = FindObjectsOfType<InventorySlotUI>().FirstOrDefault(slot => slot.equipmentSlot == item.equipmentSlot);
+                    if (equipped) {
+                        slot.UnequipItem(gameObject);
+                    } else {
+                        slot.EquipItem(gameObject);
+                    }
                 } else {
-                    slot.EquipItem(gameObject);
+                    PotionItem potItem = item as PotionItem;
+                    if (potItem != null) {
+                        potItem.ConsumePotion();
+                        InventoryUI.Instance.RemoveInventoryItem(item);
+                        if (_tooltipCoroutine != null) {
+                            StopCoroutine(_tooltipCoroutine);
+                        }
+                        _tooltip.SetActive(false);
+                        // Destroy(gameObject);
+                    }
                 }
             }
         }
