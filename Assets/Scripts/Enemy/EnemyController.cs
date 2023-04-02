@@ -42,7 +42,7 @@ public abstract class EnemyController : MonoBehaviour
     protected float moveTimer;
 
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
@@ -60,7 +60,21 @@ public abstract class EnemyController : MonoBehaviour
     protected abstract IEnumerator  ICombat();
     protected abstract IEnumerator IHurt();
     protected abstract IEnumerator IAttack();
-    protected abstract IEnumerator IFlee();
+    
+    protected IEnumerator IFlee()
+    {
+        animator.SetTrigger("Run");
+        agent.speed = enemy.WalkSpeed;
+        while(InRange(enemy.DetectionRange)) {
+            Vector3 dirToPlayer = transform.position - target.transform.position;
+            agent.SetDestination(transform.position + dirToPlayer);
+
+            yield return null;
+        }
+
+        ChangeState(EnemyState.Idle);
+        yield return null;
+    }
 
     protected void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
