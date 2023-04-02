@@ -28,6 +28,12 @@ public class SkeletonController : EnemyMeleeController
         }
     }
 
+    override protected IEnumerator IHurt() {
+        animator.SetTrigger("Hurt");
+        StartCoroutine(ApplyKnockback());
+        yield return null;
+    }
+
     override protected IEnumerator IAttack() {
         // attack animation
         animator.SetTrigger("Attack");

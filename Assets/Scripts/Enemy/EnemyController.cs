@@ -22,9 +22,10 @@ public abstract class EnemyController : MonoBehaviour
         Hurt,   // been attacked
         Attacking,  // attacking
         Flee,   // low health, running away
+        Death,  // dying
     }
     [SerializeField] // any force being applied to the character
-    protected Vector3 forceDirection;  
+    protected Vector3 knockBack;  
     [SerializeField] // strength of any applied force
     protected float forceStrength;     
 
@@ -47,7 +48,7 @@ public abstract class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         anchorPoint = transform.position;
-        forceStrength = 0.5f;
+        forceStrength = 10f;
         moveTimer = 0f;
         ChangeState(EnemyState.Idle);
     }        
@@ -67,46 +68,37 @@ public abstract class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5f);
     }
 
-    public void TakeDamage(float damage, Vector3 direction) {
-        StartCoroutine(ApplyKnockback(direction));
-        if(enemy.ModifyHealth(-damage) <= 0) {
-            animator.SetTrigger("Death");
-            StartCoroutine(Die());
-        }
-        else {
-            animator.SetTrigger("Hurt");
+    public void Attacked(float damage, Vector3 direction) {
+        knockBack = direction;
+        TakeDamage(damage);
+    }
+
+    protected void TakeDamage(float damage) {
+        if(currentState != EnemyState.Death) {
+            if(enemy.ModifyHealth(-damage) <= 0) {
+                animator.SetTrigger("Death");
+                ChangeState(EnemyState.Death);
+            }
+            else {
+                ChangeState(EnemyState.Hurt);
+            }
         }
     }
 
-    protected void KnockBack() {
-        agent.velocity = forceDirection * forceStrength;
-    }
+    protected IEnumerator ApplyKnockback() {
+        // remember old value
+        Vector3 oldVel = agent.velocity;
 
-    protected IEnumerator ApplyKnockback(Vector3 direction) {
-        Debug.Log(direction);
-
-        // remember old values
-        float oldSpeed = agent.speed;
-        float angularSpeed = agent.angularSpeed;
-        float oldAccel = agent.acceleration;
-
-        // apply knockback
-        agent.speed = 2;
-        agent.angularSpeed = 0;
-        agent.acceleration = 20;
-        forceDirection = direction;
-        ChangeState(EnemyState.Hurt);
-
+        agent.velocity = knockBack * forceStrength;
         yield return new WaitForSeconds(0.2f);
 
         // reset
-        agent.speed = oldSpeed;
-        agent.angularSpeed = angularSpeed;
-        agent.acceleration = oldAccel;
+        agent.velocity = oldVel;
         ChangeState(EnemyState.Combat);
+        yield return null;
     }
 
-    protected IEnumerator Die() {
+    protected IEnumerator IDie() {
         Debug.Log("I don't feel so good");
 
         yield return new WaitForSeconds(1f);
@@ -114,6 +106,8 @@ public abstract class EnemyController : MonoBehaviour
         Debug.Log("bye bye");
 
         GameObject.Destroy(this.gameObject);
+
+        yield return null;
     }
 
     protected bool InRange(float distance) {
@@ -150,6 +144,9 @@ public abstract class EnemyController : MonoBehaviour
                 break;
             case EnemyState.Flee:
                 StartCoroutine(IFlee());
+                break;
+            case EnemyState.Death:
+                StartCoroutine(IDie());
                 break;
         }
     }

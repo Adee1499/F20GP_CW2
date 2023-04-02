@@ -60,7 +60,7 @@ public class PlayerAttackState : PlayerBaseState
     {
         if (!_dealtDamage) {
             Debug.Log("Dealing damage to enemy");
-            enemyRef.TakeDamage(damage, impact);
+            enemyRef.Attacked(damage, impact);
             _dealtDamage = true;
         }
     }

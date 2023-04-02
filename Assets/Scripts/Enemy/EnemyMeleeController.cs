@@ -81,10 +81,6 @@ public abstract class EnemyMeleeController : EnemyController
         yield return null;
     }
 
-    override protected IEnumerator IHurt() {
-        yield return null;
-    }
-
     override protected IEnumerator IFlee() {
         Debug.Log("Flee");
         agent.speed = enemy.RunSpeed;

@@ -12,10 +12,8 @@ public class WeaponScript : MonoBehaviour
             EnemyController enemyRef = other.GetComponent<EnemyController>();
 
             // get the direction of impact
-            Vector3 contactPoint = other.ClosestPoint(transform.position);
-            Vector3 contactNormal = transform.position - contactPoint;
-
-            OnWeaponCollidedWithEnemy?.Invoke(tempDamageVal, enemyRef, contactPoint + contactNormal * 0f);
+            Vector3 differential = enemyRef.transform.position - this.transform.position;
+            OnWeaponCollidedWithEnemy?.Invoke(tempDamageVal, enemyRef, differential.normalized);
         }    
     }
 }
