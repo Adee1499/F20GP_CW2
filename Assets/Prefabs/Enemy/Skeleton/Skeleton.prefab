@@ -3773,13 +3773,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1336126105082311134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55eb9703368b3744b549464bffdc680, type: 3}
+  m_Script: {fileID: 11500000, guid: 365488da3e51f1643a0c3fd0dca35081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5779944698037459766}
-  animator: {fileID: 0}
+  animator: {fileID: 1336126105075041276}
   currentState: 0
-  forceDirection: {x: 0, y: 0, z: 0}
+  knockBack: {x: 0, y: 0, z: 0}
   forceStrength: 0
   target: {fileID: 0}
   agent: {fileID: 0}
