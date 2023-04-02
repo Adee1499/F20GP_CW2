@@ -80,10 +80,18 @@ public abstract class EnemyMeleeController : EnemyController
         yield return null;
     }
 
-    override protected IEnumerator IFlee() {
-        Debug.Log("Flee");
-        agent.speed = enemy.RunSpeed;
+    protected override IEnumerator IFlee()
+    {
+        animator.SetTrigger("Run");
+        agent.speed = enemy.WalkSpeed;
+        while(InRange(enemy.DetectionRange)) {
+            Vector3 dirToPlayer = transform.position - target.transform.position;
+            agent.SetDestination(transform.position + dirToPlayer);
 
+            yield return null;
+        }
+
+        ChangeState(EnemyState.Idle);
         yield return null;
     }
 }
