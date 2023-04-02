@@ -4075,6 +4075,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1175223381200898602, guid: 6446ce7b848f83d4d97e6a65f4647b03, type: 3}
+      propertyPath: rarityModifier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1175223381200931971, guid: 6446ce7b848f83d4d97e6a65f4647b03, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -20194,6 +20198,10 @@ PrefabInstance:
     - target: {fileID: 1175223381200507043, guid: 6446ce7b848f83d4d97e6a65f4647b03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175223381200898602, guid: 6446ce7b848f83d4d97e6a65f4647b03, type: 3}
+      propertyPath: rarityModifier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1175223381200931971, guid: 6446ce7b848f83d4d97e6a65f4647b03, type: 3}
       propertyPath: m_Name
