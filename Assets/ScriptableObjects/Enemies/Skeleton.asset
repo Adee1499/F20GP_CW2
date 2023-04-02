@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   name: 
-  maxHealth: 0
+  maxHealth: 50
   maxMana: 0
-  armour: 0
-  walkSpeed: 0
-  runSpeed: 0
-  detectionRange: 0
-  combatRange: 0
+  armour: 10
+  walkSpeed: 2
+  runSpeed: 4
+  detectionRange: 10
+  combatRange: 2
