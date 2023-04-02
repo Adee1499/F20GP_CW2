@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public abstract class EnemyMeleeController : EnemyController
 {
     override protected IEnumerator IIdle() {
-        Debug.Log("Idle");
         animator.SetTrigger("Idle");
         anchorPoint = transform.position;
         while(true) {
@@ -48,7 +47,7 @@ public abstract class EnemyMeleeController : EnemyController
     override protected IEnumerator IChase() {
         Debug.Log("Chase");
         agent.speed = enemy.RunSpeed;
-        animator.SetTrigger("Chasing");
+        animator.SetTrigger("Run");
 
         while(true) {
             // target is still in chase range, keep chasing

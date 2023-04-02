@@ -39,4 +39,18 @@ public class SkeletonController : EnemyMeleeController
         animator.SetTrigger("Attack");
         yield return null;
     }
+
+    protected override IEnumerator IFlee()
+    {
+        animator.SetTrigger("Run");
+        while(InRange(enemy.DetectionRange)) {
+            Vector3 dirToPlayer = transform.position - target.transform.position;
+            agent.SetDestination(transform.position + dirToPlayer);
+
+            yield return null;
+        }
+
+        ChangeState(EnemyState.Idle);
+        yield return null;
+    }
 }

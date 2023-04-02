@@ -48,7 +48,7 @@ public abstract class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         anchorPoint = transform.position;
-        forceStrength = 10f;
+        forceStrength = 15f;
         moveTimer = 0f;
         ChangeState(EnemyState.Idle);
     }        
@@ -75,11 +75,13 @@ public abstract class EnemyController : MonoBehaviour
 
     protected void TakeDamage(float damage) {
         if(currentState != EnemyState.Death) {
-            if(enemy.ModifyHealth(-damage) <= 0) {
+            float newHealth = enemy.ModifyHealth(-damage);
+            if(newHealth <= 0) {
                 animator.SetTrigger("Death");
                 ChangeState(EnemyState.Death);
-            }
-            else {
+            } else if (newHealth <= (enemy.MaxHealth/5)) {
+                ChangeState(EnemyState.Flee);
+            } else {
                 ChangeState(EnemyState.Hurt);
             }
         }
