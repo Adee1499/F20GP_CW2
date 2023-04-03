@@ -9,6 +9,20 @@ Blade Boogie features a randomized and tiered loot system, carefully designed le
 
 ## Player State Machine
 
+We have implemented the player controller using a hierarchical state machine. We have two root states:
+- Default state: Represents the player's default state.
+- Invulnerable state: Represents a temporary state where the player is invulnerable to enemies.
+
+And the following sub-states:
+- Attack state: The player is performing an attack (within the PlayerAttackState class we differentiate between different types of attacks (melee, projectile, AOE).
+- Idle state: The player is not moving or performing any actions.
+- Interact state: The player is interacting with an object / NPC in the game.
+- Roll state: The player is performing a roll/dodge move.
+- Run state: The player is running.
+- Walk state: The player is moving at a slower pace.
+
+Each sub-state can be accessed from either of the two root states. For example, the player could be in the Invulnerable state and still be able to perform an attack, or the player could be in the Interact state while in the Default state. This was done to avoid code repetition and to allow greater flexibility as the state machine can be easily expanded by further root or sub states depending on the game mechanics we want to implement.
+
 ## Dynamic Loot System
 
 Our loot system in Blade Boogie is a tiered system, with items spawning at four levels of rarity: Common, Uncommon, Rare, and Legendary. Each rarity tier corresponds to a different color and a stat modifier, making higher rarities more desirable. When a chest is opened or a breakable object smashed, 1 or more pieces of loot. The number of items dropped and the suggested level of the items can be determined using public variables stored within each lootable object.
@@ -40,11 +54,22 @@ Similarly to chests, it is possible to highlight destructible objects using the 
  ![](https://lh5.googleusercontent.com/2jRheVu-CWuwMA58GJhZBmikQQLjwMzXXxeFiCwvCAX80wiZc5SwqtjVuNjPt82GD1s=w2400)
 
 ## Environment Creation
-[MAIN AREA]
 
-For our prototype, we constructed levels using existing models and prefabs from imported asset packs. While we only had a small slice of the game to create, it was crucial to build an environment that matched the atmosphere of the action RPG genre. This was particularly important for the crypt/dungeon level, which leads to a final throne room area, intended to be the grande culmination to the players journey through the first level of the game. 
+### Main Area Level
 
-This level was sprinkled throughout with chests and other lootable objects, ending in the throne room with 2 chests, each twice as likely to drop rare loot. This aims to ensure that those who may playtest this prototype get the opportunity to see rare loot as it is otherwise left to chance.
+For our prototype, we constructed levels using existing models and prefabs from imported asset packs. While we only had a small slice of the game to create, it was crucial to build an environment that matched the atmosphere of the action RPG genre.
+
+The main area level of our game is a medieval fantasy-themed outdoor environment created using Unity's built-in terrain system. The terrain was sculpted and textured to create a realistic and immersive environment for players to explore.
+
+The level features a prominent castle with an entrance leading to the dungeon level. This adds a sense of mystery and adventure to the game, as players will want to explore the dungeon and uncover its secrets. In addition to the castle, there is also a house and a tent with a merchant NPC near the lake. This creates a sense of liveliness in the environment, as players can interact with the merchant and trade items.
+
+![](https://lh3.googleusercontent.com/pw/AMWts8CMf3oBhdd17eJpjTL4bw3pXpCWNk8hi-5Mp4S-RI_mOFmCdObt_pISnmAYxtouit7v2WeIJf6TXPe8yoJtOdLwgmuPgP7Rskc61BxDX3P8VbyleyhD1bD5TE7RbZ8Bc-ibN1di41Lbxtydy0R-M56x=w1764-h897-s-no)
+
+### Crypt / Dungeon Level
+
+This level leads to a final throne room area, intended to be the grand culmination to the player's journey through the first level of the game. The crypt/dungeon level was sprinkled throughout with chests and other lootable objects, ending in the throne room with 2 chests, each twice as likely to drop rare loot. This aims to ensure that those who may playtest this prototype get the opportunity to see rare loot as it is otherwise left to chance.
+
+Overall, the levels we created provide players with a rich and immersive environment to explore, and set the stage for a compelling and exciting gameplay experience.
 
 ![](https://lh3.googleusercontent.com/j1ONEOjyhnkCaadkRhz8OGlbyQqDgiuVnLlobibgyLnrD9Yt_t6gWYl1gOV-NJtMgmE=w2400)
 
