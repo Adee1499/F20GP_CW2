@@ -23,4 +23,4 @@ MonoBehaviour:
     protection and comfort.
   defenseValue: 1
   attackValue: 0
-  levelRequired: 0
+  levelRequired: 1

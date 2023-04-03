@@ -22,4 +22,4 @@ MonoBehaviour:
   description: Light, flexible chest armor designed for nimble and stealthy rogues.
   defenseValue: 10
   attackValue: 0
-  levelRequired: 2
+  levelRequired: 1

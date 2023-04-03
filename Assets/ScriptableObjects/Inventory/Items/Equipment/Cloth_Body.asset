@@ -22,4 +22,4 @@ MonoBehaviour:
   description: A comfortable and lightweight tunic made from soft cotton fabric.
   defenseValue: 1
   attackValue: 0
-  levelRequired: 0
+  levelRequired: 1

@@ -23,4 +23,4 @@ MonoBehaviour:
     the dark.
   defenseValue: 10
   attackValue: 0
-  levelRequired: 2
+  levelRequired: 1

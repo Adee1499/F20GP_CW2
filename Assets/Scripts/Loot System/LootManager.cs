@@ -34,6 +34,8 @@ public class LootManager : MonoBehaviour
             if(suggestedLevel > 1 && itemRarity.rarity == "Common" && Random.Range(0.0f, 1.0f) < 0.2f)
                 suggestedLevel -= 1;
 
+            newItem.levelRequired = suggestedLevel;
+
             if(newItem.itemType == ItemType.Equipment){
                 newItem.defenseValue = (int) Mathf.Round(newItem.defenseValue * suggestedLevel * itemRarity.statModifier * Random.Range(0.8f, 1.2f));
             }

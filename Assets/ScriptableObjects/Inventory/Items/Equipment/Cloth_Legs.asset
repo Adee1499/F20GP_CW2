@@ -23,4 +23,4 @@ MonoBehaviour:
     withstand the rigors of farm work.
   defenseValue: 1
   attackValue: 0
-  levelRequired: 0
+  levelRequired: 1

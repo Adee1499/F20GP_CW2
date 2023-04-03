@@ -23,4 +23,4 @@ MonoBehaviour:
     adorned with vicious spikes, capable of crushing skulls and tearing through armor.
   defenseValue: 0
   attackValue: 25
-  levelRequired: 2
+  levelRequired: 1
