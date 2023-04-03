@@ -34,11 +34,14 @@ public class ItemTooltipUI : MonoBehaviour
         // Try to cast as EquipmentItem
         EquipmentItem eqItem = item as EquipmentItem;
         if (eqItem != null) {
-            // _rarity.text = eqItem.rarity;
+            _rarity.text = eqItem.lootRarity != null ? eqItem.lootRarity.rarity : "Common";
+            _rarity.color = eqItem.lootRarity != null ? eqItem.lootRarity.rarityColour : Color.white;
             _levelRequired.text = $"Level required: {eqItem.levelRequired}";
             _levelRequired.color = XPSystem.Instance.GetCurrentLevel() >= eqItem.levelRequired
                 ? lightgray
                 : crimsonRed;
+
+
 
             _type.text = GetItemType(eqItem.equipmentSlot);
             int currentStatLower = 0; // Lower -1, same 0, higher +1

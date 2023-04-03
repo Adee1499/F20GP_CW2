@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4919473680146887096}
   - component: {fileID: 724472642401373362}
   - component: {fileID: 1697084529419353627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Medieval_ShortWaraxe_01_a 1
   m_TagString: Equipment
   m_Icon: {fileID: 0}

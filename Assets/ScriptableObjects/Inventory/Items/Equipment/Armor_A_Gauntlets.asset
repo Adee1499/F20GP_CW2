@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Titanforged Handguards
   description: Sturdy gauntlets forged by ancient Titans, providing unparalleled
     protection and strength.
-  defenseValue: 30
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 3
+  levelRequired: 1

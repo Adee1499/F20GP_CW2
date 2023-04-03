@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Titanforged Legguards
   description: Strong leg armor crafted by ancient Titans, capable of protecting
     the wearer from even the most vicious attacks.
-  defenseValue: 30
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 3
+  levelRequired: 1

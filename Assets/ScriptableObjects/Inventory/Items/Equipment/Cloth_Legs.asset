@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Farmer's Pants
   description: Durable pants worn by farmers, made from sturdy cotton or wool to
     withstand the rigors of farm work.
-  defenseValue: 1
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 0
+  levelRequired: 1

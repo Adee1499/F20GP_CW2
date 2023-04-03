@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Rogue's Boots
   description: Lightweight and quiet boots designed for agile movement and stealthy
     operations.
-  defenseValue: 10
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 2
+  levelRequired: 1
