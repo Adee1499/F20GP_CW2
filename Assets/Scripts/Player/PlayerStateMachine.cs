@@ -37,6 +37,7 @@ public class PlayerStateMachine : MonoBehaviour
     int _animProjectileSpellHash;
     int _animAOESpellHash;
     int _animDrinkHash;
+    int _animDeathHash;
 
     // Movement variables
     [Header("Controls & Movement")]
@@ -415,7 +416,7 @@ public class PlayerStateMachine : MonoBehaviour
         OnPlayerDead?.Invoke();
         _controls.Disable();
         _characterController.enabled = false;
-        // _animator.SetTrigger(_animDyingHash);
+        _animator.SetTrigger(_animDeathHash);
     }
 
     void OnPotionConsumed(PotionEffect effectType, int effectValue) 
