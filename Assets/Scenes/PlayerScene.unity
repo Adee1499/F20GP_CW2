@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.034641687, g: 0.01621879, b: 0.07632974, a: 1}
+  m_IndirectSpecularColor: {r: 0.034533996, g: 0.016157908, b: 0.07619422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -249,9 +249,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 957717281}
     - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: skill1Active
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f69b220176e6964fbd87f5f158d45e3, type: 3}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: skill2Active
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d852f5493cecf94a90183f3f83ce947, type: 3}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
       propertyPath: healthPotionUI
       value: 
       objectReference: {fileID: 235796754}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: skill1Inactive
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a8b11548ae1ade4ba8602f9191f1807, type: 3}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: skill2Inactive
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d6f02363bab23a439a20c03f5cbb323, type: 3}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: weaponEquipActive
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a88d46ed00b9214a8cc55ba6e67ab09, type: 3}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: weaponEquipInactive
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cb5846afaa42464f859735f72047fc9, type: 3}
     - target: {fileID: 4683227665985869301, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
       propertyPath: _aoeSpell
       value: 
