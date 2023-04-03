@@ -15,22 +15,26 @@ public class SummonerController : RangedEnemyController
     // something in attack range, engage in combat
     override protected IEnumerator ICombat()
     {
-        transform.LookAt(target, Vector3.up);
         Debug.Log("Combat Entered");
+        animator.SetBool("InCombat", true);
         while(InRange(enemy.DetectionRange)) {
-            FaceTarget();
-
-            if (!alreadyAttacked) {
-                if(summonReady) {
-                    StartCoroutine(ISummon());
+            if(LineOfSight()) {
+                FaceTarget();
+                // hurt player
+                if (!alreadyAttacked) {
+                    if(summonReady) {
+                        StartCoroutine(ISummon());
+                    }
+                    StartCoroutine(IAttack());
                 }
-                StartCoroutine(IAttack());
+                    
+            } else {
+                animator.SetBool("InCombat", false);
+                ChangeState(EnemyState.Chase);
+                yield return null;
             }
-
             yield return null;
         }
-
-
         ChangeState(EnemyState.Chase);
         yield return null;
     }
