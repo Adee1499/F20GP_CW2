@@ -16,48 +16,65 @@ public class SummonerController : RangedEnemyController
     override protected IEnumerator ICombat()
     {
         Debug.Log("Combat Entered");
+        // set appropriate animation
         animator.SetBool("InCombat", true);
+
+        // while player is in the detection range
         while(InRange(enemy.DetectionRange)) {
             if(LineOfSight()) {
                 FaceTarget();
-                // hurt player
+                
+                // dont attack if on cooldown
                 if (!alreadyAttacked) {
+
+                    // if able to summon, summon more enemies
                     if(summonReady) {
                         StartCoroutine(ISummon());
                     }
+
+                    // firebolt attack
                     StartCoroutine(IAttack());
                 }
                     
             } else {
+                // player not in attack range so chase after
                 animator.SetBool("InCombat", false);
                 ChangeState(EnemyState.Chase);
                 yield return null;
             }
             yield return null;
         }
+        // player not in range, chase
         ChangeState(EnemyState.Chase);
         yield return null;
     }
 
+    // summon ability 
     protected IEnumerator ISummon()
     {
-        Debug.Log("SUMMON");
-
+        // set flags
         summonReady = false;
         alreadyAttacked = true;
 
+        // for each enemy to be spawned, create at a random point around summoner
         for(int i = 0; i < noEnemiesToSpawn; i++){
             Vector3 randomPoint = transform.position + Random.insideUnitSphere * spawnRange; 
             NavMeshHit hit;
+            // instantiate if valid position
             if(NavMesh.SamplePosition(randomPoint, out hit, 2.0f, NavMesh.AllAreas)){
+                // animation
                 Instantiate(ps, hit.position, Quaternion.identity);
+                // enemy to spawn
                 Instantiate(enemyToSpawn, hit.position, Quaternion.identity);
             }
         }
+
+        // reset summon capability after cooldown
         yield return new WaitForSeconds(30f);
         summonReady = true;
     }
 
+    // attack firebolt ability
     protected override IEnumerator IAttack()
     {
         FaceTarget();
@@ -74,6 +91,7 @@ public class SummonerController : RangedEnemyController
         yield return null;
     }
 
+    // handle the enemy being hurt
     override protected IEnumerator IHurt() {
         animator.SetTrigger("Hurt");
         StartCoroutine(ApplyKnockback());

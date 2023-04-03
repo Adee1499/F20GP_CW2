@@ -17,10 +17,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] float _armour;
 
     [Header("Movement")]
+    // different movement speeds
     [SerializeField] float _walkSpeed;
     [SerializeField] float _runSpeed;
 
     [Header("Vision and Engangement Ranges")]
+    // these ranges dictate behaviour changes
     [SerializeField] float _detectionRange;
     [SerializeField] float _combatRange;
 
