@@ -491,8 +491,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Voidfang
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8e0efdd622beda84f8f11cc8beda3493, type: 2}
-  m_sharedMaterial: {fileID: -4427366143120152773, guid: 8e0efdd622beda84f8f11cc8beda3493, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ac37082e84d1d4e4ea249c4e90c246a6, type: 2}
+  m_sharedMaterial: {fileID: -4427366143120152773, guid: ac37082e84d1d4e4ea249c4e90c246a6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
