@@ -60,7 +60,7 @@ public abstract class EnemyController : MonoBehaviour
     protected abstract IEnumerator  ICombat();
     protected abstract IEnumerator IHurt();
     protected abstract IEnumerator IAttack();
-    
+
     protected IEnumerator IFlee()
     {
         animator.SetTrigger("Run");
