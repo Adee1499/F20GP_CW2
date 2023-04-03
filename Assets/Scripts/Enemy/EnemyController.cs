@@ -62,7 +62,8 @@ public abstract class EnemyController : MonoBehaviour
         moveTimer = 0f;
         timeBetweenAttacks = 1.5f;
 
-        //ProjectileController.OnProjectileCollision += TakeDamage;
+        ProjectileController.OnProjectileCollision += TakeDamage;
+        AOESpellController.OnAOECollision += TakeDamage;
 
         ChangeState(EnemyState.Idle);
     }        

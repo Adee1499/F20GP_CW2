@@ -34263,6 +34263,8 @@ GameObject:
   - component: {fileID: 898328576160968675}
   - component: {fileID: 8176230078092200170}
   - component: {fileID: 8636462576248347671}
+  - component: {fileID: 1509124386076583651}
+  - component: {fileID: 5582920251724664467}
   m_Layer: 0
   m_Name: Meteors AOE
   m_TagString: Untagged
@@ -39150,3 +39152,29 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!135 &1509124386076583651
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957833072274404953}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.35
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5582920251724664467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957833072274404953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4570a30d70191884fa4a1facfb511ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoeSpell: {fileID: 11400000, guid: 61dc91d85621fed4d8cd740f924ff810, type: 2}
