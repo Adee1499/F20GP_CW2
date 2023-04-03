@@ -91,6 +91,15 @@ To conclude the short prototype of Blade Boogie, in the final throne room we are
 
 ## User Interface
 
+### Inventory and Merchant
+The inventory system allows the player to manage a collection of items that they acquire throughout the game, including weapons, armor, and potions. The system includes a user interface that allows players to view their inventory, select items to use, drop items, or equip them if possible.
+
+The inventory system is implemented using a script that manages the player's inventory data and interactions. 
+
+The merchant NPC allows players to trade items in exchange for gold. The merchant NPC includes a user interface that displays the NPC's inventory, the player's inventory, and the trading options available to the player.
+
+![](https://lh3.googleusercontent.com/pw/AMWts8Dz7u11hWuYpySzkaBmkwlam9sQesmChFsiiOa8-8unqaseBvekf98ippK3-_i3j-D5UzrV62ynn4XHJKeoeWyXD70NScAlEnIwHjKd4eeVEE6axTEusFBNAwg0Z23JjwLTeSQV0qHudtZ6JM9k_u1C=w1919-h1073-s-no?authuser=0)
+
 # Asset Sources
 
 ## Characters, Animations, and Equipment
