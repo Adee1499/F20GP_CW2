@@ -26,6 +26,7 @@ public class MageController : RangedEnemyController
         // attack animation
         animator.SetTrigger("RangedAttack");
 
+        //yield return new WaitForSeconds(1.5f);
         //Attack code
         Firebolt firebolt = Instantiate(projectile, transform.position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity).GetComponent<Firebolt>();
         firebolt.SetTarget(target);
