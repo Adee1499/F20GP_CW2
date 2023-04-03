@@ -8,16 +8,6 @@ public abstract class RangedEnemyController : EnemyController
     [Header("Attack Settings")]
     [SerializeField]
     public GameObject projectile;
-    [SerializeField]
-    public float timeBetweenAttacks;
-    [SerializeField]
-    protected bool alreadyAttacked;
-
-    override protected void Start() {
-        base.Start();
-
-        timeBetweenAttacks = 2.5f;
-    }
 
     override protected IEnumerator IIdle() {
         animator.SetTrigger("Idle");
@@ -80,11 +70,6 @@ public abstract class RangedEnemyController : EnemyController
 
             yield return null;
         }
-    }
-
-    protected void ResetAttack()
-    {
-        alreadyAttacked = false;
     }
 }
 

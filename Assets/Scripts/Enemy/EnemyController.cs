@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -24,10 +25,6 @@ public abstract class EnemyController : MonoBehaviour
         Flee,   // low health, running away
         Death,  // dying
     }
-    [SerializeField] // any force being applied to the character
-    protected Vector3 knockBack;  
-    [SerializeField] // strength of any applied force
-    protected float forceStrength;     
 
     [Header("Navigation")]
     [SerializeField]    // the current focus of its attacks
@@ -41,6 +38,19 @@ public abstract class EnemyController : MonoBehaviour
     [SerializeField]    // a timer that decides when it is time to transition from idle to wander
     protected float moveTimer;
 
+    [Header("Combat")]
+    [SerializeField]
+    public float timeBetweenAttacks;
+    [SerializeField]
+    protected bool alreadyAttacked;
+    [SerializeField] // any force being applied to the character
+    protected Vector3 knockBack;  
+    [SerializeField] // strength of any applied force
+    protected float forceStrength;     
+
+    // Action to bind to have player respond to damage
+    public static Action<float> OnEnemyAttackPlayer;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -50,6 +60,7 @@ public abstract class EnemyController : MonoBehaviour
         anchorPoint = transform.position;
         forceStrength = 15f;
         moveTimer = 0f;
+        timeBetweenAttacks = 1.5f;
         ChangeState(EnemyState.Idle);
     }        
 
@@ -60,7 +71,7 @@ public abstract class EnemyController : MonoBehaviour
     protected abstract IEnumerator  ICombat();
     protected abstract IEnumerator IHurt();
     protected abstract IEnumerator IAttack();
-    
+
     protected IEnumerator IFlee()
     {
         animator.SetTrigger("Run");
@@ -128,6 +139,11 @@ public abstract class EnemyController : MonoBehaviour
 
     protected bool InRange(float distance) {
         return Vector3.Distance(target.position, transform.position) < distance;
+    }
+    
+    protected void ResetAttack()
+    {
+        alreadyAttacked = false;
     }
 
     // Change the current state of the enemy

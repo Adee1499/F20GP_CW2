@@ -12,10 +12,11 @@ public class SkeletonController : EnemyMeleeController
         
         while(true) {
             FaceTarget();
-            StartCoroutine(IAttack());
+            if(!alreadyAttacked)
+                StartCoroutine(IAttack());
 
             // enemy out of range of combat
-            if(!InRange(enemy.DetectionRange)){
+            if(!InRange(enemy.CombatRange)){
                 ChangeState(EnemyState.Chase);
                 yield break;
             // enemy out of vision
@@ -36,7 +37,13 @@ public class SkeletonController : EnemyMeleeController
 
     override protected IEnumerator IAttack() {
         // attack animation
+        alreadyAttacked = true;
+        if(Physics.CheckSphere(transform.position,1.5f, LayerMask.GetMask("Player"))) {
+            OnEnemyAttackPlayer?.Invoke(5f);
+        }
         animator.SetTrigger("Attack");
+
+        Invoke(nameof(ResetAttack), timeBetweenAttacks);
         yield return null;
     }
 }
