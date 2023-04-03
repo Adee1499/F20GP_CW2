@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Winter Gloves
   description: Warm gloves designed for cold weather, made from thick fur and wool
     to protect the wearer's hands from frostbite.
-  defenseValue: 0
+  defenseValue: 15
   attackValue: 0
   levelRequired: 1

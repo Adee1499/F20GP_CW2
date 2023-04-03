@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Peasant Shoes
   description: Simple, sturdy shoes worn by peasants and farmers, providing basic
     protection and comfort.
-  defenseValue: 1
+  defenseValue: 15
   attackValue: 0
   levelRequired: 1

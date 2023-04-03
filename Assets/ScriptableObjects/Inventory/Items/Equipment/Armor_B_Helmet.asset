@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Nightstalker Hood
   description: A hood made for nocturnal hunters, imbued with the power to see in
     the dark.
-  defenseValue: 10
+  defenseValue: 15
   attackValue: 0
   levelRequired: 1

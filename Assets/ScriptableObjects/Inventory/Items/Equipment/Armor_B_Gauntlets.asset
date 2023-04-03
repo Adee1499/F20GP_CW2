@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Wyvernhide Gloves
   description: Gloves made from the hide of a fierce wyvern, providing the wearer
     with enhanced strength and grip.
-  defenseValue: 10
+  defenseValue: 15
   attackValue: 0
   levelRequired: 1

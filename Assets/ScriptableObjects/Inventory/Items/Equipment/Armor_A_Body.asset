@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Titanforged Cuirass
   description: Forged from the finest steel, this breastplate offers unparalleled
     protection.
-  defenseValue: 30
+  defenseValue: 15
   attackValue: 0
   levelRequired: 1

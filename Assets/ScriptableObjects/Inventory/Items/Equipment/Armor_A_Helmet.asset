@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Titanforged Warhelm
   description: A mighty helmet crafted by ancient Titans, able to withstand even
     the most powerful blows.
-  defenseValue: 30
+  defenseValue: 15
   attackValue: 0
   levelRequired: 1
