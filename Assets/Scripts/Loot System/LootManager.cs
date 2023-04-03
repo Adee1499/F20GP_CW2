@@ -58,7 +58,7 @@ public class LootManager : MonoBehaviour
         }
 
         foreach(GameObject obj in prefabs){
-            obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, transform.position, 5.0f);
+            obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, transform.position, 5.0f, 10.0f);
         }
         
     }
