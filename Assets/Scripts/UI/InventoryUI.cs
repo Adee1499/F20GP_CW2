@@ -106,11 +106,13 @@ public class InventoryUI : MonoBehaviour
         itemsDisplayed.Add(itemSlot, newItem);
     }
 
-    public void RemoveInventoryItem(InventoryItem item)
+    public bool RemoveInventoryItem(InventoryItem item) 
     {
+        bool lastItem = true;
         foreach(InventorySlot slot in inventory.items) {
             if (slot.CompareItem(item)) {
                 if (slot.amount > 1) {
+                    lastItem = false;
                     slot.amount--;
                 } else {
                     inventory.items.Remove(slot);
@@ -122,6 +124,7 @@ public class InventoryUI : MonoBehaviour
                 break;
             }
         }
+        return lastItem;
     }
 
     public void BuyItemFromMerchant(InventoryItem item) 

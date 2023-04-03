@@ -111,7 +111,15 @@ public class DraggableItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
             } else {
                 // Instantiate the item's mesh in the world and remove from inventory
                 Instantiate(item.onGroundPrefab, _playerReference.transform.position, Quaternion.identity);
-                InventoryUI.Instance.RemoveInventoryItem(item);
+                if (!InventoryUI.Instance.RemoveInventoryItem(item)) {
+                    // Return to inventory
+                    _canvasGroup.blocksRaycasts = true;
+                    _canvasGroup.alpha = 1f;
+                    if (transform.parent == _draggedItemParent) {
+                        transform.SetParent(_previousParent);
+                        transform.localPosition = new Vector3(0, 0, 0);
+                    }
+                }
                 if (equipped)
                     EquipmentManager.Instance.UnequipItem(item.equipmentSlot);
             }
