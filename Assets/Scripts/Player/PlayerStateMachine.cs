@@ -202,6 +202,7 @@ public class PlayerStateMachine : MonoBehaviour
         _controls.Player.Hotbar5.started += ctx => { _currentSelectedSkill = 5; print($"Selected skill {_currentSelectedSkill}"); };
 
         PotionItem.OnPotionConsumed += OnPotionConsumed;
+        Gold.OnGoldCollected += OnGoldCollected;
     }
 
     void Start()
@@ -420,5 +421,10 @@ public class PlayerStateMachine : MonoBehaviour
                 if (_playerMP > _maxPlayerMP) _playerMP = _maxPlayerMP;
                 break;
         }
+    }
+
+    void OnGoldCollected(int amount) 
+    {
+        _activeInventory.gold += amount;
     }
 }

@@ -6,6 +6,7 @@ public class LootManager : MonoBehaviour
 {
     public List<EquipmentItem> DroppableLoot;
     public Dictionary<string, LootRarity> RarityStats = new Dictionary<string, LootRarity>();
+    public GameObject GoldPrefab;
 
     void Awake()
     {
