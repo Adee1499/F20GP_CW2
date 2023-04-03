@@ -9,14 +9,17 @@ public class MageController : RangedEnemyController
     {
         Debug.Log("Combat Entered");
         while(InRange(enemy.DetectionRange)) {
-            // hurt player
-            if (!alreadyAttacked)
-                StartCoroutine(IAttack());
-
+            if(LineOfSight()) {
+                FaceTarget();
+                // hurt player
+                if (!alreadyAttacked)
+                    StartCoroutine(IAttack());
+            } else {
+                ChangeState(EnemyState.Chase);
+                yield return null;
+            }
             yield return null;
         }
-
-
         ChangeState(EnemyState.Chase);
         yield return null;
     }

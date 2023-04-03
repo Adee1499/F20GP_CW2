@@ -60,8 +60,13 @@ public abstract class RangedEnemyController : EnemyController
 
             // target is now in attack range;
             if(InRange(enemy.CombatRange)) {
-                ChangeState(EnemyState.Combat);
-                yield break;
+                Debug.Log("Checking LOS");
+                if(LineOfSight()) {
+                    Debug.Log("Have Sight");
+                    ChangeState(EnemyState.Combat);
+                    yield break;
+                }
+                Debug.Log("No LOS");
             // target has escaped, stop chasing (possible new state "Searching")
             } else if (!InRange(enemy.DetectionRange * 1.5f)) {
                 ChangeState(EnemyState.Idle);
@@ -70,6 +75,18 @@ public abstract class RangedEnemyController : EnemyController
 
             yield return null;
         }
+    }
+
+    // check if a ranged enemy has a clear shot 
+    protected bool LineOfSight() {
+        RaycastHit hit;
+        Vector3 origin = new Vector3(transform.position.x, 2, transform.position.z);
+        Vector3 direction = new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z);
+        Debug.DrawRay(origin, direction, Color.red, 2);
+        if(Physics.Raycast(origin, direction, out hit)) {
+            return (hit.collider.CompareTag("Player"));
+        }
+        return false;
     }
 }
 

@@ -90,7 +90,7 @@ public abstract class EnemyController : MonoBehaviour
     protected void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
     }
 
     public void Attacked(float damage, Vector3 direction) {
