@@ -60,8 +60,11 @@ public class Chest : MonoBehaviour {
 
                 if (prefab.GetComponent<Loot>().objRef == null)
                     prefab.GetComponent<Loot>().objRef = item as EquipmentItem;
-                var obj = Instantiate(prefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-                obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, transform.position, 5.0f);
+
+                Vector3 spawnPosition = transform.position + Vector3.up * 0.5f;
+
+                var obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
+                obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, spawnPosition, 5.0f);
             }
             Instantiate(openChestPrefab, transform.position, transform.rotation);
         }

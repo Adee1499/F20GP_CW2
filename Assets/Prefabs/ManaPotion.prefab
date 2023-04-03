@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2626205534444097682}
   - component: {fileID: 1489168652200584509}
   - component: {fileID: 8623609477595708309}
-  m_Layer: 0
-  m_Name: GPVFX_POTION B
+  m_Layer: 6
+  m_Name: ManaPotion
   m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4376842309549012}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4476981492254634}
   - component: {fileID: 33198821498221330}
   - component: {fileID: 23365835186420922}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4423979553793984}
   - component: {fileID: 33264770712956334}
   - component: {fileID: 23709704847468566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_Bottle_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 4334132203307974}
   - component: {fileID: 33963323186824888}
   - component: {fileID: 23818790733447854}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_Botle_B_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
