@@ -12,7 +12,7 @@ public class ProjectileController : MonoBehaviour
     float _destroyTime;
     Rigidbody rb;
 
-    public static Action<int> OnProjectileCollision; // Pass damage amount when invoking this event
+    public static Action<float> OnProjectileCollision; // Pass damage amount when invoking this event
 
     void Start()
     {
@@ -57,7 +57,9 @@ public class ProjectileController : MonoBehaviour
 
             // Deal damage
             if (other.CompareTag("Enemy")) {
-                OnProjectileCollision?.Invoke(Damage);
+                EnemyController enemyRef = other.GetComponent<EnemyController>();
+                Vector3 direction = enemyRef.transform.position - this.transform.position;
+                enemyRef.Attacked(Damage, direction);
             } else if (other.CompareTag("Breakable")) {
                 other.GetComponent<Breakable>().Fracture();
             } else if (other.CompareTag("Explodeable")) {
