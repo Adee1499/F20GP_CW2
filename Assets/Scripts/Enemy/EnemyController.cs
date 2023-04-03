@@ -6,15 +6,19 @@ using UnityEngine.AI;
 public abstract class EnemyController : MonoBehaviour
 {
     [Header("Enemy")]
+    // holds all the stats
     [SerializeField] 
     protected Enemy enemy;
-    [SerializeField]    // controller for the animations
+    // controller for the animations
+    [SerializeField]    
     protected Animator animator;
 
     [Header("States")]
-    [SerializeField]    // current state of the enemy
+    // current state of the enemy
+    [SerializeField]    
     protected EnemyState currentState;
-    [SerializeField]    // the lists of states an enemy can be in
+    // the lists of states an enemy can be in
+    [SerializeField]   
     protected enum EnemyState {
         Idle,   // nothing to attack nearby
         Wander, // wandering around an area
@@ -27,25 +31,34 @@ public abstract class EnemyController : MonoBehaviour
     }
 
     [Header("Navigation")]
-    [SerializeField]    // the current focus of its attacks
-    protected Transform target;       
-    [SerializeField]    // the navmesh agent of the enemy object
-    protected NavMeshAgent agent;     
-    [SerializeField]    // when idle, the point at which they will wander around
-    protected Vector3 anchorPoint;    
-    [SerializeField]    // change that a enemy will begin to wander
+    // the current focus of its attacks
+    [SerializeField]    
+    protected Transform target;    
+    // the navmesh agent of the enemy object   
+    [SerializeField]    
+    protected NavMeshAgent agent;    
+    // the point at which the agent will wander around 
+    [SerializeField]    
+    protected Vector3 anchorPoint;   
+    // change that a enemy will begin to wander 
+    [SerializeField]    
     protected int wanderProbability;
-    [SerializeField]    // a timer that decides when it is time to transition from idle to wander
+    // a timer that decides when it is time to transition from idle to wander
+    [SerializeField]    
     protected float moveTimer;
 
     [Header("Combat")]
+    // a limit to how often attacks can happen
     [SerializeField]
     public float timeBetweenAttacks;
+    // has the enemy already attacked
     [SerializeField]
     protected bool alreadyAttacked;
-    [SerializeField] // any force being applied to the character
+    // any force being applied to the character
+    [SerializeField] 
     protected Vector3 knockBack;  
-    [SerializeField] // strength of any applied force
+    // strength of any applied force
+    [SerializeField] 
     protected float forceStrength;     
 
     // Action to bind to have player respond to damage
@@ -75,10 +88,13 @@ public abstract class EnemyController : MonoBehaviour
     protected abstract IEnumerator IHurt();
     protected abstract IEnumerator IAttack();
 
+    // when the enemy has low health it will run from the player
     protected IEnumerator IFlee()
     {
         animator.SetTrigger("Run");
         agent.speed = enemy.WalkSpeed;
+
+        // while the player is in the detection range, move in the opposite direction of player
         while(InRange(enemy.DetectionRange)) {
             Vector3 dirToPlayer = transform.position - target.transform.position;
             agent.SetDestination(transform.position + dirToPlayer);
@@ -90,20 +106,27 @@ public abstract class EnemyController : MonoBehaviour
         yield return null;
     }
 
+    // face the player
     protected void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
     }
 
+    // the enemy has been attacked
     public void Attacked(float damage, Vector3 direction) {
+        // apply knockback then handle damage
         knockBack = direction;
         TakeDamage(damage);
     }
 
+    // handle the damage from attacks
     protected void TakeDamage(float damage) {
+        // only trigger if the player isn't dying to prevent a loop
         if(currentState != EnemyState.Death) {
             float newHealth = enemy.ModifyHealth(-damage);
+
+            // depending on new health may trigger new state
             if(newHealth <= 0) {
                 animator.SetTrigger("Death");
                 ChangeState(EnemyState.Death);
@@ -115,10 +138,12 @@ public abstract class EnemyController : MonoBehaviour
         }
     }
 
+    // apply any knockback
     protected IEnumerator ApplyKnockback() {
         // remember old value
         Vector3 oldVel = agent.velocity;
 
+        // move the agent in the direction of the knockback
         agent.velocity = knockBack * forceStrength;
         yield return new WaitForSeconds(0.2f);
 
@@ -128,22 +153,20 @@ public abstract class EnemyController : MonoBehaviour
         yield return null;
     }
 
+    // destroy a dead enemy
     protected IEnumerator IDie() {
-        Debug.Log("I don't feel so good");
-
         yield return new WaitForSeconds(1f);
-
-        Debug.Log("bye bye");
-
         GameObject.Destroy(this.gameObject);
 
         yield return null;
     }
 
+    // is the target in the specified range
     protected bool InRange(float distance) {
         return Vector3.Distance(target.position, transform.position) < distance;
     }
     
+    // reset the attack cooldown
     protected void ResetAttack()
     {
         alreadyAttacked = false;
@@ -186,6 +209,7 @@ public abstract class EnemyController : MonoBehaviour
         }
     }
 
+    // used to see gizmos in the scene
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, enemy.DetectionRange);

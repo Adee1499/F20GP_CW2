@@ -12,15 +12,17 @@ public class SkeletonController : EnemyMeleeController
         
         while(true) {
             FaceTarget();
+
+            // dont attack if on cooldown
             if(!alreadyAttacked)
                 StartCoroutine(IAttack());
 
-            // enemy out of range of combat
             if(!InRange(enemy.CombatRange)){
+                // enemy out of range of attacking, chase them down
                 ChangeState(EnemyState.Chase);
                 yield break;
-            // enemy out of vision
             } else if (!InRange(enemy.DetectionRange * 1.5f)) {
+                // enemy out of vision, return to idle state
                 ChangeState(EnemyState.Idle);
                 yield break;
             }
@@ -29,20 +31,26 @@ public class SkeletonController : EnemyMeleeController
         }
     }
 
+    // handle the hurt state
     override protected IEnumerator IHurt() {
         animator.SetTrigger("Hurt");
         StartCoroutine(ApplyKnockback());
         yield return null;
     }
 
+    // perform an attack, swing the sword
     override protected IEnumerator IAttack() {
         // attack animation
         alreadyAttacked = true;
+
+        // check that the player is in the range of an attack using a spherecheck
         if(Physics.CheckSphere(transform.position,1.5f, LayerMask.GetMask("Player"))) {
+            // player was in range, deal 5 damage
             OnEnemyAttackPlayer?.Invoke(5f);
         }
         animator.SetTrigger("Attack");
 
+        // begin attack cooldown regardless of success of hit
         Invoke(nameof(ResetAttack), timeBetweenAttacks);
         yield return null;
     }
