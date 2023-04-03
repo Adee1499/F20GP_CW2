@@ -91,6 +91,10 @@ To conclude the short prototype of Blade Boogie, in the final throne room we are
 
 ## User Interface
 
+### Globes and Hotbar
+
+The User Interface features many genre staples such as Health and Mana globes which effectively communicate important information to the player. The UI also features a responsive Hotbar which allows players to select skills, look at their gold balance and the amount of potions they have.
+
 ### Inventory and Merchant
 The inventory system allows the player to manage a collection of items that they acquire throughout the game, including weapons, armor, and potions. The system includes a user interface that allows players to view their inventory, select items to use, drop items, or equip them if possible.
 
