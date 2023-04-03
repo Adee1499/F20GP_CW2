@@ -8,13 +8,17 @@ public class MageController : RangedEnemyController
     override protected IEnumerator ICombat()
     {
         Debug.Log("Combat Entered");
+        animator.SetBool("InCombat", true);
         while(InRange(enemy.DetectionRange)) {
             if(LineOfSight()) {
                 FaceTarget();
                 // hurt player
-                if (!alreadyAttacked)
+                if (!alreadyAttacked) {
                     StartCoroutine(IAttack());
+                }
+                    
             } else {
+                animator.SetBool("InCombat", false);
                 ChangeState(EnemyState.Chase);
                 yield return null;
             }
