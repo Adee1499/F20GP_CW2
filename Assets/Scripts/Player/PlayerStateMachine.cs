@@ -111,6 +111,8 @@ public class PlayerStateMachine : MonoBehaviour
     public static event Action OnPlayerDead;
 
     bool _interactingWithUI = false;
+
+    public GameObject gameOver;
     
     void OnCollisionEnter(Collision other) 
     {
@@ -122,6 +124,10 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Awake()
     {
+
+        GameObject.FindWithTag("GameOverMenu");
+        gameOver.SetActive(false);
+
         // Initialize reference variables
         _characterController = GetComponent<CharacterController>();
         _controls = new Controls();
@@ -430,6 +436,7 @@ public class PlayerStateMachine : MonoBehaviour
     void PlayerDead()
     {
         OnPlayerDead?.Invoke();
+        gameOver.SetActive(true);
         _controls.Disable();
         _characterController.enabled = false;
         _animator.SetTrigger(_animDeathHash);

@@ -18,6 +18,7 @@ TagManager:
   - MenuSkull
   - Breakable
   - Explodeable
+  - GameOverMenu
   layers:
   - Default
   - TransparentFX
