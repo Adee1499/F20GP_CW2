@@ -12,7 +12,6 @@ public class WeaponScript : MonoBehaviour
         if (!CanDealDamage) return;
         if (other.CompareTag("Enemy")) {
             EnemyController enemyRef = other.GetComponent<EnemyController>();
-
             // get the direction of impact
             Vector3 differential = enemyRef.transform.position - this.transform.position;
             OnWeaponCollidedWithEnemy?.Invoke(tempDamageVal, enemyRef, differential.normalized);

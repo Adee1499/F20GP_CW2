@@ -2315,6 +2315,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8135526279983809134}
+  - component: {fileID: 6907446841545065231}
+  - component: {fileID: 3787662130564903754}
   m_Layer: 7
   m_Name: PT_RightHand
   m_TagString: Untagged
@@ -2343,6 +2345,32 @@ Transform:
   m_Father: {fileID: 2668749167815847934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6907446841545065231
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884333791988031276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 0.25
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3787662130564903754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884333791988031276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faff29211b09694fbb9875aca3f251b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6044082628478473940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,6 +2884,12 @@ MonoBehaviour:
   _animator: {fileID: 479394166755669046}
   _inventory: {fileID: 11400000, guid: 127045d50473e36409c8a9d7c5df6dff, type: 2}
   _inventoryUI: {fileID: 0}
+  weaponEquipActive: {fileID: 0}
+  weaponEquipInactive: {fileID: 0}
+  skill1Active: {fileID: 0}
+  skill1Inactive: {fileID: 0}
+  skill2Active: {fileID: 0}
+  skill2Inactive: {fileID: 0}
   _walkSpeed: 2
   _runSpeed: 5
   _rotationSpeed: 20
@@ -3662,6 +3696,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1168646893342745894}
+  - component: {fileID: 6818904202784962379}
+  - component: {fileID: 3023885124496063456}
   m_Layer: 7
   m_Name: PT_LeftHand
   m_TagString: Untagged
@@ -3690,6 +3726,32 @@ Transform:
   m_Father: {fileID: 603626146972823487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6818904202784962379
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460369579951691324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 0.25
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3023885124496063456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460369579951691324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faff29211b09694fbb9875aca3f251b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8466119321165579785
 GameObject:
   m_ObjectHideFlags: 0
