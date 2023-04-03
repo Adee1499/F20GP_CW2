@@ -31,7 +31,6 @@ public class MageController : RangedEnemyController
             }
             yield return null;
         }
-
         // player not in range, chase
         ChangeState(EnemyState.Chase);
         yield return null;
