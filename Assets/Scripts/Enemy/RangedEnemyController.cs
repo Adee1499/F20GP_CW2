@@ -16,7 +16,7 @@ public abstract class RangedEnemyController : EnemyController
     override protected void Start() {
         base.Start();
 
-        timeBetweenAttacks = 1f;
+        timeBetweenAttacks = 2.5f;
     }
 
     override protected IEnumerator IIdle() {

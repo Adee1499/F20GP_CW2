@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 7888423658070581582}
   m_Layer: 0
   m_Name: Mage
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
   anchorPoint: {x: 0, y: 0, z: 0}
   wanderProbability: 0
   moveTimer: 0
-  projectile: {fileID: 2784428375121319217, guid: d254429edc2808841a422de40687d27c, type: 3}
+  projectile: {fileID: 1401322386234506, guid: f25587c84463cfb4aa7c38deebae1f64, type: 3}
   timeBetweenAttacks: 0
   alreadyAttacked: 0
 --- !u!114 &1869436150172557200

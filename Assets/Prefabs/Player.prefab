@@ -2744,6 +2744,7 @@ GameObject:
   - component: {fileID: 479394166755669049}
   - component: {fileID: 479394166755669050}
   - component: {fileID: 4683227665985869301}
+  - component: {fileID: 833672365534988232}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2897,8 +2898,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaefffb69f5d474a948767835146886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 11400000, guid: d23ba61d9af61bd4dbddd684e8fd6554, type: 2}
+  _projectileSpell: {fileID: 0}
+  _aoeSpell: {fileID: 0}
   _projectileSpawnPoint: {fileID: 3359519341610341932}
+--- !u!136 &833672365534988232
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560858504243983606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6633128549381993871
 GameObject:
   m_ObjectHideFlags: 0

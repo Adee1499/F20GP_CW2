@@ -27,9 +27,8 @@ public class MageController : RangedEnemyController
         animator.SetTrigger("RangedAttack");
 
         //Attack code
-        Rigidbody rb = Instantiate(projectile, transform.position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
-        rb.AddForce(transform.up * 1f, ForceMode.Impulse);
+        Firebolt firebolt = Instantiate(projectile, transform.position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity).GetComponent<Firebolt>();
+        firebolt.SetTarget(target);
 
         //To stop rapid projectile spam
         alreadyAttacked = true;
