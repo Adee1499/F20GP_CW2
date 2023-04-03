@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 593133407900373890}
   - component: {fileID: 593133407900373891}
   - component: {fileID: 7004650051682297820}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: TNT_Barrel
-  m_TagString: Untagged
+  m_TagString: Explodeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,4 +137,4 @@ MonoBehaviour:
   particles: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   layermask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024

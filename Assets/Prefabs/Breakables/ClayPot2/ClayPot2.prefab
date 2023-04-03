@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4026176120528372054}
   - component: {fileID: -5882328644999211340}
   - component: {fileID: 2515452655389263316}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: ClayPot2
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,10 @@ MonoBehaviour:
   breakRadius: 2
   layermask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
+  suggestedLevel: 1
+  numberOfLoot: 1
+  rarityModifier: 0.1
 --- !u!114 &-5882328644999211340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +133,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591469214663249471}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 0.8
