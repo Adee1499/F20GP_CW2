@@ -17,8 +17,9 @@ public class LootManager : MonoBehaviour
 
     }
 
-    public void DropLoot(Vector3 position, int noItemsDropped, int suggestedLevel, float rarityModifier = 1.0f)
+    public void DropLoot(Vector3 position, int noItemsDropped, int suggestedLevel, float rarityModifier = 1.0f) 
     {
+        int totalSellValue = 0;
         List<GameObject> prefabs = new List<GameObject>();
         for(int i = 0; i < noItemsDropped; i++){
             var item = DroppableLoot[Random.Range(0, DroppableLoot.Count - 1)];
@@ -43,8 +44,10 @@ public class LootManager : MonoBehaviour
             else {
                 newItem.defenseValue = (int) Mathf.Round(newItem.defenseValue * suggestedLevel * itemRarity.statModifier * Random.Range(0.8f, 1.2f));
             }
+            newItem.sellValue = (int) Mathf.Round(newItem.sellValue * suggestedLevel * itemRarity.statModifier);
 
-            newItem.sellValue = (int) Mathf.Round(newItem.sellValue * newItem.defenseValue * itemRarity.statModifier);
+            totalSellValue += newItem.sellValue;
+
             newItem.lootRarity = itemRarity;
 
             prefab.GetComponent<Loot>().objRef = newItem;
@@ -59,9 +62,14 @@ public class LootManager : MonoBehaviour
         }
 
         foreach(GameObject obj in prefabs){
-            obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, transform.position, 5.0f, 10.0f);
+            obj.GetComponent<Rigidbody>().AddExplosionForce(2.0f, transform.position, 2.0f);
         }
         
+        // Drop gold
+        int goldAmount = Mathf.RoundToInt(totalSellValue / noItemsDropped * Random.Range(0.75f, 0.9f));
+        var gold = Instantiate(GoldPrefab, position + Vector3.up * 0.5f, Quaternion.identity);
+        gold.GetComponent<Gold>().amount = goldAmount;
+        gold.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f, ForceMode.Impulse);
     }
 
     private LootRarity GenerateRarity(float rarityModifier) {

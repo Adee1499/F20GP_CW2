@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a57c361848952a9419bc9012144e0583, type: 2}
   - {fileID: 11400000, guid: 612e79019a5ef7f4baceb109fec96597, type: 2}
   - {fileID: 11400000, guid: 0123c4b75349cba40b87b22a562b7c99, type: 2}
-  LootPrefab: {fileID: 1950871307682000, guid: 01348926c7cbb3347a006c37204131c3, type: 3}
+  GoldPrefab: {fileID: 1950871307682000, guid: 01348926c7cbb3347a006c37204131c3, type: 3}
 --- !u!4 &500770107
 Transform:
   m_ObjectHideFlags: 0

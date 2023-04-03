@@ -17,7 +17,7 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 5778942376948609405, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
   equipmentSlot: 6
   onGroundPrefab: {fileID: 5778942376948609405, guid: 3b7fb9e3f2b5d954193d09fa703f2a68, type: 3}
-  sellValue: 215
+  sellValue: 60
   itemName: Shadowfang
   description: This swift and agile weapon is perfect for quick strikes and agile
     maneuvers. Its slender blade is honed to a razor's edge, capable of slicing through
