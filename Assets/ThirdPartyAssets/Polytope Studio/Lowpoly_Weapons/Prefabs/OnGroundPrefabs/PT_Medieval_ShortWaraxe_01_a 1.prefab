@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 1760574894572383816}
   - component: {fileID: 1760574894568992360}
   - component: {fileID: 1760574894569958568}
-  - component: {fileID: 1773693898533680350}
   - component: {fileID: -2056730686553075739}
   - component: {fileID: -4919473680146887096}
   - component: {fileID: 724472642401373362}
   - component: {fileID: 1697084529419353627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Medieval_ShortWaraxe_01_a 1
   m_TagString: Equipment
   m_Icon: {fileID: 0}
@@ -88,18 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1773693898533680350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760574894572221032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2faff29211b09694fbb9875aca3f251b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-2056730686553075739
 MonoBehaviour:
   m_ObjectHideFlags: 0

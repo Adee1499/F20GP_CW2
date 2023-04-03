@@ -18,6 +18,7 @@ public class PlayerAttackState : PlayerBaseState
             case 1:
                 // Melee
                 _dealtDamage = false;
+                WeaponScript.CanDealDamage = true;
                 WeaponScript.OnWeaponCollidedWithEnemy += DealDamageToEnemy;
                 Ctx.StartCoroutine(MeleeAttack());
                 break;
@@ -39,6 +40,7 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void ExitState() 
     {
+        WeaponScript.CanDealDamage = false;
         WeaponScript.OnWeaponCollidedWithEnemy -= DealDamageToEnemy;
     }
 
@@ -56,10 +58,11 @@ public class PlayerAttackState : PlayerBaseState
         CheckSwitchStates();
     }
 
-    void DealDamageToEnemy()
+    void DealDamageToEnemy(float damage, EnemyController enemyRef, Vector3 impact)
     {
         if (!_dealtDamage) {
             Debug.Log("Dealing damage to enemy");
+            enemyRef.Attacked(damage, impact);
             _dealtDamage = true;
         }
     }

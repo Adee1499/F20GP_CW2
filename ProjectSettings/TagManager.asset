@@ -16,6 +16,8 @@ TagManager:
   - Skill1
   - Skill2
   - MenuSkull
+  - Breakable
+  - Explodeable
   layers:
   - Default
   - TransparentFX
@@ -25,9 +27,9 @@ TagManager:
   - UI
   - Loot
   - Player
-  - 
-  - 
-  - 
+  - Ground
+  - Gold
+  - Breakables
   - 
   - 
   - 

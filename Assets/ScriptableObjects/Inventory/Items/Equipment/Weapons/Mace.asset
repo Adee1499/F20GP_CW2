@@ -17,10 +17,10 @@ MonoBehaviour:
   onPlayerPrefab: {fileID: 1299730386369894655, guid: 38b246b515ecfc1489b2a72b8567bfd2, type: 3}
   equipmentSlot: 6
   onGroundPrefab: {fileID: 1299730386369894655, guid: b391a1db1051ce946b20d361e68fa046, type: 3}
-  sellValue: 275
+  sellValue: 85
   itemName: Doombringer
   description: This brutal weapon is not for the faint of heart. Its heavy head is
     adorned with vicious spikes, capable of crushing skulls and tearing through armor.
   defenseValue: 0
   attackValue: 25
-  levelRequired: 2
+  levelRequired: 1

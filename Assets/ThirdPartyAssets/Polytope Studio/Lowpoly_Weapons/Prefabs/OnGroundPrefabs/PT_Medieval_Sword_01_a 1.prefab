@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 5778942376948968797}
   - component: {fileID: 5778942376945577341}
   - component: {fileID: 5778942376946675645}
-  - component: {fileID: 8152464610133942372}
   - component: {fileID: 1208969919011246536}
   - component: {fileID: -1460026988971422578}
   - component: {fileID: -1660709951398192673}
   - component: {fileID: 1485055929550614328}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Medieval_Sword_01_a 1
   m_TagString: Equipment
   m_Icon: {fileID: 0}
@@ -88,18 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8152464610133942372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5778942376948609405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2faff29211b09694fbb9875aca3f251b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1208969919011246536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974a12081187e0f458dcae9a6161bef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objRef: {fileID: 0}
+  objRef: {fileID: 11400000, guid: a57c361848952a9419bc9012144e0583, type: 2}
 --- !u!54 &-1660709951398192673
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,5 +145,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23731746, y: 0.86896193, z: 0.108036146}
-  m_Center: {x: -0.005993314, y: -0.3231898, z: 0.00016385317}
+  m_Size: {x: 0.23731746, y: 1.0683994, z: 0.21692163}
+  m_Center: {x: -0.005993314, y: -0.31548926, z: 0.0017666817}

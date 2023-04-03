@@ -58,6 +58,10 @@ public class ProjectileController : MonoBehaviour
             // Deal damage
             if (other.CompareTag("Enemy")) {
                 OnProjectileCollision?.Invoke(Damage);
+            } else if (other.CompareTag("Breakable")) {
+                other.GetComponent<Breakable>().Fracture();
+            } else if (other.CompareTag("Explodeable")) {
+                other.GetComponent<Explodeable>().Explode();
             }
 
             Destroy(gameObject);

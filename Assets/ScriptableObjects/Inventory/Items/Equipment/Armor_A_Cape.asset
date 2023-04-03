@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Crusader's Cape
   description: A holy cape worn by crusaders, adorned with sacred symbols to protect
     its wearer from harm.
-  defenseValue: 0
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 3
+  levelRequired: 1

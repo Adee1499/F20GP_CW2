@@ -23,7 +23,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Inventory _activeInventory;
     XPSystem _xpSystem;
     SpellCaster _spellCaster;
-    Slider heatlhGlobe, manaGlobe, xpBar;
+    Slider healthGlobe, manaGlobe, xpBar;
     TMP_Text playerLevel, goldCount;
     public Sprite weaponEquipActive, weaponEquipInactive, skill1Active, skill1Inactive, skill2Active, skill2Inactive;
     Image weaponEquip, skill1, skill2;
@@ -37,6 +37,7 @@ public class PlayerStateMachine : MonoBehaviour
     int _animProjectileSpellHash;
     int _animAOESpellHash;
     int _animDrinkHash;
+    int _animDeathHash;
 
     // Movement variables
     [Header("Controls & Movement")]
@@ -202,6 +203,7 @@ public class PlayerStateMachine : MonoBehaviour
         _controls.Player.Hotbar5.started += ctx => { _currentSelectedSkill = 5; print($"Selected skill {_currentSelectedSkill}"); };
 
         PotionItem.OnPotionConsumed += OnPotionConsumed;
+        Gold.OnGoldCollected += OnGoldCollected;
     }
 
     void Start()
@@ -214,9 +216,16 @@ public class PlayerStateMachine : MonoBehaviour
         playerLevel = GameObject.FindWithTag("PlayerLevel").GetComponent<TMP_Text>();
         goldCount = GameObject.FindWithTag("GoldCount").GetComponent<TMP_Text>();
         xpBar = GameObject.FindWithTag("XPBar").GetComponent<Slider>();
+        healthGlobe = GameObject.FindWithTag("HealthGlobe").GetComponent<Slider>();
+        healthGlobe.maxValue = _maxPlayerHP;
+        healthGlobe.value = _maxPlayerHP;
         manaGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();
         manaGlobe.maxValue = _maxPlayerMP;
         manaGlobe.value = _maxPlayerMP;
+
+        // bind action of player being hit
+        EnemyController.OnEnemyAttackPlayer += TakeDamage;
+        Firebolt.OnProjectileHitPlayer += TakeDamage;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -367,14 +376,17 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // TODO: Move take damage method to PlayerDefaultState
-    void TakeDamage(int damage)
+    void TakeDamage(float damage)
     {
+        //Debug.Log("ow ow ow");
         _playerHP -= damage;
-        heatlhGlobe.value = _playerHP;
+        healthGlobe.value = _playerHP;
         OnPlayerHealthChange?.Invoke(_playerHP);
         if (_playerHP <= 0) {
             PlayerDead();
         }
+
+        //Debug.Log(_playerHP);
     }
 
     public void UseMana(int amount)
@@ -404,7 +416,7 @@ public class PlayerStateMachine : MonoBehaviour
         OnPlayerDead?.Invoke();
         _controls.Disable();
         _characterController.enabled = false;
-        // _animator.SetTrigger(_animDyingHash);
+        _animator.SetTrigger(_animDeathHash);
     }
 
     void OnPotionConsumed(PotionEffect effectType, int effectValue) 
@@ -420,5 +432,10 @@ public class PlayerStateMachine : MonoBehaviour
                 if (_playerMP > _maxPlayerMP) _playerMP = _maxPlayerMP;
                 break;
         }
+    }
+
+    void OnGoldCollected(int amount) 
+    {
+        _activeInventory.gold += amount;
     }
 }

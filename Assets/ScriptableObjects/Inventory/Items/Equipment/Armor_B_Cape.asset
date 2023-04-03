@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Nightshade Cape
   description: A dark, shadowy cape made from rare nightshade fabric, providing its
     wearer with enhanced stealth and camouflage.
-  defenseValue: 0
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 2
+  levelRequired: 1

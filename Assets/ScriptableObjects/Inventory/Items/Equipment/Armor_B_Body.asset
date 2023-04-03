@@ -20,6 +20,6 @@ MonoBehaviour:
   sellValue: 25
   itemName: Rogue's Harness
   description: Light, flexible chest armor designed for nimble and stealthy rogues.
-  defenseValue: 10
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 2
+  levelRequired: 1

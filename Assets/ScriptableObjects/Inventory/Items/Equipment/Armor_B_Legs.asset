@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Shadowweave Trousers
   description: Dark, shadowy trousers made from enchanted Shadowweave fabric, providing
     the wearer with enhanced stealth and agility.
-  defenseValue: 10
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 2
+  levelRequired: 1
