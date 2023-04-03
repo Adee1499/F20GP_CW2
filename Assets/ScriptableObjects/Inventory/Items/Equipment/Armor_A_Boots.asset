@@ -21,6 +21,6 @@ MonoBehaviour:
   itemName: Titanforged Warboots
   description: Heavy boots forged by ancient Titans, imbued with great strength and
     durability.
-  defenseValue: 30
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 3
+  levelRequired: 1

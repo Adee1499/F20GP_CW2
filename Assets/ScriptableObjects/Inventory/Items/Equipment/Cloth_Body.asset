@@ -20,6 +20,6 @@ MonoBehaviour:
   sellValue: 5
   itemName: Cotton Tunic
   description: A comfortable and lightweight tunic made from soft cotton fabric.
-  defenseValue: 1
+  defenseValue: 15
   attackValue: 0
-  levelRequired: 0
+  levelRequired: 1

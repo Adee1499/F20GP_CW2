@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6146768141971093896}
   - component: {fileID: -7190068946740918458}
   - component: {fileID: 5676144180561427751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Medieval_Mace_01_a 1
   m_TagString: Equipment
   m_Icon: {fileID: 0}

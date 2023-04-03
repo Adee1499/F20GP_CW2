@@ -34,7 +34,12 @@ public class LootManager : MonoBehaviour
             if(suggestedLevel > 1 && itemRarity.rarity == "Common" && Random.Range(0.0f, 1.0f) < 0.2f)
                 suggestedLevel -= 1;
 
-            if(newItem.itemType == ItemType.Equipment){
+            newItem.levelRequired = suggestedLevel;
+
+            if(newItem.equipmentSlot == EquipmentSlot.Weapon){
+                newItem.attackValue = (int) Mathf.Round(newItem.attackValue * suggestedLevel * itemRarity.statModifier * Random.Range(0.8f, 1.2f));
+            }
+            else {
                 newItem.defenseValue = (int) Mathf.Round(newItem.defenseValue * suggestedLevel * itemRarity.statModifier * Random.Range(0.8f, 1.2f));
             }
 
@@ -53,7 +58,7 @@ public class LootManager : MonoBehaviour
         }
 
         foreach(GameObject obj in prefabs){
-            obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, transform.position, 5.0f);
+            obj.GetComponent<Rigidbody>().AddExplosionForce(5.0f, transform.position, 5.0f, 10.0f);
         }
         
     }
