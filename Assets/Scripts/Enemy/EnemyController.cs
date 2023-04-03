@@ -75,8 +75,8 @@ public abstract class EnemyController : MonoBehaviour
         moveTimer = 0f;
         timeBetweenAttacks = 1.5f;
 
-        ProjectileController.OnProjectileCollision += TakeDamage;
-        AOESpellController.OnAOECollision += TakeDamage;
+        // ProjectileController.OnProjectileCollision += TakeDamage;
+        AOESpellController.OnAOECollision += TakeAOEDamage;
 
         ChangeState(EnemyState.Idle);
     }        
@@ -119,6 +119,12 @@ public abstract class EnemyController : MonoBehaviour
         // apply knockback then handle damage
         knockBack = direction;
         TakeDamage(damage);
+    }
+
+    protected void TakeAOEDamage(float damage, GameObject targetGameObject) {
+        if (targetGameObject == gameObject) {
+            TakeDamage(damage);
+        } 
     }
 
     // handle the damage from attacks
