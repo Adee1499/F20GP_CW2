@@ -128,6 +128,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6560858504243983606, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
   m_PrefabInstance: {fileID: 977663152}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &235796754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8097409061180677257, guid: bf6ad78c44b38413394af5a68d4d4711, type: 3}
+  m_PrefabInstance: {fileID: 1346307310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &500770105
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +210,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7813515919357688397, guid: bb0202ef2ea01bd42829345cbe39ba3e, type: 3}
   m_PrefabInstance: {fileID: 2506053058337934552}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &957717281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8097409061295592817, guid: bf6ad78c44b38413394af5a68d4d4711, type: 3}
+  m_PrefabInstance: {fileID: 1346307310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &977663152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,6 +244,14 @@ PrefabInstance:
       propertyPath: _inventoryUI
       value: 
       objectReference: {fileID: 7813515919258834819}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: manaPotionUI
+      value: 
+      objectReference: {fileID: 957717281}
+    - target: {fileID: 479394166755669049, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
+      propertyPath: healthPotionUI
+      value: 
+      objectReference: {fileID: 235796754}
     - target: {fileID: 4683227665985869301, guid: c7ac08b4a36d62943823808be23d8f70, type: 3}
       propertyPath: _aoeSpell
       value: 

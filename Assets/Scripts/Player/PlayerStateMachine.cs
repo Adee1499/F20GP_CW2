@@ -27,6 +27,8 @@ public class PlayerStateMachine : MonoBehaviour
     TMP_Text playerLevel, goldCount;
     public Sprite weaponEquipActive, weaponEquipInactive, skill1Active, skill1Inactive, skill2Active, skill2Inactive;
     Image weaponEquip, skill1, skill2;
+    [SerializeField] TMP_Text healthPotionUI;
+    [SerializeField] TMP_Text manaPotionUI;
 
     // Animator hashed variables
     int _animMoveXHash;
@@ -335,6 +337,20 @@ public class PlayerStateMachine : MonoBehaviour
         goldCount.text = _activeInventory.gold.ToString();
         XPStatus();
         RegenerateMana();
+
+        foreach (InventorySlot itemSlot in _activeInventory.items) {
+            if (itemSlot.item.itemType == ItemType.Potion) {
+                PotionItem potion = itemSlot.item as PotionItem;
+                switch (potion.EffectType) {
+                    case PotionEffect.RestoreHealth:
+                        healthPotionUI.text = itemSlot.amount.ToString();
+                        break;
+                    case PotionEffect.RestoreMana:
+                        manaPotionUI.text = itemSlot.amount.ToString();
+                        break;
+                }
+            }
+        }
     }
 
     void CheckInteractingWithUI()
