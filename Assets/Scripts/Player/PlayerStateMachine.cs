@@ -216,7 +216,7 @@ public class PlayerStateMachine : MonoBehaviour
         playerLevel = GameObject.FindWithTag("PlayerLevel").GetComponent<TMP_Text>();
         goldCount = GameObject.FindWithTag("GoldCount").GetComponent<TMP_Text>();
         xpBar = GameObject.FindWithTag("XPBar").GetComponent<Slider>();
-        healthGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();
+        healthGlobe = GameObject.FindWithTag("HealthGlobe").GetComponent<Slider>();
         healthGlobe.maxValue = _maxPlayerHP;
         healthGlobe.value = _maxPlayerHP;
         manaGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();

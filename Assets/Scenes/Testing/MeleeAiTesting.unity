@@ -1308,7 +1308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1336126105082311134, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
@@ -4597,7 +4597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1336126105082311134, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
@@ -9067,7 +9067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1336126105082311134, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
@@ -10045,7 +10045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1336126105082311134, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05bc8e31d656cec46bfe91c336d7053a, type: 3}
@@ -10676,6 +10676,10 @@ PrefabInstance:
     - target: {fileID: 4138265248591105648, guid: abebaef51ac27423c9e5907b2abc5844, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138265248725017622, guid: abebaef51ac27423c9e5907b2abc5844, type: 3}
+      propertyPath: m_TagString
+      value: HealthGlobe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abebaef51ac27423c9e5907b2abc5844, type: 3}
@@ -13168,7 +13172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1940579619729912741, guid: 3f372c0ece3eef34b87f58b10fa3284e, type: 3}
       propertyPath: m_Name
-      value: Mage
+      value: Larry
       objectReference: {fileID: 0}
     - target: {fileID: 1940579619729912741, guid: 3f372c0ece3eef34b87f58b10fa3284e, type: 3}
       propertyPath: m_IsActive
