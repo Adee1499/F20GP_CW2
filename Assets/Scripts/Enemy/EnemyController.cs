@@ -61,6 +61,9 @@ public abstract class EnemyController : MonoBehaviour
         forceStrength = 15f;
         moveTimer = 0f;
         timeBetweenAttacks = 1.5f;
+
+        //ProjectileController.OnProjectileCollision += TakeDamage;
+
         ChangeState(EnemyState.Idle);
     }        
 
