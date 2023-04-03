@@ -19,7 +19,7 @@ public class Firebolt : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("hit");
+        //Debug.Log("hit");
         if(other.gameObject.tag != "enemy"){
             if (other.gameObject.tag == "Player")
             {   

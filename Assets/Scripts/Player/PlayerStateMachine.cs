@@ -376,7 +376,7 @@ public class PlayerStateMachine : MonoBehaviour
     // TODO: Move take damage method to PlayerDefaultState
     void TakeDamage(float damage)
     {
-        Debug.Log("ow ow ow");
+        //Debug.Log("ow ow ow");
         _playerHP -= damage;
         healthGlobe.value = _playerHP;
         OnPlayerHealthChange?.Invoke(_playerHP);
@@ -384,7 +384,7 @@ public class PlayerStateMachine : MonoBehaviour
             PlayerDead();
         }
 
-        Debug.Log(_playerHP);
+        //Debug.Log(_playerHP);
     }
 
     public void UseMana(int amount)

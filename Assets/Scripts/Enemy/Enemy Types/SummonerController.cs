@@ -7,19 +7,23 @@ public class SummonerController : RangedEnemyController
 {
 
     [SerializeField] public GameObject enemyToSpawn;
-    [SerializeField] public float spawnRange = 3.0f;
+    [SerializeField] public float spawnRange = 5.0f;
     [SerializeField] public int noEnemiesToSpawn = 3;
+    [SerializeField] public ParticleSystem ps;
     protected bool summonReady = true;
 
     // something in attack range, engage in combat
     override protected IEnumerator ICombat()
     {
+        transform.LookAt(target, Vector3.up);
         Debug.Log("Combat Entered");
         while(InRange(enemy.DetectionRange)) {
-            // hurt player
+            FaceTarget();
+
             if (!alreadyAttacked) {
-                if(summonReady)
+                if(summonReady) {
                     StartCoroutine(ISummon());
+                }
                 StartCoroutine(IAttack());
             }
 
@@ -35,19 +39,17 @@ public class SummonerController : RangedEnemyController
     {
         Debug.Log("SUMMON");
 
-        FaceTarget();
-
         summonReady = false;
         alreadyAttacked = true;
 
         for(int i = 0; i < noEnemiesToSpawn; i++){
             Vector3 randomPoint = transform.position + Random.insideUnitSphere * spawnRange; 
             NavMeshHit hit;
-            if(NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas)){
+            if(NavMesh.SamplePosition(randomPoint, out hit, 2.0f, NavMesh.AllAreas)){
+                Instantiate(ps, hit.position, Quaternion.identity);
                 Instantiate(enemyToSpawn, hit.position, Quaternion.identity);
             }
         }
-
         yield return new WaitForSeconds(30f);
         summonReady = true;
     }
