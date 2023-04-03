@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour 
 {
+    public EquipmentItem weaponSO;
     public static bool CanDealDamage = false;
     public static Action<float, EnemyController, Vector3> OnWeaponCollidedWithEnemy;
-    float tempDamageVal = 10;
 
     void OnTriggerEnter(Collider other) 
     {
@@ -15,7 +15,7 @@ public class WeaponScript : MonoBehaviour
 
             // get the direction of impact
             Vector3 differential = enemyRef.transform.position - this.transform.position;
-            OnWeaponCollidedWithEnemy?.Invoke(tempDamageVal, enemyRef, differential.normalized);
+            OnWeaponCollidedWithEnemy?.Invoke(weaponSO.attackValue, enemyRef, differential.normalized);
         } else if (other.CompareTag("Breakable")) {
             other.GetComponent<Breakable>().Fracture();
         } else if (other.CompareTag("Explodeable")) {
