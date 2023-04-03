@@ -23,7 +23,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Inventory _activeInventory;
     XPSystem _xpSystem;
     SpellCaster _spellCaster;
-    Slider heatlhGlobe, manaGlobe, xpBar;
+    Slider healthGlobe, manaGlobe, xpBar;
     TMP_Text playerLevel, goldCount;
     public Sprite weaponEquipActive, weaponEquipInactive, skill1Active, skill1Inactive, skill2Active, skill2Inactive;
     Image weaponEquip, skill1, skill2;
@@ -214,12 +214,15 @@ public class PlayerStateMachine : MonoBehaviour
         playerLevel = GameObject.FindWithTag("PlayerLevel").GetComponent<TMP_Text>();
         goldCount = GameObject.FindWithTag("GoldCount").GetComponent<TMP_Text>();
         xpBar = GameObject.FindWithTag("XPBar").GetComponent<Slider>();
+        healthGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();
+        healthGlobe.maxValue = _maxPlayerHP;
+        healthGlobe.value = _maxPlayerHP;
         manaGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();
         manaGlobe.maxValue = _maxPlayerMP;
         manaGlobe.value = _maxPlayerMP;
 
         // bind action of player being hit
-        //EnemyController.OnEnemyAttackPlayer += TakeDamage;
+        EnemyController.OnEnemyAttackPlayer += TakeDamage;
         Firebolt.OnProjectileHitPlayer += TakeDamage;
     }
    
@@ -375,7 +378,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         Debug.Log("ow ow ow");
         _playerHP -= damage;
-//        heatlhGlobe.value = _playerHP;
+        healthGlobe.value = _playerHP;
         OnPlayerHealthChange?.Invoke(_playerHP);
         if (_playerHP <= 0) {
             PlayerDead();
