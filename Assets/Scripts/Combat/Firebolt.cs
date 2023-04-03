@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,9 @@ using UnityEngine;
 public class Firebolt : MonoBehaviour
 {
     public float life = 3f; 
+    public static Action<float> OnProjectileHitPlayer;
     Transform target;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        Destroy(gameObject, life);
-    }
-
+    
     public void SetTarget(Transform target) {
         this.target = target;
     }
@@ -25,10 +22,11 @@ public class Firebolt : MonoBehaviour
         Debug.Log("hit");
         if(other.gameObject.tag != "enemy"){
             if (other.gameObject.tag == "Player")
-            {
-                // trigger hurt player
+            {   
+                Destroy(gameObject);
+                OnProjectileHitPlayer?.Invoke(1f);
             }
-
+        } else {
             Destroy(gameObject);
         }
     }

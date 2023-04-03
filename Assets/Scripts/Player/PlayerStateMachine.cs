@@ -217,6 +217,10 @@ public class PlayerStateMachine : MonoBehaviour
         manaGlobe = GameObject.FindWithTag("ManaGlobe").GetComponent<Slider>();
         manaGlobe.maxValue = _maxPlayerMP;
         manaGlobe.value = _maxPlayerMP;
+
+        // bind action of player being hit
+        //EnemyController.OnEnemyAttackPlayer += TakeDamage;
+        Firebolt.OnProjectileHitPlayer += TakeDamage;
     }
    
     void OnMovementInput (InputAction.CallbackContext context)
@@ -367,14 +371,17 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // TODO: Move take damage method to PlayerDefaultState
-    void TakeDamage(int damage)
+    void TakeDamage(float damage)
     {
+        Debug.Log("ow ow ow");
         _playerHP -= damage;
-        heatlhGlobe.value = _playerHP;
+//        heatlhGlobe.value = _playerHP;
         OnPlayerHealthChange?.Invoke(_playerHP);
         if (_playerHP <= 0) {
             PlayerDead();
         }
+
+        Debug.Log(_playerHP);
     }
 
     public void UseMana(int amount)
