@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4746313003632134}
   - component: {fileID: 33997451717812156}
   - component: {fileID: 23979378781870662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_Bottle_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4922847831481894}
   - component: {fileID: 33240287379788224}
   - component: {fileID: 23528012572970906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_Bottle_A_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4300842022568384}
   - component: {fileID: 33677858643843968}
   - component: {fileID: 23417888277854334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4824235866227746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,8 +294,8 @@ GameObject:
   - component: {fileID: 8712552790881216249}
   - component: {fileID: 3613129754623436583}
   - component: {fileID: -1495052912053849087}
-  m_Layer: 0
-  m_Name: GPVFX_POTION A
+  m_Layer: 6
+  m_Name: HealthPotion
   m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
