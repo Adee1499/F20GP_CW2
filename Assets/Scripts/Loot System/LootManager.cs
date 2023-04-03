@@ -36,7 +36,10 @@ public class LootManager : MonoBehaviour
 
             newItem.levelRequired = suggestedLevel;
 
-            if(newItem.itemType == ItemType.Equipment){
+            if(newItem.equipmentSlot == EquipmentSlot.Weapon){
+                newItem.attackValue = (int) Mathf.Round(newItem.attackValue * suggestedLevel * itemRarity.statModifier * Random.Range(0.8f, 1.2f));
+            }
+            else {
                 newItem.defenseValue = (int) Mathf.Round(newItem.defenseValue * suggestedLevel * itemRarity.statModifier * Random.Range(0.8f, 1.2f));
             }
 
