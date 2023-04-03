@@ -15,6 +15,8 @@ TagManager:
   - WeaponEquip
   - Skill1
   - Skill2
+  - Breakable
+  - Explodeable
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Player
   - Ground
   - Gold
-  - 
+  - Breakables
   - 
   - 
   - 

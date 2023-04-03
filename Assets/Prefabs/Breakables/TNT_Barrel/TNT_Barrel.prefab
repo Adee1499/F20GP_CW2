@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 593133407900373890}
   - component: {fileID: 593133407900373891}
   - component: {fileID: 7004650051682297820}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: TNT_Barrel
-  m_TagString: Untagged
+  m_TagString: Explodeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,10 +115,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.015
-  m_Height: 0.02
-  m_Direction: 1
-  m_Center: {x: 0.0001659585, y: -0.000012016422, z: 0.5980109}
+  m_Radius: 0.012339067
+  m_Height: 2.1086264
+  m_Direction: 2
+  m_Center: {x: 0.0001659586, y: -0.00003690452, z: 0.8845153}
 --- !u!114 &7004650051682297820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,4 +137,4 @@ MonoBehaviour:
   particles: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   layermask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024

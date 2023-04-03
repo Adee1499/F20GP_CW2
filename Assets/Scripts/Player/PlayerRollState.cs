@@ -29,7 +29,7 @@ public class PlayerRollState : PlayerBaseState
 
     IEnumerator AnimationTimeout() 
     {
-        Ctx.MovementMultiplier = 2f;
+        Ctx.MovementMultiplier = 2.3f;
         Ctx.Animator.SetTrigger(Ctx.AnimRollHash);
         yield return new WaitForSeconds(1f);
         Ctx.MovementMultiplier = 1f;
