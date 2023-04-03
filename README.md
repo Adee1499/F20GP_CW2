@@ -75,15 +75,19 @@ Overall, the levels we created provide players with a rich and immersive environ
 
 ## Enemy AI
 
-For the prototype, we have created a handfull of different enemy types for the player to encounter and battle. We have done this to provide a varied experience for our players to engage in different combat scenarios and really test their skills. There are two main enemies for players to take on:
+For the prototype, we have created a handfull of different enemy types for the player to encounter and battle. We have done this to provide a varied experience for our players to engage in different combat scenarios and really test their skills. There are two main enemie types for players to take on:
 
-Melee Enemy types
+### Melee Enemy types
 
 The melee enemies are the most common challenge players will encounter. They will recognise the players and persue them until they are close enough to unleash some deadly close quarter attacks to deal damage. 
 
-Ranged Enemy types
+### Ranged Enemy types
 
-The ranged enemy is powered by the same basic logic as the previous types but instead of attacking up close with weapons, fires a spell projectile to deal damage from afar. These spells are dynamically created game objects launced in a projectile arch at the player that will deal damage and be destroyed eithe upon impact or after their lifespan is concluded. 
+The ranged enemy is powered by the same basic logic as the previous types but instead of attacking up close with weapons, fires a spell projectile to deal damage from afar. These spells are dynamically created game objects launched in a projectile arc at the player that will deal damage and be destroyed either upon impact or after their lifespan is concluded. 
+
+### Summoner Enemy Type
+
+To conclude the short prototype of Blade Boogie, in the final throne room we are met with a special summoner enemy type, this enemy type functions mostly alike the other ranged enemy types, only with an additional behaviour. Every 30 seconds, while alive, this summoner enemy will spawn 1-3 additional melee enemies for the player to tackle. This was achieved by sampling a random position on the navmesh within a fixed range of the summoner enemy, a melee enemy is then instantiated along with a special particle effect to help sell the summon behaviour.
 
 ## User Interface
 
